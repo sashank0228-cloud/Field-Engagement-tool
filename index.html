@@ -374,6 +374,364 @@ body { font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, sans-serif; back
 .p-panel-title { font-weight:800; font-size:12px; margin-bottom:10px; color:var(--navy); }
 .p-legend { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; font-size:10px; margin-top:8px; color:var(--text3); }
 .p-dot { width:7px; height:7px; border-radius:50%; display:inline-block; margin-right:3px; vertical-align:middle; }
+
+/* ═══════════════════════════════════════════════════
+   ENHANCEMENT BLOCK — Filter, Resize, Responsive
+   (Additive only — does not override existing styles)
+   ═══════════════════════════════════════════════════ */
+
+/* ── SIDEBAR RESIZE ── */
+.sidebar {
+  position: relative;
+  min-width: 180px;
+  max-width: 480px;
+  user-select: none;
+}
+.sidebar-resize-handle {
+  position: absolute;
+  top: 0; right: 0;
+  width: 5px;
+  height: 100%;
+  cursor: col-resize;
+  z-index: 10;
+  background: transparent;
+  transition: background 0.15s;
+}
+.sidebar-resize-handle:hover,
+.sidebar-resize-handle.dragging {
+  background: var(--blue);
+  opacity: 0.35;
+}
+/* Auto-fit sb-filter row */
+.sb-filter {
+  flex-wrap: wrap;
+}
+.sb-search {
+  min-width: 80px;
+}
+.sb-filter-btn {
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+/* ── FILTER DROPDOWN PANEL ── */
+.filter-panel-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+}
+.filter-panel {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 12px;
+  right: 12px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  z-index: 1000;
+  padding: 14px;
+  animation: fpSlideIn 0.15s ease;
+}
+@keyframes fpSlideIn {
+  from { opacity:0; transform:translateY(-6px); }
+  to   { opacity:1; transform:translateY(0); }
+}
+.fp-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.fp-title {
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--navy);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+.fp-clear {
+  font-size: 11px;
+  color: var(--blue);
+  cursor: pointer;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--blue-light);
+  border: none;
+  font-family: inherit;
+}
+.fp-clear:hover { background: #d0eaf8; }
+.fp-section {
+  margin-bottom: 12px;
+}
+.fp-section:last-child { margin-bottom: 0; }
+.fp-section-lbl {
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--text3);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin-bottom: 7px;
+}
+.fp-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.fp-chip {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  cursor: pointer;
+  border: 1.5px solid var(--border);
+  background: #fafbfc;
+  color: var(--text2);
+  transition: all .15s;
+  font-family: inherit;
+}
+.fp-chip:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+  background: var(--blue-light);
+}
+.fp-chip.active {
+  background: var(--navy);
+  border-color: var(--navy);
+  color: #fff;
+}
+.fp-footer {
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.fp-result-count {
+  font-size: 11px;
+  color: var(--text3);
+}
+.fp-apply {
+  background: var(--navy);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  font-family: inherit;
+  transition: background .15s;
+}
+.fp-apply:hover { background: #162638; }
+
+/* ── HCP CARD HIDDEN STATE (filtered out) ── */
+.hcp-card.filtered-out {
+  display: none;
+}
+
+/* ── NO RESULTS MESSAGE ── */
+.hcp-no-results {
+  display: none;
+  padding: 24px 14px;
+  text-align: center;
+  color: var(--text3);
+  font-size: 12px;
+}
+.hcp-no-results.visible { display: block; }
+
+/* ── MOBILE HAMBURGER BUTTON ── */
+.mobile-sidebar-toggle {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 16px;
+  z-index: 1100;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--navy);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+  transition: background .15s;
+}
+.mobile-sidebar-toggle:hover { background: #1a2d42; }
+
+/* ══════════════════════════════
+   RESPONSIVE BREAKPOINTS
+   ══════════════════════════════ */
+
+/* ── TABLET (≤ 1024px) ── */
+@media (max-width: 1024px) {
+  /* Header: compress info */
+  .hcp-header {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 12px 16px;
+  }
+  .hcp-hdr-extended {
+    grid-template-columns: repeat(2, 1fr) !important;
+    max-width: 100% !important;
+  }
+  /* Gauges group wraps below */
+  .gauges-group {
+    min-width: 0;
+    width: 100%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 6px;
+  }
+  .gauges-row { gap: 10px; }
+  /* Scroll area padding */
+  .scroll-area { padding: 14px 16px; }
+  /* Detail drawer stacks on tablet too */
+  .detail-row { flex-direction: column; }
+  .detail-drawer { width: 100% !important; }
+  /* Stat grid 2-col on tablet */
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  .acct-stats-row { grid-template-columns: repeat(2, 1fr); }
+  /* Meta grid 2-col */
+  .meta-grid { grid-template-columns: repeat(2, 1fr); }
+  /* Patient charts single col */
+  .p-charts-area { grid-template-columns: 1fr; }
+  /* Cards in header compress */
+  .hcp-header > div[style*="display:flex"] {
+    flex-wrap: wrap;
+  }
+  /* Toggle bar scrollable */
+  .toggle-bar { overflow-x: auto; }
+  .toggle-bar::-webkit-scrollbar { height: 0; }
+  /* Sidebar narrower */
+  .sidebar { min-width: 160px; }
+}
+
+/* ── SMALL TABLET / LARGE PHONE (≤ 768px) ── */
+@media (max-width: 768px) {
+  /* Top nav: hide filter labels, compress */
+  .filter-lbl { display: none; }
+  .nav-filters { gap: 6px; }
+  .filter-sel { font-size: 11px; padding: 3px 6px; }
+  .user-badge span { display: none; }
+  .topnav { padding: 0 12px; }
+
+  /* Toggle bar wraps */
+  .toggle-bar {
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 8px 12px;
+  }
+  .toggle-divider { display: none; }
+  #tgl-info { display: none; }
+
+  /* Sidebar becomes slide-in drawer */
+  .sidebar {
+    position: fixed !important;
+    left: 0; top: 0; bottom: 0;
+    z-index: 1050;
+    width: 280px !important;
+    min-width: 280px !important;
+    max-width: 280px !important;
+    transform: translateX(-100%);
+    transition: transform 0.25s cubic-bezier(.4,0,.2,1);
+    box-shadow: 4px 0 20px rgba(0,0,0,0.15);
+  }
+  .sidebar.mobile-open {
+    transform: translateX(0);
+  }
+  .sidebar-resize-handle { display: none; }
+
+  /* Backdrop */
+  .sidebar-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.35);
+    z-index: 1040;
+  }
+  .sidebar-backdrop.visible { display: block; }
+
+  /* Show hamburger */
+  .mobile-sidebar-toggle { display: flex; }
+
+  /* Header stacks vertically */
+  .hcp-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px;
+  }
+  .hcp-hdr-av { width: 42px; height: 42px; font-size: 14px; }
+  .hcp-hdr-extended {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .gauges-group { min-width: 0; width: 100%; }
+  /* HCP header cards stack */
+  .hcp-header > div[style*="gap:18px"] {
+    flex-direction: column !important;
+    width: 100%;
+  }
+  .hcp-header > div[style*="gap:18px"] .card {
+    width: 100% !important;
+  }
+  /* Scroll area */
+  .scroll-area { padding: 10px 12px; }
+  /* Stat grids */
+  .stat-grid { grid-template-columns: 1fr 1fr; }
+  .acct-stats-row { grid-template-columns: 1fr 1fr; }
+  .acct-two-col { grid-template-columns: 1fr; }
+  /* Role table wraps */
+  .role-table-wrap { flex-direction: column; }
+  /* Detail tabs scrollable */
+  .detail-tabs { padding: 0 8px; }
+  .d-tab { padding: 10px 8px; font-size: 11px; }
+}
+
+/* ── MOBILE (≤ 480px) ── */
+@media (max-width: 480px) {
+  /* Nav */
+  .logo { font-size: 12px; }
+  .logo span { display: none; }
+  .nav-filters { display: none; }
+
+  /* Toggle bar: buttons only */
+  .toggle-grp { width: 100%; }
+  .t-btn { flex: 1; padding: 5px 8px; font-size: 11px; }
+
+  /* Header */
+  .hcp-hdr-name { font-size: 13px; }
+  .hcp-hdr-extended { grid-template-columns: 1fr !important; }
+  .gauges-row { gap: 8px; }
+  .gauge-canvas { width: 64px !important; height: 68px !important; }
+
+  /* Stat grid: 1 col */
+  .stat-grid { grid-template-columns: 1fr 1fr; }
+  .acct-stats-row { grid-template-columns: 1fr 1fr; }
+
+  /* Cards: reduce padding */
+  .card-body { padding: 12px; }
+  .detail-body { padding: 12px; }
+
+  /* CPS table: compact */
+  .cps-tbl th, .cps-tbl td { padding: 4px 5px; font-size: 11px; }
+
+  /* Engagement fields: stack */
+  .eng-field { flex-direction: column; gap: 2px; }
+  .eng-field-lbl { min-width: auto; }
+
+  /* Scroll area */
+  .scroll-area { padding: 8px; }
+
+  /* Accounts two col → one col */
+  .acct-two-col { grid-template-columns: 1fr; }
+  .acct-stats-row { grid-template-columns: 1fr 1fr; }
+}
 </style>
 </head>
 <body>
@@ -404,16 +762,85 @@ body { font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, sans-serif; back
 
   <div class="main">
 
-    <div class="sidebar">
+    <!-- Mobile backdrop -->
+    <div class="sidebar-backdrop" id="sidebar-backdrop" onclick="closeMobileSidebar()"></div>
+
+    <div class="sidebar" id="sidebar">
+      <!-- Resize handle -->
+      <div class="sidebar-resize-handle" id="sidebar-resize-handle" title="Drag to resize"></div>
+
       <div class="sb-tabs">
         <div class="sb-tab active" id="sbtab-medical" onclick="setSidebarTab('medical')">Medical Audience</div>
         <div class="sb-tab" id="sbtab-accounts" onclick="setSidebarTab('accounts')">Accounts</div>
       </div>
-      <div class="sb-filter">
-        <input class="sb-search" placeholder="Search HCPs" id="hcp-search" />
-        <button class="sb-filter-btn">&#9906; Filters <span class="sb-count">24</span></button>
+
+      <!-- Filter area: wrapper needed for relative positioning of dropdown -->
+      <div style="position:relative;">
+        <div class="sb-filter">
+          <input class="sb-search" placeholder="Search HCPs" id="hcp-search" oninput="applyHCPFilters()" />
+          <button class="sb-filter-btn" id="filter-btn" onclick="toggleFilterPanel(event)">
+            &#9906; Filters <span class="sb-count" id="filter-count-badge">0</span>
+          </button>
+        </div>
+
+        <!-- Filter dropdown panel -->
+        <div class="filter-panel" id="filter-panel" style="display:none;">
+          <div class="fp-header">
+            <span class="fp-title">Filter HCPs</span>
+            <button class="fp-clear" onclick="clearAllFilters()">Clear all</button>
+          </div>
+
+          <div class="fp-section">
+            <div class="fp-section-lbl">Specialty</div>
+            <div class="fp-chips" id="fp-specialty">
+              <button class="fp-chip" data-group="specialty" data-value="Infectious Disease" onclick="toggleChip(this)">Infectious Disease</button>
+              <button class="fp-chip" data-group="specialty" data-value="General" onclick="toggleChip(this)">General</button>
+            </div>
+          </div>
+
+          <div class="fp-section">
+            <div class="fp-section-lbl">Segment</div>
+            <div class="fp-chips" id="fp-segment">
+              <button class="fp-chip" data-group="segment" data-value="Agree" onclick="toggleChip(this)">Agree</button>
+              <button class="fp-chip" data-group="segment" data-value="Aware" onclick="toggleChip(this)">Aware</button>
+              <button class="fp-chip" data-group="segment" data-value="Unaware" onclick="toggleChip(this)">Unaware</button>
+            </div>
+          </div>
+
+          <div class="fp-section">
+            <div class="fp-section-lbl">Expert Tier</div>
+            <div class="fp-chips" id="fp-tier">
+              <button class="fp-chip" data-group="tier" data-value="Global Expert" onclick="toggleChip(this)">Global Expert</button>
+              <button class="fp-chip" data-group="tier" data-value="Regional Expert" onclick="toggleChip(this)">Regional Expert</button>
+              <button class="fp-chip" data-group="tier" data-value="Local Expert" onclick="toggleChip(this)">Local Expert</button>
+            </div>
+          </div>
+
+          <div class="fp-section">
+            <div class="fp-section-lbl">Location</div>
+            <div class="fp-chips" id="fp-location">
+              <button class="fp-chip" data-group="location" data-value="New York NY" onclick="toggleChip(this)">New York NY</button>
+              <button class="fp-chip" data-group="location" data-value="Bronx NY" onclick="toggleChip(this)">Bronx NY</button>
+            </div>
+          </div>
+
+          <div class="fp-section">
+            <div class="fp-section-lbl">Role</div>
+            <div class="fp-chips" id="fp-role">
+              <button class="fp-chip" data-group="role" data-value="MD" onclick="toggleChip(this)">MD</button>
+              <button class="fp-chip" data-group="role" data-value="PA" onclick="toggleChip(this)">PA</button>
+            </div>
+          </div>
+
+          <div class="fp-footer">
+            <span class="fp-result-count" id="fp-result-count">Showing all HCPs</span>
+            <button class="fp-apply" onclick="applyHCPFilters(); closeFilterPanel();">Apply</button>
+          </div>
+        </div>
       </div>
+
       <div class="hcp-list" id="hcp-list">
+        <div class="hcp-no-results" id="hcp-no-results">No HCPs match your filters</div>
         <div class="hcp-card active" id="li-tw" onclick="selectHCP('tw')"><div class="hcp-av av-tw">TW</div><div class="hcp-card-info"><div class="hcp-card-name">Timothy Wilkin, MD</div><div class="hcp-card-loc">New York NY</div></div><div class="hcp-card-arrow">&#8250;</div></div>
         <div class="hcp-card" id="li-ja" onclick="selectHCP('ja')"><div class="hcp-av av-ja">JA</div><div class="hcp-card-info"><div class="hcp-card-name">Judith Aberg, MD</div><div class="hcp-card-loc">New York NY</div></div><div class="hcp-card-arrow">&#8250;</div></div>
         <div class="hcp-card" id="li-rg" onclick="selectHCP('rg')"><div class="hcp-av av-rg">RG</div><div class="hcp-card-info"><div class="hcp-card-name">Roy Gulick, MD</div><div class="hcp-card-loc">New York NY</div></div><div class="hcp-card-arrow">&#8250;</div></div>
@@ -755,7 +1182,7 @@ function renderHeader(){
     <div class="hcp-hdr-av ${h.av}">${h.ini}</div>
     
     <div class="hcp-hdr-info">
-      <div style="display:flex; align-items:center; justify-content:space-between; width:100%; gap:4px;">
+      <div style="display:flex; align-items:center; justify-content:space-between; width:50%; gap:4px;">
         <div class="hcp-hdr-name">${h.name}</div>
         <div class="ps-toggle" role="group" aria-label="Pre call plan view">
           <span style="font-size:11px;font-weight:${curView==='summary'?700:600};color:${curView==='summary'?'var(--navy)':'var(--text2)'}">Pre call plan</span>
@@ -1860,5 +2287,260 @@ document.getElementById('hcp-search').addEventListener('input', function(){
 setToggle('pre');
 renderAccountDetail('va');
 </script>
+
+  <!-- Mobile sidebar toggle -->
+  <button class="mobile-sidebar-toggle" id="mobile-sidebar-toggle" onclick="toggleMobileSidebar()" title="Open HCP list">
+    &#9776;
+  </button>
+
+
+<script>
+/* ════════════════════════════════════════════════════════════
+   ENHANCEMENT SCRIPT — Filter, Resize, Responsive
+   Additive only. Does not modify existing functions.
+   ════════════════════════════════════════════════════════════ */
+
+/* ── HCP DATA for filter matching ── */
+const HCP_CARD_DATA = {
+  'li-tw': { name:'Timothy Wilkin, MD',    loc:'New York NY', specialty:'Infectious Disease', segment:'Agree',   tier:'Global Expert',   role:'MD' },
+  'li-ja': { name:'Judith Aberg, MD',      loc:'New York NY', specialty:'Infectious Disease', segment:'Agree',   tier:'Global Expert',   role:'MD' },
+  'li-rg': { name:'Roy Gulick, MD',        loc:'New York NY', specialty:'Infectious Disease', segment:'Agree',   tier:'Global Expert',   role:'MD' },
+  'li-mc': { name:'Michelle Cespedes, MD', loc:'New York NY', specialty:'Infectious Disease', segment:'Agree',   tier:'Regional Expert', role:'MD' },
+  'li-ec': { name:'Emily Carter, MD',      loc:'New York NY', specialty:'Infectious Disease', segment:'Aware',   tier:'Regional Expert', role:'MD' },
+  'li-jb': { name:'John Bennett, MD',      loc:'New York NY', specialty:'Infectious Disease', segment:'Aware',   tier:'Local Expert',    role:'MD' },
+  'li-sb': { name:'Sarah Blake, MD',       loc:'New York NY', specialty:'Infectious Disease', segment:'Unaware', tier:'Local Expert',    role:'MD' },
+  'li-dm': { name:'David Martinez, MD',    loc:'Bronx NY',    specialty:'Infectious Disease', segment:'Aware',   tier:'Local Expert',    role:'MD' },
+  'li-mb': { name:'Maria Bowen, PA',       loc:'New York NY', specialty:'General',            segment:'Agree',   tier:'Local Expert',    role:'PA' }
+};
+
+/* Assign IDs to un-ID'd HCP cards */
+(function assignCardIDs() {
+  const idMap = {
+    'Michelle Cespedes': 'li-mc',
+    'Emily Carter': 'li-ec',
+    'John Bennett': 'li-jb',
+    'Sarah Blake': 'li-sb',
+    'David Martinez': 'li-dm',
+    'Maria Bowen': 'li-mb'
+  };
+  const cards = document.querySelectorAll('#hcp-list .hcp-card');
+  cards.forEach(card => {
+    if (!card.id) {
+      const name = card.querySelector('.hcp-card-name')?.textContent || '';
+      for (const [key, val] of Object.entries(idMap)) {
+        if (name.includes(key)) { card.id = val; break; }
+      }
+    }
+  });
+})();
+
+/* ── ACTIVE FILTER STATE ── */
+const activeFilters = { specialty:[], segment:[], tier:[], location:[], role:[] };
+
+/* ── TOGGLE FILTER PANEL ── */
+function toggleFilterPanel(e) {
+  e.stopPropagation();
+  const panel = document.getElementById('filter-panel');
+  if (panel.style.display === 'none' || !panel.style.display) {
+    panel.style.display = 'block';
+    // Close on outside click
+    setTimeout(() => document.addEventListener('click', outsideFilterClose), 0);
+  } else {
+    closeFilterPanel();
+  }
+}
+function outsideFilterClose(e) {
+  const panel = document.getElementById('filter-panel');
+  const btn = document.getElementById('filter-btn');
+  if (!panel.contains(e.target) && e.target !== btn) {
+    closeFilterPanel();
+  }
+}
+function closeFilterPanel() {
+  const panel = document.getElementById('filter-panel');
+  if (panel) panel.style.display = 'none';
+  document.removeEventListener('click', outsideFilterClose);
+}
+
+/* ── CHIP TOGGLE ── */
+function toggleChip(chip) {
+  const group = chip.dataset.group;
+  const value = chip.dataset.value;
+  chip.classList.toggle('active');
+  if (chip.classList.contains('active')) {
+    if (!activeFilters[group].includes(value)) activeFilters[group].push(value);
+  } else {
+    activeFilters[group] = activeFilters[group].filter(v => v !== value);
+  }
+  applyHCPFilters();
+}
+
+/* ── CLEAR ALL FILTERS ── */
+function clearAllFilters() {
+  Object.keys(activeFilters).forEach(k => activeFilters[k] = []);
+  document.querySelectorAll('.fp-chip.active').forEach(c => c.classList.remove('active'));
+  document.getElementById('hcp-search').value = '';
+  applyHCPFilters();
+}
+
+/* ── APPLY FILTERS (search + chips) ── */
+function applyHCPFilters() {
+  const searchVal = (document.getElementById('hcp-search')?.value || '').toLowerCase().trim();
+  const cards = document.querySelectorAll('#hcp-list .hcp-card');
+  let visible = 0;
+  let activeCount = 0;
+  Object.values(activeFilters).forEach(arr => activeCount += arr.length);
+  if (searchVal) activeCount++;  // count search as a filter
+
+  cards.forEach(card => {
+    const id = card.id;
+    const data = HCP_CARD_DATA[id];
+    if (!data) { card.classList.remove('filtered-out'); visible++; return; }
+
+    // Search match
+    const nameMatch = !searchVal || data.name.toLowerCase().includes(searchVal) || data.loc.toLowerCase().includes(searchVal);
+
+    // Chip matches (within-group: OR; cross-group: AND)
+    const specialtyOK = activeFilters.specialty.length === 0 || activeFilters.specialty.includes(data.specialty);
+    const segmentOK   = activeFilters.segment.length   === 0 || activeFilters.segment.includes(data.segment);
+    const tierOK      = activeFilters.tier.length      === 0 || activeFilters.tier.includes(data.tier);
+    const locationOK  = activeFilters.location.length  === 0 || activeFilters.location.includes(data.loc);
+    const roleOK      = activeFilters.role.length      === 0 || activeFilters.role.includes(data.role);
+
+    const passes = nameMatch && specialtyOK && segmentOK && tierOK && locationOK && roleOK;
+    card.classList.toggle('filtered-out', !passes);
+    if (passes) visible++;
+  });
+
+  // Update result count in panel
+  const resultEl = document.getElementById('fp-result-count');
+  if (resultEl) resultEl.textContent = visible === 9 ? 'Showing all HCPs' : `Showing ${visible} of 9 HCPs`;
+
+  // Update badge count
+  const badge = document.getElementById('filter-count-badge');
+  const chipActive = Object.values(activeFilters).reduce((s,a) => s+a.length, 0);
+  badge.textContent = chipActive;
+  badge.style.background = chipActive > 0 ? 'var(--red)' : '#8a95a0';
+  badge.style.display = 'inline-block';
+
+  // No results message
+  const noRes = document.getElementById('hcp-no-results');
+  if (noRes) noRes.classList.toggle('visible', visible === 0);
+}
+
+/* ── SIDEBAR RESIZE ── */
+(function initSidebarResize() {
+  const sidebar = document.getElementById('sidebar');
+  const handle  = document.getElementById('sidebar-resize-handle');
+  if (!sidebar || !handle) return;
+
+  // Restore saved width
+  const saved = sessionStorage.getItem('sidebarWidth');
+  if (saved) sidebar.style.width = saved + 'px';
+
+  let dragging = false, startX = 0, startW = 0;
+
+  handle.addEventListener('mousedown', e => {
+    // Only resize on desktop
+    if (window.innerWidth <= 768) return;
+    dragging = true;
+    startX = e.clientX;
+    startW = sidebar.getBoundingClientRect().width;
+    handle.classList.add('dragging');
+    document.body.style.cursor = 'col-resize';
+    document.body.style.userSelect = 'none';
+    e.preventDefault();
+  });
+
+  document.addEventListener('mousemove', e => {
+    if (!dragging) return;
+    const delta = e.clientX - startX;
+    const newW  = Math.min(480, Math.max(180, startW + delta));
+    sidebar.style.width = newW + 'px';
+    // Reflow sb-filter if narrow
+    const sbFilter = sidebar.querySelector('.sb-filter');
+    if (sbFilter) {
+      sbFilter.style.flexWrap = newW < 220 ? 'wrap' : 'nowrap';
+    }
+  });
+
+  document.addEventListener('mouseup', e => {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove('dragging');
+    document.body.style.cursor = '';
+    document.body.style.userSelect = '';
+    // Save width
+    const w = sidebar.getBoundingClientRect().width;
+    sessionStorage.setItem('sidebarWidth', Math.round(w));
+  });
+
+  // Touch support for resize
+  handle.addEventListener('touchstart', e => {
+    if (window.innerWidth <= 768) return;
+    dragging = true;
+    startX = e.touches[0].clientX;
+    startW = sidebar.getBoundingClientRect().width;
+    e.preventDefault();
+  }, { passive: false });
+
+  document.addEventListener('touchmove', e => {
+    if (!dragging) return;
+    const delta = e.touches[0].clientX - startX;
+    const newW  = Math.min(480, Math.max(180, startW + delta));
+    sidebar.style.width = newW + 'px';
+  });
+
+  document.addEventListener('touchend', () => {
+    if (!dragging) return;
+    dragging = false;
+    sessionStorage.setItem('sidebarWidth', Math.round(sidebar.getBoundingClientRect().width));
+  });
+})();
+
+/* ── MOBILE SIDEBAR ── */
+function toggleMobileSidebar() {
+  const sidebar  = document.getElementById('sidebar');
+  const backdrop = document.getElementById('sidebar-backdrop');
+  if (!sidebar) return;
+  sidebar.classList.toggle('mobile-open');
+  backdrop.classList.toggle('visible');
+}
+function closeMobileSidebar() {
+  const sidebar  = document.getElementById('sidebar');
+  const backdrop = document.getElementById('sidebar-backdrop');
+  if (sidebar)  sidebar.classList.remove('mobile-open');
+  if (backdrop) backdrop.classList.remove('visible');
+}
+
+/* Close mobile sidebar when an HCP is selected */
+(function patchSelectHCP() {
+  const orig = window.selectHCP;
+  if (typeof orig === 'function') {
+    window.selectHCP = function(id) {
+      orig(id);
+      if (window.innerWidth <= 768) closeMobileSidebar();
+    };
+  }
+})();
+
+/* ── HANDLE WINDOW RESIZE ── */
+window.addEventListener('resize', () => {
+  if (window.innerWidth > 768) {
+    closeMobileSidebar();
+    // Restore sidebar from fixed position when resizing back to desktop
+    const sidebar = document.getElementById('sidebar');
+    if (sidebar) {
+      sidebar.style.transform = '';
+    }
+  }
+});
+
+/* ── INIT: apply filters once DOM ready ── */
+document.addEventListener('DOMContentLoaded', () => {
+  applyHCPFilters();
+});
+</script>
+
 </body>
 </html>
