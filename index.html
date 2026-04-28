@@ -11,14 +11,20 @@
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { height: 100%; overflow: hidden; }
-body { font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, sans-serif; background: #f0f2f5; }
+/* Phase 1: Softer background for modern SaaS feel */
+body { font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, sans-serif; background: #faf9f8; }
 
 :root {
-  --navy: #0D1B2A; --red: #C0392B; --red-light: #fdecea;
-  --blue: #2874A6; --blue-light: #eaf3fb;
-  --border: #e2e6ea; --gray: #f7f8fa;
+  /* Phase 1: TWIG Color System Injection */
+  --navy: #0D1B2A; 
+  --red: #D81B60; /* TWIG Magenta/Red */
+  --red-light: #FCE4EC;
+  --blue: #0288D1; /* TWIG Cyan/Blue */
+  --blue-light: #E1F5FE;
+  --border: #e2e6ea; 
+  --gray: #fcfcfc; /* Warmer off-white for contrast elements */
   --text: #1a1a2e; --text2: #5a6470; --text3: #8a95a0;
-  --green: #1a7a4a; --amber: #b45309;
+  --green: #1a7a4a; --amber: #f57c00;
   --updated-bg: #fff8e6; --updated-border: #f5c000;
 }
 
@@ -26,7 +32,7 @@ body { font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, sans-serif; back
 .main { display:flex; flex:1; overflow:hidden; }
 .content { flex:1; display:flex; flex-direction:column; overflow:hidden; }
 
-/* ── TOP NAV ── */
+/* ── TOP NAV (Phase 2 Skipped - Kept Original) ── */
 .topnav {
   background:var(--navy); display:flex; align-items:center;
   justify-content:space-between; padding:0 20px; height:52px; flex-shrink:0;
@@ -58,24 +64,25 @@ body { font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, sans-serif; back
 .t-btn.off  { background:transparent; color:var(--text2); }
 .t-btn.off:hover { background:rgba(0,0,0,.04); }
 .toggle-info { font-size:11px; color:var(--text3); }
-.badge-upd { background:var(--red-light); color:var(--red); font-size:10px; font-weight:800; padding:2px 8px; border-radius:8px; border:1px solid #f5c6c2; }
+.badge-upd { background:var(--red-light); color:var(--red); font-size:10px; font-weight:800; padding:2px 8px; border-radius:8px; border:1px solid #fce4ec; }
 
 /* ── SIDEBAR ── */
 .sidebar { width:244px; flex-shrink:0; background:#fff; border-right:1px solid var(--border); display:flex; flex-direction:column; overflow:hidden; }
 .sb-tabs { display:flex; border-bottom:1px solid var(--border); flex-shrink:0; }
-.sb-tab { flex:1; padding:10px 0; text-align:center; font-size:12px; font-weight:700; cursor:pointer; color:var(--text2); border-bottom:2px solid transparent; transition:all .15s; }
-.sb-tab.active { color:var(--navy); border-bottom-color:var(--navy); background:#fafbfc; }
+/* Phase 3: Smoother tab transitions */
+.sb-tab { flex:1; padding:10px 0; text-align:center; font-size:12px; font-weight:700; cursor:pointer; color:var(--text2); border-bottom:2px solid transparent; transition:all .2s ease; }
+.sb-tab.active { color:var(--navy); border-bottom-color:var(--blue); background:#fafbfc; }
 .sb-filter { padding:10px 12px; border-bottom:1px solid var(--border); display:flex; gap:7px; flex-shrink:0; }
-.sb-search { flex:1; border:1px solid var(--border); border-radius:5px; padding:6px 9px; font-size:12px; color:var(--text); outline:none; }
+.sb-search { flex:1; border:1px solid var(--border); border-radius:6px; padding:6px 9px; font-size:12px; color:var(--text); outline:none; }
 .sb-search:focus { border-color:var(--blue); }
-.sb-filter-btn { border:1px solid var(--border); border-radius:5px; padding:6px 9px; font-size:11px; color:var(--text2); cursor:pointer; background:#fff; display:flex; align-items:center; gap:4px; white-space:nowrap; }
+.sb-filter-btn { border:1px solid var(--border); border-radius:6px; padding:6px 9px; font-size:11px; color:var(--text2); cursor:pointer; background:#fff; display:flex; align-items:center; gap:4px; white-space:nowrap; }
 .sb-count { background:var(--red); color:#fff; border-radius:8px; padding:0 5px; font-size:10px; font-weight:700; }
 .hcp-list { flex:1; overflow-y:auto; }
 .hcp-list::-webkit-scrollbar { width:4px; }
 .hcp-list::-webkit-scrollbar-thumb { background:#d0d5dd; border-radius:2px; }
 .hcp-card { padding:11px 14px; border-bottom:1px solid #f3f4f6; cursor:pointer; display:flex; align-items:center; gap:10px; transition:background .12s; }
 .hcp-card:hover { background:#f8f9fa; }
-.hcp-card.active { background:#eaf3fb; border-left:3px solid var(--navy); padding-left:11px; }
+.hcp-card.active { background:var(--blue-light); border-left:3px solid var(--navy); padding-left:11px; }
 .hcp-card.active .hcp-card-name { color:var(--navy); font-weight:700; }
 .hcp-card.active .hcp-card-arrow { color:var(--red); }
 .hcp-av { width:36px; height:36px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:12px; font-weight:800; }
@@ -88,12 +95,12 @@ body { font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, sans-serif; back
 .hcp-card-arrow { color:#d0d5dd; font-size:16px; }
 
 /* ── HCP HEADER ── */
-.hcp-header { background:#fff; border-bottom:1px solid var(--border); padding:12px 28px; display:flex; align-items:flex-start; gap:22px; flex-shrink:0; max-width:100%; }
+.hcp-header { background:#fff; border-bottom:1px solid var(--border); padding:12px 28px; display:flex; align-items:flex-start; gap:22px; flex-shrink:0; max-width:100%; box-shadow: 0 2px 8px rgba(0,0,0,0.02); z-index: 2; position: relative; }
 .hcp-hdr-av { width:52px; height:52px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; }
 .hcp-hdr-info { flex:1; min-width:0; }
 .hcp-hdr-name { font-size:15px; font-weight:800; color:var(--navy); }
 .spec-badge { display:inline-flex; align-items:center; gap:6px; margin-top:6px; }
-.spec-lbl { font-size:10px; font-weight:800; color:var(--red); background:var(--red-light); padding:2px 7px; border-radius:3px; text-transform:uppercase; letter-spacing:.4px; }
+.spec-lbl { font-size:10px; font-weight:800; color:var(--red); background:var(--red-light); padding:2px 7px; border-radius:4px; text-transform:uppercase; letter-spacing:.4px; }
 .spec-val { font-size:12px; color:var(--text2); font-weight:600; }
 .hcp-hdr-meta { display:flex; gap:14px; margin-top:4px; flex-wrap:wrap; align-items:center; }
 .meta-pair { display:flex; gap:4px; align-items:center; }
@@ -124,10 +131,10 @@ body { font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, sans-serif; back
 .profile-main  { flex:1; width:100%; min-width:0; }
 .profile-right { display:none; }
 
-/* ── CARD ── */
-.card { background:#fff; border:1px solid var(--border); border-radius:8px; overflow:hidden; margin-bottom:14px; }
+/* ── CARD (Phase 3: Shadows & Radii) ── */
+.card { background:#fff; border:none; border-radius:12px; box-shadow: 0 4px 16px rgba(0,0,0,0.04); overflow:hidden; margin-bottom:14px; }
 .card:last-child { margin-bottom:0; }
-.card-hdr { display:flex; align-items:center; justify-content:space-between; padding:10px 14px; border-bottom:1px solid var(--border); }
+.card-hdr { display:flex; align-items:center; justify-content:space-between; padding:12px 16px; border-bottom:1px solid #f3f4f6; }
 .card-title { font-size:13px; font-weight:800; color:var(--navy); display:flex; align-items:center; gap:6px; }
 .ai-star { color:var(--red); }
 .card-body { padding:16px; }
@@ -138,7 +145,7 @@ body { font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, sans-serif; back
 /* ── SUMMARY INSIGHT ROWS ── */
 .insight-row { display:flex; align-items:flex-start; gap:10px; padding:9px 0; border-bottom:1px solid #f5f6f7; }
 .insight-row:last-child { border-bottom:none; }
-.i-icon { width:28px; height:28px; border-radius:6px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:14px; margin-top:1px; }
+.i-icon { width:28px; height:28px; border-radius:8px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:14px; margin-top:1px; }
 .ic-ov{background:#dbeafe} .ic-co{background:#d1fae5} .ic-ra{background:#fef3c7} .ic-af{background:#ede9fe} .ic-ns{background:#fee2e2}
 .i-title { font-size:12px; font-weight:800; color:var(--text); margin-bottom:3px; }
 .i-text  { font-size:12px; color:var(--text2); line-height:1.65; }
@@ -146,25 +153,25 @@ body { font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, sans-serif; back
 .synopsis-text { font-size:13px; color:var(--text2); line-height:1.75; }
 .synopsis-text.changed { background:var(--updated-bg); border-left:2px solid var(--updated-border); padding:10px 12px; border-radius:0 6px 6px 0; }
 
-/* ── DETAIL TABS ── */
+/* ── DETAIL TABS (Phase 3: Smoother active states) ── */
 .detail-tabs { display:flex; border-bottom:1px solid var(--border); padding:0 14px; overflow-x:auto; flex-shrink:0; }
 .detail-tabs::-webkit-scrollbar { height:0; }
-.d-tab { padding:9px 13px; font-size:12px; font-weight:700; cursor:pointer; border-bottom:2px solid transparent; color:var(--text2); white-space:nowrap; transition:all .15s; }
+.d-tab { padding:11px 13px; font-size:12px; font-weight:700; cursor:pointer; border-bottom:2px solid transparent; color:var(--text2); white-space:nowrap; transition:all .2s ease; }
 .d-tab:hover { color:var(--navy); }
 .d-tab.active { color:var(--red); border-bottom-color:var(--red); }
 .detail-body { padding:18px; overflow-y:auto; }
 
-/* ── SHARED DETAIL DRAWER LAYOUT ── */
+/* ── SHARED DETAIL DRAWER LAYOUT (Phase 3: Shadows & Radii) ── */
 .detail-row { display:flex; gap:28px; align-items:flex-start; }
 .detail-main-col { flex:1; min-width:0; }
-.detail-drawer { width:260px; background:var(--gray); border-radius:8px; padding:16px; border:1px solid var(--border); flex-shrink:0; align-self:flex-start; box-sizing:border-box; }
+.detail-drawer { width:260px; background:var(--gray); border-radius:12px; padding:16px; border:none; box-shadow: 0 4px 16px rgba(0,0,0,0.03); flex-shrink:0; align-self:flex-start; box-sizing:border-box; }
 .drawer-title { font-weight:800; font-size:14px; margin-bottom:15px; color:var(--navy); text-transform:uppercase; }
-.drawer-metric-strip { display:grid; grid-template-columns:repeat(3,1fr); padding:12px 5px; margin-bottom:15px; background:#fff; border-radius:8px; border:1px solid #f1f5f9; }
+.drawer-metric-strip { display:grid; grid-template-columns:repeat(3,1fr); padding:12px 5px; margin-bottom:15px; background:#fff; border-radius:10px; border:1px solid #f1f5f9; box-shadow: 0 2px 8px rgba(0,0,0,0.02); }
 .drawer-metric { text-align:center; }
 .drawer-metric + .drawer-metric { border-left:1px solid #f1f5f9; }
 .drawer-metric-lbl { font-size:10px; color:var(--text3); text-transform:uppercase; font-weight:800; }
 .drawer-metric-val { font-size:16px; font-weight:800; color:var(--navy); margin-top:2px; }
-.drawer-card { background:#fff; border-radius:8px; padding:12px; border:1px solid var(--border); margin-bottom:12px; }
+.drawer-card { background:#fff; border-radius:10px; padding:12px; border:none; box-shadow: 0 2px 8px rgba(0,0,0,0.03); margin-bottom:12px; }
 .drawer-card:last-child { margin-bottom:0; }
 .drawer-card.accent-blue { border-left:3px solid var(--blue); }
 .drawer-card.accent-navy { border-left:3px solid var(--navy); }
@@ -189,7 +196,7 @@ body { font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, sans-serif; back
 
 /* ── ENGAGEMENT NARRATIVE ── */
 .eng-narrative { font-size:13px; color:var(--text2); line-height:1.8; margin-bottom:16px; padding-bottom:16px; border-bottom:1px solid var(--border); }
-.eng-narrative.post-narrative { background:#fffdf5; border:1px solid #fde68a; border-radius:8px; padding:14px; margin-bottom:16px; }
+.eng-narrative.post-narrative { background:#fffdf5; border:1px solid #fde68a; border-radius:10px; padding:14px; margin-bottom:16px; }
 .eng-narrative p { margin-bottom:10px; }
 .eng-narrative p:last-child { margin-bottom:0; }
 .eng-highlight { font-weight:700; color:var(--navy); }
@@ -206,15 +213,15 @@ body { font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, sans-serif; back
 .tip-text { font-size:12px; color:var(--text2); line-height:1.6; }
 .tip-text.changed { color:var(--text); font-weight:600; }
 .tip-meta { display:flex; gap:6px; margin-top:4px; align-items:center; }
-.p-badge { font-size:10px; padding:2px 6px; border-radius:3px; font-weight:800; }
+.p-badge { font-size:10px; padding:2px 6px; border-radius:4px; font-weight:800; }
 .p-high{background:var(--red-light);color:var(--red)} .p-medium{background:#fff3cd;color:#856404}
-.upd-badge { background:var(--red-light); color:var(--red); font-size:10px; font-weight:800; padding:2px 6px; border-radius:3px; }
+.upd-badge { background:var(--red-light); color:var(--red); font-size:10px; font-weight:800; padding:2px 6px; border-radius:4px; }
 
 /* ── ENGAGEMENT FEED SECTIONS ── */
 .eng-section { margin-bottom:16px; padding-bottom:16px; border-bottom:1px solid var(--border); }
 .eng-section:last-child { border-bottom:none; margin-bottom:0; }
 .eng-sec-hdr { display:flex; align-items:flex-start; gap:10px; margin-bottom:8px; }
-.eng-sec-icon { width:30px; height:30px; border-radius:7px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:15px; }
+.eng-sec-icon { width:30px; height:30px; border-radius:8px; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:15px; }
 .es-meeting{background:#dbeafe} .es-events{background:#d1fae5} .es-conf{background:#ede9fe} .es-web{background:#fef3c7} .es-email{background:#fee2e2}
 .eng-sec-title { font-size:13px; font-weight:800; color:var(--navy); display:flex; align-items:center; gap:6px; }
 .eng-sec-date { font-size:11px; color:var(--text3); margin-top:2px; }
@@ -223,7 +230,7 @@ body { font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, sans-serif; back
 .eng-field-val { color:var(--text2); line-height:1.5; }
 .eng-bullet { font-size:12px; color:var(--text2); padding:3px 0 3px 14px; position:relative; line-height:1.5; }
 .eng-bullet::before { content:'–'; position:absolute; left:0; color:var(--text3); }
-.new-tag { background:#fef3c7; color:#92400e; font-size:10px; font-weight:800; padding:2px 6px; border-radius:3px; margin-left:6px; border:1px solid #fde68a; }
+.new-tag { background:#fef3c7; color:#92400e; font-size:10px; font-weight:800; padding:2px 6px; border-radius:4px; margin-left:6px; border:1px solid #fde68a; }
 
 /* ── CPS TABLE ── */
 .cps-tbl { width:100%; font-size:12px; border-collapse:collapse; }
@@ -235,7 +242,7 @@ body { font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, sans-serif; back
 
 /* ── ACCOUNT SUMMARY TAB ── */
 .stat-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:9px; margin-bottom:14px; }
-.stat-box  { background:var(--gray); border-radius:6px; padding:10px; text-align:center; border:1px solid var(--border); }
+.stat-box  { background:#fff; border:none; box-shadow:0 2px 8px rgba(0,0,0,0.03); border-radius:10px; padding:12px; text-align:center; }
 .stat-val  { font-size:19px; font-weight:800; color:var(--navy); }
 .stat-lbl  { font-size:10px; color:var(--text3); margin-top:2px; }
 .acct-tbl  { width:100%; font-size:12px; border-collapse:collapse; }
@@ -256,20 +263,20 @@ body { font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, sans-serif; back
 .ra-txt  { font-size:11px; color:var(--blue); line-height:1.4; cursor:pointer; }
 .pt-row  { display:flex; align-items:center; gap:6px; margin-bottom:6px; }
 .pt-lbl  { font-size:10px; color:var(--text3); width:54px; flex-shrink:0; }
-.pt-track { flex:1; height:7px; background:#f0f2f5; border-radius:3px; overflow:hidden; }
-.pt-fill  { height:100%; border-radius:3px; }
+.pt-track { flex:1; height:7px; background:#f0f2f5; border-radius:4px; overflow:hidden; }
+.pt-fill  { height:100%; border-radius:4px; }
 .f-blue{background:var(--blue)} .f-teal{background:#1a9e75} .f-red{background:var(--red)}
 .pt-val  { font-size:10px; color:var(--text3); width:26px; text-align:right; flex-shrink:0; }
 .pt-legend { display:flex; gap:9px; margin-top:7px; flex-wrap:wrap; }
 .pt-leg-item { display:flex; align-items:center; gap:3px; font-size:10px; color:var(--text3); }
-.pt-leg-dot  { width:7px; height:7px; border-radius:2px; }
-.role-badge { display:inline-block; font-size:10px; padding:1px 6px; border-radius:3px; font-weight:700; margin:1px 2px; }
+.pt-leg-dot  { width:7px; height:7px; border-radius:50%; }
+.role-badge { display:inline-block; font-size:10px; padding:2px 6px; border-radius:4px; font-weight:700; margin:1px 2px; }
 .r-speaker{background:#d1fae5;color:#065f46} .r-investigator{background:#dbeafe;color:#1d4ed8} .r-none{background:#f3f4f6;color:#9ca3af}
-.callout-box { background:#f8f9fa; border-left:3px solid var(--red); padding:10px 12px; border-radius:0 7px 7px 0; margin-top:12px; }
+.callout-box { background:#f8f9fa; border-left:3px solid var(--red); padding:10px 12px; border-radius:0 8px 8px 0; margin-top:12px; }
 .callout-txt { font-size:12px; color:var(--text2); font-style:italic; line-height:1.6; }
 .callout-txt.changed { font-style:normal; font-weight:600; color:var(--text); }
 
-/* ── ACCOUNTS PAGE ── */
+/* ── ACCOUNTS PAGE (Phase 3: Shadows & Radii) ── */
 .accounts-page { flex:1; display:flex; flex-direction:column; overflow:hidden; }
 .acct-page-hdr { background:#fff; border-bottom:1px solid var(--border); padding:14px 20px; display:flex; align-items:center; justify-content:space-between; flex-shrink:0; }
 .acct-page-title { font-size:16px; font-weight:800; color:var(--navy); }
@@ -277,13 +284,13 @@ body { font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, sans-serif; back
 .acct-body { display:flex; flex:1; overflow:hidden; }
 .acct-sidebar { width:260px; flex-shrink:0; background:#fff; border-right:1px solid var(--border); display:flex; flex-direction:column; overflow:hidden; }
 .acct-sidebar-hdr { padding:10px 12px; border-bottom:1px solid var(--border); flex-shrink:0; }
-.acct-sidebar-search { width:100%; border:1px solid var(--border); border-radius:5px; padding:6px 9px; font-size:12px; color:var(--text); outline:none; }
+.acct-sidebar-search { width:100%; border:1px solid var(--border); border-radius:6px; padding:6px 9px; font-size:12px; color:var(--text); outline:none; }
 .acct-list { flex:1; overflow-y:auto; }
 .acct-list::-webkit-scrollbar { width:4px; }
 .acct-list::-webkit-scrollbar-thumb { background:#d0d5dd; border-radius:2px; }
 .acct-item { padding:12px 14px; border-bottom:1px solid #f3f4f6; cursor:pointer; transition:background .12s; }
 .acct-item:hover { background:#f8f9fa; }
-.acct-item.active { background:#eaf3fb; border-left:3px solid var(--navy); padding-left:11px; }
+.acct-item.active { background:var(--blue-light); border-left:3px solid var(--navy); padding-left:11px; }
 .acct-item.active .acct-item-name { color:var(--navy); font-weight:700; }
 .acct-item.dud { opacity:.5; cursor:not-allowed; }
 .acct-item.dud:hover { background:#fafbfc; }
@@ -291,34 +298,34 @@ body { font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, sans-serif; back
 .acct-item.dud.shaking { animation:dud-shake .25s ease; }
 .acct-item-name { font-size:13px; font-weight:600; color:var(--text); }
 .acct-item-sub  { font-size:11px; color:var(--text3); margin-top:2px; }
-.acct-item-type { font-size:10px; font-weight:700; color:var(--blue); background:var(--blue-light); padding:1px 6px; border-radius:3px; display:inline-block; margin-top:3px; }
+.acct-item-type { font-size:10px; font-weight:700; color:var(--blue); background:var(--blue-light); padding:1px 6px; border-radius:4px; display:inline-block; margin-top:3px; }
 .acct-detail { flex:1; overflow-y:auto; padding:20px; }
 .acct-detail::-webkit-scrollbar { width:5px; }
 .acct-detail::-webkit-scrollbar-thumb { background:#d0d5dd; border-radius:3px; }
 .acct-detail-hdr { margin-bottom:16px; }
 .acct-detail-name { font-size:20px; font-weight:800; color:var(--navy); }
 .acct-detail-type { font-size:12px; color:var(--text2); margin-top:4px; display:flex; align-items:center; gap:8px; }
-.acct-type-badge { font-size:10px; font-weight:700; color:var(--blue); background:var(--blue-light); padding:2px 8px; border-radius:3px; }
-.acct-overview-card { background:#fff; border:1px solid var(--border); border-radius:8px; overflow:hidden; margin-bottom:16px; }
+.acct-type-badge { font-size:10px; font-weight:700; color:var(--blue); background:var(--blue-light); padding:2px 8px; border-radius:4px; }
+.acct-overview-card { background:#fff; border:none; border-radius:12px; box-shadow: 0 4px 16px rgba(0,0,0,0.04); overflow:hidden; margin-bottom:16px; }
 .acct-overview-body { padding:16px; }
 .acct-overview-title { font-size:13px; font-weight:800; color:var(--navy); margin-bottom:10px; display:flex; align-items:center; gap:6px; }
 .acct-overview-text { font-size:13px; color:var(--text2); line-height:1.75; }
 .acct-overview-text p { margin-bottom:10px; }
 .acct-overview-text p:last-child { margin-bottom:0; }
 .acct-stats-row { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; margin-bottom:16px; }
-.acct-stat-box { background:#fff; border:1px solid var(--border); border-radius:8px; padding:14px; text-align:center; }
+.acct-stat-box { background:#fff; border:none; border-radius:12px; box-shadow: 0 2px 8px rgba(0,0,0,0.03); padding:14px; text-align:center; }
 .acct-stat-val { font-size:24px; font-weight:800; color:var(--navy); }
 .acct-stat-lbl { font-size:11px; color:var(--text3); margin-top:3px; }
 .acct-stat-sub  { font-size:10px; color:var(--text3); margin-top:2px; }
 .acct-two-col { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px; }
-.acct-mini-card { background:#fff; border:1px solid var(--border); border-radius:8px; padding:14px; }
+.acct-mini-card { background:#fff; border:none; box-shadow: 0 4px 16px rgba(0,0,0,0.04); border-radius:12px; padding:14px; }
 .acct-mini-title { font-size:12px; font-weight:800; color:var(--navy); margin-bottom:10px; }
 .acct-hcp-row { display:flex; align-items:center; justify-content:space-between; padding:6px 0; border-bottom:1px solid #f5f6f7; font-size:12px; }
 .acct-hcp-row:last-child { border-bottom:none; }
 .acct-hcp-name { color:var(--blue); font-weight:600; cursor:pointer; }
 .acct-hcp-name:hover { text-decoration:underline; }
 .acct-hcp-spec { color:var(--text3); font-size:11px; }
-.acct-hcp-seg  { font-size:10px; font-weight:700; padding:1px 5px; border-radius:3px; }
+.acct-hcp-seg  { font-size:10px; font-weight:700; padding:1px 5px; border-radius:4px; }
 .seg-agree{background:#d1fae5;color:#065f46} .seg-aware{background:#fef3c7;color:#92400e} .seg-unaware{background:#f3f4f6;color:#9ca3af}
 .doughnut-wrap { position:relative; width:90px; height:90px; margin:0 auto 8px; }
 .doughnut-label { position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); text-align:center; }
@@ -349,7 +356,8 @@ body { font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, sans-serif; back
 .meta-grid-item-lbl { font-size:10px; color:var(--text3); font-weight:700; text-transform:uppercase; letter-spacing:.3px; }
 .meta-grid-item-val { font-size:12px; font-weight:600; color:var(--text); margin-top:2px; }
 .role-table-wrap { display:flex; gap:12px; margin-bottom:16px; flex-wrap:wrap; }
-.role-table-card { flex:1; min-width:140px; border:1px solid var(--border); border-radius:7px; padding:10px; }
+/* Phase 3: Shadows on utility cards */
+.role-table-card { flex:1; min-width:140px; background:#fff; border:none; box-shadow: 0 2px 10px rgba(0,0,0,0.03); border-radius:10px; padding:12px; }
 .role-table-hdr { font-size:11px; font-weight:800; color:var(--text2); margin-bottom:7px; }
 .role-table-row { display:flex; justify-content:space-between; align-items:center; padding:4px 0; border-bottom:1px solid #f5f6f7; }
 .role-table-row:last-child { border-bottom:none; }
@@ -359,9 +367,10 @@ body { font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, sans-serif; back
 .social-btn:hover { background:#d4e8f7; }
 
 /* ── PATIENT TAB ── */
-.p-container { padding:10px; background:#fff; border-radius:8px; }
+.p-container { padding:10px; background:#fff; border-radius:12px; }
 .p-charts-area { display:grid; grid-template-columns:1fr 1fr; gap:12px; }
-.p-panel { border:1px solid var(--border); border-radius:8px; padding:12px; }
+/* Phase 3: Shadows and Radii on panel */
+.p-panel { border:none; box-shadow: 0 2px 10px rgba(0,0,0,0.03); background:#fff; border-radius:12px; padding:12px; }
 .p-panel-title { font-weight:800; font-size:12px; margin-bottom:10px; color:var(--navy); }
 .p-legend { display:flex; flex-wrap:wrap; justify-content:center; gap:8px; font-size:10px; margin-top:8px; color:var(--text3); }
 .p-dot { width:7px; height:7px; border-radius:50%; display:inline-block; margin-right:3px; vertical-align:middle; }
@@ -669,14 +678,15 @@ const ACCT_VA = {
 
 /* ══════════════════════════ STATE ══════════════════════════ */
 let curHCP='tw', curState='pre', curView='detailed', curDetTab='profile', synMode=false, curPage='hcp';
-let insightsLoaded = false; // Controls visibility of the dynamic GenAI text
+let insightsLoaded = false; 
 let showGenAIPanel = false;
 const chartRegistry = {};
+/* Phase 4: Updated Journey Colors to TWIG palette */
 const JOURNEY_STAGES = [
-  { key:'agree',    label:'Agree',    color:'#B33A6E' },
-  { key:'aware',    label:'Aware',    color:'#c9587f' },
-  { key:'adopt',    label:'Adopt',    color:'#db8aaa' },
-  { key:'advocate', label:'Advocate', color:'#edbbcf' }
+  { key:'agree',    label:'Agree',    color:'#D81B60' },
+  { key:'aware',    label:'Aware',    color:'#E91E63' },
+  { key:'adopt',    label:'Adopt',    color:'#F06292' },
+  { key:'advocate', label:'Advocate', color:'#F8BBD0' }
 ];
 const JOURNEY_STAGE_INDEX = Object.fromEntries(
   JOURNEY_STAGES.map((stage, index) => [stage.key, index])
@@ -749,7 +759,7 @@ function renderHeader(){
         <div class="hcp-hdr-name">${h.name}</div>
         <div class="ps-toggle" role="group" aria-label="Pre call plan view">
           <span style="font-size:11px;font-weight:${curView==='summary'?700:600};color:${curView==='summary'?'var(--navy)':'var(--text2)'}">Pre call plan</span>
-          <div class="sw" style="background:${curView==='summary'?'#1a7a4a':'#c5cbd1'};transition:background .2s" role="switch" aria-checked="${curView==='summary'}" tabindex="0" onclick="handleInsightClick()" onkeydown="if(event.key===' '||event.key==='Enter'){event.preventDefault();handleInsightClick();}"><div class="sw-k" style="${curView==='summary'?'right:2px':'right:18px'}"></div></div>
+          <div class="sw" style="background:${curView==='summary'?'#1a7a4a':'#c5cbd1'};transition:background .2s" role="switch" aria-checked="${curView==='summary'}" tabindex="0" onclick="handleInsightClick()"><div class="sw-k" style="${curView==='summary'?'right:2px':'right:18px'}"></div></div>
         </div>
       </div>
 
@@ -785,7 +795,7 @@ function renderHeader(){
 
     <div style="display:flex; gap:18px; align-items:stretch;">
 
-        <div class="card" style="margin-bottom:0; width:300px; flex-shrink:0; display:flex; flex-direction:column;">
+        <div class="card" style="margin-bottom:0; width:300px; flex-shrink:0; display:flex; flex-direction:column; box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
           <div class="card-hdr" style="padding:6px 12px">
             <div class="card-title" style="font-size:11px">Scientific Data</div>
             <span style="color:var(--blue);font-size:11px;cursor:pointer" onclick="setDetTab('Testing_scientific');if(curView!=='detailed'){curView='detailed';render();}else{render();}">→</span>
@@ -805,7 +815,7 @@ function renderHeader(){
           </div>
         </div>
 
-        <div class="card" style="margin-bottom:0; width:220px; flex-shrink:0; display:flex; flex-direction:column;">
+        <div class="card" style="margin-bottom:0; width:220px; flex-shrink:0; display:flex; flex-direction:column; box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
           <div class="card-hdr" style="padding:6px 12px">
             <div class="card-title" style="font-size:11px">Patient Type</div>
             <span style="color:var(--blue);font-size:11px;cursor:pointer" onclick="setDetTab('Testing_patient');if(curView!=='detailed'){curView='detailed';render();}else{render();}">→</span>
@@ -813,14 +823,14 @@ function renderHeader(){
           <div class="card-body" style="padding:8px 10px; flex:1; display:flex; flex-direction:column; justify-content:center;">
             <div style="display:flex;flex-direction:column;align-items:center;gap:4px">
               <svg width="100" height="105" viewBox="0 0 120 120">
-                <path d="M60,10 A50,50,0,1,1,21.47433786121053,91.87119948743448 L38.4256292022779,77.84787171296331 A28,28,0,1,0,60,32 Z" fill="#2874A6"></path>
+                <path d="M60,10 A50,50,0,1,1,21.47433786121053,91.87119948743448 L38.4256292022779,77.84787171296331 A28,28,0,1,0,60,32 Z" fill="#0288D1"></path>
                 <path d="M21.47433786121053,91.87119948743448 A50,50,0,0,1,59.99999999999999,10 L59.99999999999999,32 A28,28,0,0,0,38.4256292022779,77.84787171296331 Z" fill="#1a9e75"></path>
                 <circle cx="60" cy="60" r="28" fill="#fff"></circle>
                 <text x="60" y="57" text-anchor="middle" font-size="15" font-weight="800" fill="#0D1B2A">${Math.round(h.pt[0].v)}%</text>
                 <text x="60" y="72" text-anchor="middle" font-size="9" fill="#8896A5">HIV</text>
               </svg>
               <div class="pt-legend" style="display:flex; gap:10px; font-size:10px;">
-                 <div class="pt-leg-item"><div class="pt-leg-dot" style="background:#2874A6; width:7px; height:7px; border-radius:50%; display:inline-block; margin-right:3px;"></div>HIV <strong>${h.pt[0].v}%</strong></div>
+                 <div class="pt-leg-item"><div class="pt-leg-dot" style="background:#0288D1; width:7px; height:7px; border-radius:50%; display:inline-block; margin-right:3px;"></div>HIV <strong>${h.pt[0].v}%</strong></div>
                  <div class="pt-leg-item"><div class="pt-leg-dot" style="background:#1a9e75; width:7px; height:7px; border-radius:50%; display:inline-block; margin-right:3px;"></div>PrEP <strong>${h.pt[1] ? h.pt[1].v : 0}%</strong></div>
               </div>
             </div>
@@ -846,7 +856,7 @@ function renderHeader(){
         labels: ['Publications', 'Clinical Trials', 'Conferences'],
         datasets: [{
           data: [h.sci.pubs, h.sci.trials, h.sci.confs],
-          backgroundColor: ['#2874A6', '#0D1B2A', '#C0392B'],
+          backgroundColor: ['#0288D1', '#0D1B2A', '#D81B60'],
           borderRadius: 4,
           barThickness: 14
         }]
@@ -908,7 +918,6 @@ function summaryContent(){
   } else {
     let rows = [];
     
-    // Detect new 8-point format
     if (st.pa) {
       rows = [
         {bg:'#dbeafe', c:'#1d4ed8', em:'👤', t:'Profile & Affiliations', tx:st.pa},
@@ -921,7 +930,6 @@ function summaryContent(){
         {bg:'#e0f2fe', c:'#075985', em:'📱', t:'Social Media', tx:st.so}
       ];
     } else {
-      // Fallback for legacy 5-point format
       rows = [
         {bg:'#dbeafe', c:'#1d4ed8', em:'👤', t:`Dr. ${h.name.split(' ')[1]} Overview`, tx:st.ov},
         {bg:'#d1fae5', c:'#065f46', em:'🔬', t:'Contributions to the Field', tx:st.co},
@@ -1042,7 +1050,7 @@ function drawerConfig(tab, h, st, eng, isPost){
       blocks:[
         {type:'kpi', cols:3, items:[
           {lbl:'Segment',       val: h.seg,   color:'#2f6bb3', sub: h.tEx},
-          {lbl:'Publications',  val: h.sci.pubs, color:'#2874A6', sub:'peer-reviewed'},
+          {lbl:'Publications',  val: h.sci.pubs, color:'var(--blue)', sub:'peer-reviewed'},
           {lbl:'Clinical Trials', val: h.sci.trials, color:'#0D1B2A', sub:'active'}
         ]},
         ...sciBlocks.slice(1)
@@ -1056,9 +1064,9 @@ function drawerConfig(tab, h, st, eng, isPost){
       title:'ENGAGEMENT INSIGHTS ✦',
       blocks:[
         {type:'kpi', cols:2, items:[
-          {lbl:'Email Open Rate', val: openRate,    color:'#2874A6', sub:'vs 45% avg'},
+          {lbl:'Email Open Rate', val: openRate,    color:'var(--blue)', sub:'vs 45% avg'},
           {lbl:'Past Events',     val: eventsCount, color:'#0D1B2A', sub:'attended'},
-          {lbl:'Tips Pending',    val: eng.tips.length, color:'#C0392B', sub:'action items'},
+          {lbl:'Tips Pending',    val: eng.tips.length, color:'var(--red)', sub:'action items'},
           {lbl:'Last Meeting',    val: eng.lastMeeting.date, color:'#1a7a4a', sub:'most recent'}
         ]},
         {type:'card', accent:'blue', icon:'💡', lbl:'Priority Action', txt: (eng.tips[0] && eng.tips[0].txt) || st.ns},
@@ -1077,9 +1085,9 @@ function drawerConfig(tab, h, st, eng, isPost){
       title:'ACCOUNT INSIGHTS ✦',
       blocks:[
         {type:'kpi', cols:2, items:[
-          {lbl:'Affiliated Accts', val:4,              color:'#2874A6', sub:'accounts'},
+          {lbl:'Affiliated Accts', val:4,              color:'var(--blue)', sub:'accounts'},
           {lbl:'Active Trials',    val:h.sci.trials,   color:'#0D1B2A', sub:'ongoing'},
-          {lbl:'HIV Patients',     val:hivCount,        color:'#C0392B', sub:'direct panel'},
+          {lbl:'HIV Patients',     val:hivCount,        color:'var(--red)', sub:'direct panel'},
           {lbl:'PrEP Patients',    val:prepCount,       color:'#1a7a4a', sub:'direct panel'}
         ]},
         {type:'card', accent:'navy', icon:'🏥', lbl:'Affiliations',    txt: st.af},
@@ -1092,9 +1100,9 @@ function drawerConfig(tab, h, st, eng, isPost){
       title:'SCIENTIFIC INSIGHTS ✦',
       blocks:[
         {type:'kpi', cols:3, items:[
-          {lbl:'Publications', val:h.sci.pubs,   color:'#2874A6', sub:'peer-reviewed'},
+          {lbl:'Publications', val:h.sci.pubs,   color:'var(--blue)', sub:'peer-reviewed'},
           {lbl:'Trials',       val:h.sci.trials, color:'#0D1B2A', sub:'active'},
-          {lbl:'Conferences',  val:h.sci.confs,  color:'#C0392B', sub:'attended'}
+          {lbl:'Conferences',  val:h.sci.confs,  color:'var(--red)', sub:'attended'}
         ]},
         {type:'card', accent:'navy', icon:'📋', lbl:'Contributions',    txt: st.co},
         {type:'card', accent:'blue', icon:'🔬', lbl:'Recent Activity',  txt: st.ra}
@@ -1109,9 +1117,9 @@ function drawerConfig(tab, h, st, eng, isPost){
       title:'PATIENT INSIGHTS ✦',
       blocks:[
         {type:'kpi', cols:3, items:[
-          {lbl:'HIV',     val:(hivPt?hivPt.v:0)+'%',   color:'#2874A6', sub:'of panel'},
+          {lbl:'HIV',     val:(hivPt?hivPt.v:0)+'%',   color:'var(--blue)', sub:'of panel'},
           {lbl:'PrEP',    val:(prepPt?prepPt.v:0)+'%', color:'#1a7a4a', sub:'of panel'},
-          {lbl:'HIV-MDR', val:(mdrPt?mdrPt.v:0)+'%',  color:'#C0392B', sub:'of panel'}
+          {lbl:'HIV-MDR', val:(mdrPt?mdrPt.v:0)+'%',  color:'var(--red)', sub:'of panel'}
         ]},
         {type:'item', icon:'👥', heading:'Demographics', text:'60% male, largest age group 25–34. 40% Hispanic, 30% African American.'},
         {type:'item', icon:'🧬', heading:'Journey',      text:'Includes diagnosis, ART initiation, and long-term adherence management.'},
@@ -1124,9 +1132,9 @@ function drawerConfig(tab, h, st, eng, isPost){
       title:'INFLUENCE INSIGHTS ✦',
       blocks:[
         {type:'kpi', cols:3, items:[
-          {lbl:'Publications', val:h.sci.pubs,  color:'#2874A6', sub:'peer-reviewed'},
+          {lbl:'Publications', val:h.sci.pubs,  color:'var(--blue)', sub:'peer-reviewed'},
           {lbl:'Conferences',  val:h.sci.confs, color:'#0D1B2A', sub:'attended'},
-          {lbl:'Expert Tier',  val:h.tEx==='Global Expert'?'GE':(h.tEx||'—'), color:'#C0392B', sub:'designation'}
+          {lbl:'Expert Tier',  val:h.tEx==='Global Expert'?'GE':(h.tEx||'—'), color:'var(--red)', sub:'designation'}
         ]},
         {type:'card', accent:'blue', icon:'🌐', lbl:'Regional Reach', txt: st.co},
         {type:'card', accent:'red',  icon:'📣', lbl:'Next Steps',     txt: st.ns}
@@ -1141,7 +1149,7 @@ function renderDrawerBlock(b){
     case 'metrics':
       return `<div class="drawer-metric-strip">${(b.items||[]).map(m=>`<div class="drawer-metric"><div class="drawer-metric-lbl">${m.lbl}</div><div class="drawer-metric-val">${m.val}</div></div>`).join('')}</div>`;
     case 'kpi':
-      return `<div style="display:grid;grid-template-columns:repeat(${b.cols||2},1fr);gap:8px;margin-bottom:12px;">${(b.items||[]).map(k=>`<div style="background:#fff;border:1px solid var(--border);border-left:3px solid ${k.color||'var(--blue)'};border-radius:6px;padding:8px 10px;"><div style="font-size:9px;font-weight:800;color:var(--text3);text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px;">${k.lbl}</div><div style="font-size:18px;font-weight:800;color:var(--navy);line-height:1;">${k.val}</div>${k.sub?`<div style="font-size:10px;color:var(--text3);margin-top:2px;">${k.sub}</div>`:''}</div>`).join('')}</div>`;
+      return `<div style="display:grid;grid-template-columns:repeat(${b.cols||2},1fr);gap:8px;margin-bottom:12px;">${(b.items||[]).map(k=>`<div style="background:#fff;border:none;box-shadow: 0 2px 8px rgba(0,0,0,0.02);border-left:3px solid ${k.color||'var(--blue)'};border-radius:8px;padding:8px 10px;"><div style="font-size:9px;font-weight:800;color:var(--text3);text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px;">${k.lbl}</div><div style="font-size:18px;font-weight:800;color:var(--navy);line-height:1;">${k.val}</div>${k.sub?`<div style="font-size:10px;color:var(--text3);margin-top:2px;">${k.sub}</div>`:''}</div>`).join('')}</div>`;
     case 'card':
       return `<div class="drawer-card accent-${b.accent}"><div class="drawer-card-lbl">${b.icon||''} ${b.lbl}</div><p class="drawer-card-txt">${b.txt}</p></div>`;
     case 'item':
@@ -1311,27 +1319,27 @@ function detailedContent(){
           <tbody>
             <tr>
               <td style="font-weight:600;color:var(--navy)">ATLAS-2M Extension</td>
-              <td><span style="font-size:10px;font-weight:700;background:#dbeafe;color:#1d4ed8;padding:1px 6px;border-radius:3px;">Phase 3</span></td>
+              <td><span style="font-size:10px;font-weight:700;background:#dbeafe;color:#1d4ed8;padding:1px 6px;border-radius:4px;">Phase 3</span></td>
               <td style="color:var(--text2)">HIV Prevention</td>
-              <td><span style="font-size:10px;font-weight:700;background:#d1fae5;color:#065f46;padding:1px 6px;border-radius:3px;">Active</span></td>
+              <td><span style="font-size:10px;font-weight:700;background:#d1fae5;color:#065f46;padding:1px 6px;border-radius:4px;">Active</span></td>
               <td style="color:var(--text2)">Co-Investigator</td>
               <td style="text-align:right;font-weight:800;color:var(--navy)">240/300</td>
               <td style="color:var(--text2)">Mar 2024</td>
             </tr>
             <tr>
               <td style="font-weight:600;color:var(--navy)">CABENUVA Dosing Study</td>
-              <td><span style="font-size:10px;font-weight:700;background:#ede9fe;color:#6d28d9;padding:1px 6px;border-radius:3px;">Phase 2</span></td>
+              <td><span style="font-size:10px;font-weight:700;background:#ede9fe;color:#6d28d9;padding:1px 6px;border-radius:4px;">Phase 2</span></td>
               <td style="color:var(--text2)">Long-Acting ART</td>
-              <td><span style="font-size:10px;font-weight:700;background:#d1fae5;color:#065f46;padding:1px 6px;border-radius:3px;">Active</span></td>
+              <td><span style="font-size:10px;font-weight:700;background:#d1fae5;color:#065f46;padding:1px 6px;border-radius:4px;">Active</span></td>
               <td style="color:var(--text2)">Speaker / Advisor</td>
               <td style="text-align:right;font-weight:800;color:var(--navy)">80/100</td>
               <td style="color:var(--text2)">Jun 2023</td>
             </tr>
             <tr>
               <td style="font-weight:600;color:var(--navy)">HIV Cure Research – Gene Therapy</td>
-              <td><span style="font-size:10px;font-weight:700;background:#fee2e2;color:#991b1b;padding:1px 6px;border-radius:3px;">Phase 1</span></td>
+              <td><span style="font-size:10px;font-weight:700;background:#fee2e2;color:#991b1b;padding:1px 6px;border-radius:4px;">Phase 1</span></td>
               <td style="color:var(--text2)">HIV Cure</td>
-              <td><span style="font-size:10px;font-weight:700;background:#d1fae5;color:#065f46;padding:1px 6px;border-radius:3px;">Active</span></td>
+              <td><span style="font-size:10px;font-weight:700;background:#d1fae5;color:#065f46;padding:1px 6px;border-radius:4px;">Active</span></td>
               <td style="color:var(--text2)">Sub-Investigator</td>
               <td style="text-align:right;font-weight:800;color:var(--navy)">12/20</td>
               <td style="color:var(--text2)">Feb 2024</td>
@@ -1450,7 +1458,7 @@ function detailedContent(){
 /* ══════════════════════════ PIE CHART HELPER ══════════════════════════ */
 function ptPieChart(pts){
   const cx=60,cy=60,r=50,ri=28;
-  const clr={'f-blue':'#2874A6','f-teal':'#1a9e75','f-red':'#C0392B'};
+  const clr={'f-blue':'#0288D1','f-teal':'#1a9e75','f-red':'#D81B60'}; /* Updated mapped colors */
   const total=pts.reduce((s,b)=>s+b.v,0);
   if(!total) return `<div style="display:flex;justify-content:center"><svg width="120" height="120" viewBox="0 0 120 120"><circle cx="${cx}" cy="${cy}" r="${r}" fill="#f0f2f5"/><circle cx="${cx}" cy="${cy}" r="${ri}" fill="#fff"/></svg></div>`;
   let ang=-Math.PI/2, paths='';
@@ -1489,8 +1497,6 @@ function rightPanel(){
 }
 
 /* ══════════════════════════ FULL RENDER ══════════════════════════ */
-/* ══════════════════════════ FULL RENDER ══════════════════════════ */
-/* ══════════════════════════ FULL RENDER ══════════════════════════ */
 function render(){
   const h=HCPS[curHCP],st=h[curState],isPost=curState==='post';
   renderHeader();
@@ -1517,7 +1523,7 @@ function render(){
         ${!isSum ? `
         <div class="ps-toggle" role="group" aria-label="Gen AI summary view">
           <span style="font-size:11px;font-weight:${showGenAIPanel?700:600};color:${showGenAIPanel?'var(--navy)':'var(--text2)'}">Contextual Summary</span>
-          <div class="sw" style="background:${showGenAIPanel?'#1a7a4a':'#c5cbd1'};transition:background .2s" role="switch" aria-checked="${showGenAIPanel}" tabindex="0" onclick="showGenAIPanel=!showGenAIPanel;render()" onkeydown="if(event.key===' '||event.key==='Enter'){event.preventDefault();showGenAIPanel=!showGenAIPanel;render();}"><div class="sw-k" style="${showGenAIPanel?'right:2px':'right:18px'}"></div></div>
+          <div class="sw" style="background:${showGenAIPanel?'#1a7a4a':'#c5cbd1'};transition:background .2s" role="switch" aria-checked="${showGenAIPanel}" tabindex="0" onclick="showGenAIPanel=!showGenAIPanel;render()"><div class="sw-k" style="${showGenAIPanel?'right:2px':'right:18px'}"></div></div>
         </div>
         ` : ''}
       </div>
@@ -1531,6 +1537,7 @@ function render(){
       <div class="profile-right">${rightPanel()}</div>
     </div>`;
 }
+
 /* ══════════════════════════ ACCOUNTS PAGE ══════════════════════════ */
 function renderAccountDetail(id){
   if(id!=='va'){
@@ -1611,12 +1618,12 @@ function renderAccountDetail(id){
     </div>`;
 }
 
+/* Phase 4: Data Visualisation Colors Updated */
 function renderScientificCharts() {
   const ctx = document.getElementById('trialsByPhase');
   if (!ctx) return; 
 
-  // Brand palette (T06)
-  const P = { navy:'#0D1B2A', red:'#C0392B', blue:'#2874A6', green:'#1a7a4a', gray:'#8a95a0', blueLt:'#eaf3fb' };
+  const P = { navy:'#0D1B2A', red:'#D81B60', blue:'#0288D1', green:'#1a7a4a', gray:'#8a95a0', blueLt:'#E1F5FE' };
 
   const globalOptions = {
     responsive: true, maintainAspectRatio: false,
@@ -1705,7 +1712,7 @@ function renderScientificCharts() {
         label: 'Attendance',
         data: [35, 25, 18, 28, 35, 35, 28, 25],
         borderColor: P.red,
-        backgroundColor: 'rgba(192,57,43,0.1)',
+        backgroundColor: 'rgba(216, 27, 96, 0.1)',
         fill: true, tension: 0.4
       }]
     },
@@ -1741,7 +1748,7 @@ function renderScientificCharts() {
 }
 
 function renderPatientCharts() {
-  const P = { navy:'#0D1B2A', red:'#C0392B', blue:'#2874A6', green:'#1a7a4a', gray:'#8a95a0' };
+  const P = { navy:'#0D1B2A', red:'#D81B60', blue:'#0288D1', green:'#1a7a4a', gray:'#8a95a0' };
   const barOpts = { responsive:true, maintainAspectRatio:false, plugins:{ legend:{ display:false } } };
   const donutOpts = { ...barOpts, cutout:'70%' };
 
