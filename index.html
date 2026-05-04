@@ -6,7 +6,7 @@
 <title>TWIG Insights — Field Engagement Insights</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -107,7 +107,7 @@ body { font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, sans-serif; back
 .meta-lbl { font-size:11px; color:var(--text3); }
 .meta-val { font-size:11px; color:var(--text); font-weight:700; }
 .ps-toggle { display:flex; align-items:center; gap:8px; margin-left:auto; padding-left:16px; flex-shrink:0; }
-.gauges-group { flex-shrink:0; display:flex; flex-direction:column; align-items:center; justify-content:center; min-width:320px; padding:2px 0; }
+.gauges-group { flex-shrink:0; display:flex; flex-direction:column; align-items:center; justify-content:center; min-width:380px; padding:2px 0; }
 .hcp-hdr-extended { display:grid; grid-template-columns:repeat(3,1fr); gap:4px 14px; margin-top:8px; padding-top:8px; border-top:1px solid #f0f2f5; }
 .hcp-hdr-ext-item { display:flex; flex-direction:column; gap:1px; }
 .hcp-hdr-ext-lbl { font-size:9px; font-weight:800; color:var(--text3); text-transform:uppercase; letter-spacing:.5px; }
@@ -733,6 +733,227 @@ body { font-family: 'IBM Plex Sans', 'Segoe UI', -apple-system, sans-serif; back
   .acct-stats-row { grid-template-columns: 1fr 1fr; }
 }
 </style>
+
+<!-- ═══════════════════════════════════════════════════
+     PREMIUM DESIGN OVERRIDES (Added via Antigravity)
+     ═══════════════════════════════════════════════════ -->
+<style>
+:root {
+  --navy: #0f172a; /* Slate 900 */
+  --red: #f43f5e; /* Rose 500 */
+  --red-light: #ffe4e6; /* Rose 100 */
+  --blue: #4f46e5; /* Indigo 600 */
+  --blue-light: #e0e7ff; /* Indigo 100 */
+  --border: #e2e8f0; /* Slate 200 */
+  --gray: #f8fafc; /* Slate 50 */
+  --text: #1e293b; /* Slate 800 */
+  --text2: #475569; /* Slate 600 */
+  --text3: #94a3b8; /* Slate 400 */
+  --green: #10b981; /* Emerald 500 */
+  --amber: #f59e0b; /* Amber 500 */
+  --updated-bg: #fef3c7; /* Amber 100 */
+  --updated-border: #fbbf24; /* Amber 400 */
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f1f5f9; /* Slate 100 */
+}
+
+/* Heading fonts */
+.logo, .hcp-hdr-name, .acct-page-title, .acct-detail-name, .drawer-title, .p-panel-title, .acct-overview-title, .hcp-card-name, .acct-item-name, .drawer-metric-val, .acct-stat-val, .stat-val, .acct-pt-big {
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: -0.02em;
+}
+
+/* Premium component overrides */
+.card, .acct-overview-card, .acct-mini-card, .drawer-card, .role-table-card, .p-panel, .stat-box, .acct-stat-box, .p-container, .hcp-header, .acct-page-hdr, .sidebar {
+  border-radius: 16px;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border: 1px solid rgba(255,255,255,0.6);
+  background: #ffffff;
+}
+
+.hcp-header { border-radius: 0 0 16px 16px; margin-bottom: 8px; }
+.sidebar { border-radius: 0 16px 16px 0; border-right: none; margin-right: 8px; }
+
+.card:hover, .role-table-card:hover, .acct-mini-card:hover, .stat-box:hover, .acct-stat-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+}
+
+.topnav {
+  background: var(--navy);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+
+/* Glassmorphism elements */
+.filter-sel {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
+  border-radius: 8px;
+}
+.filter-sel:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Beautiful hover effects */
+.hcp-card, .acct-item {
+  border-radius: 12px;
+  margin: 6px 12px;
+  border-bottom: none !important;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+.hcp-card:hover, .acct-item:hover {
+  background: var(--gray);
+  transform: translateX(2px);
+}
+.hcp-card.active, .acct-item.active {
+  background: var(--blue-light);
+  border-left: none;
+  border: 1px solid rgba(79, 70, 229, 0.2);
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.1);
+  transform: translateX(4px);
+}
+.hcp-card.active .hcp-card-arrow {
+  color: var(--blue);
+}
+
+/* Avatars */
+.hcp-av, .user-av {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  font-family: 'Outfit', sans-serif;
+}
+.hcp-hdr-av {
+  border: 3px solid #fff;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  font-family: 'Outfit', sans-serif;
+}
+
+/* Tags and Badges */
+.spec-lbl, .acct-type-badge, .role-badge, .new-tag, .badge-upd, .upd-badge {
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-family: 'Inter', sans-serif;
+  text-transform: none;
+  font-weight: 600;
+  letter-spacing: 0;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+/* Tabs */
+.sb-tab, .d-tab {
+  transition: all 0.2s ease;
+  position: relative;
+  border-bottom: none !important;
+  background: transparent !important;
+}
+.sb-tab::after, .d-tab::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  background: var(--blue);
+  border-radius: 3px 3px 0 0;
+  transition: width 0.2s ease;
+}
+.sb-tab.active::after, .d-tab.active::after {
+  width: 60%;
+}
+.sb-tab.active, .d-tab.active {
+  color: var(--blue) !important;
+  font-weight: 800;
+}
+
+/* Toggle buttons */
+.t-btn {
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+}
+.toggle-grp {
+  border-radius: 10px;
+  padding: 4px;
+  background: var(--border);
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.05);
+}
+.t-btn.pre, .t-btn.post {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Gradients on primary metrics */
+.drawer-metric-val, .acct-stat-val, .stat-val, .acct-pt-big {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Search input */
+.sb-search, .acct-sidebar-search {
+  border-radius: 8px;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.02);
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
+}
+.sb-search:focus, .acct-sidebar-search:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px var(--blue-light);
+}
+
+/* Insight rows */
+.insight-row {
+  transition: background 0.2s ease;
+  border-radius: 8px;
+  padding: 12px;
+  margin: 0 -12px;
+  border-bottom: 1px solid var(--border);
+}
+.insight-row:last-child { border-bottom: none; }
+.insight-row:hover {
+  background: var(--gray);
+}
+.i-icon {
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Filter panel */
+.filter-panel {
+  border-radius: 16px;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  border: 1px solid var(--border);
+}
+
+/* Drawer cards */
+.drawer-card {
+  transition: transform 0.2s ease;
+}
+.drawer-card:hover {
+  transform: translateX(4px);
+}
+</style>
 </head>
 <body>
 <div class="app">
@@ -1110,10 +1331,10 @@ let showGenAIPanel = false;
 const chartRegistry = {};
 /* Phase 4: Updated Journey Colors to TWIG palette */
 const JOURNEY_STAGES = [
-  { key:'agree',    label:'Agree',    color:'#D81B60' },
-  { key:'aware',    label:'Aware',    color:'#E91E63' },
-  { key:'adopt',    label:'Adopt',    color:'#F06292' },
-  { key:'advocate', label:'Advocate', color:'#F8BBD0' }
+  { key:'agree',    label:'Agree',    color:'#1e90ff' },
+  { key:'aware',    label:'Aware',    color:'#8ec7ff'},
+  { key:'adopt',    label:'Adopt',    color:'#8cbca4' },
+  { key:'advocate', label:'Advocate', color:'#1a7a4a' }
 ];
 const JOURNEY_STAGE_INDEX = Object.fromEntries(
   JOURNEY_STAGES.map((stage, index) => [stage.key, index])
@@ -1187,10 +1408,14 @@ function renderHeader(){
         <div class="ps-toggle" role="group" aria-label="Pre call plan view">
           <span style="font-size:11px;font-weight:${curView==='summary'?700:600};color:${curView==='summary'?'var(--navy)':'var(--text2)'}">Pre call plan</span>
           <div class="sw" style="background:${curView==='summary'?'#1a7a4a':'#c5cbd1'};transition:background .2s" role="switch" aria-checked="${curView==='summary'}" tabindex="0" onclick="handleInsightClick()"><div class="sw-k" style="${curView==='summary'?'right:2px':'right:18px'}"></div></div>
+          <button id="contrib-alert-btn" onclick="toggleContributions()" title="View Contributions" style="margin-left:4px;background:none;border:none;cursor:pointer;padding:2px 5px;border-radius:6px;font-size:14px;line-height:1;transition:background .15s;" onmouseover="this.style.background='#fff3cd'" onmouseout="this.style.background='none'">🔔</button>
         </div>
       </div>
 
       <div class="spec-badge"><span class="spec-lbl">Speciality</span><span class="spec-val">${h.spec}</span></div>
+
+	  <div class="spec-badge"><span class="spec-lbl">Years of Practice</span> <span class="hcp-hdr-ext-val">${h.yrs} Years</span>
+	  </div>
 
       <div class="hcp-hdr-extended" style="grid-template-columns:repeat(2,1fr); max-width:340px;">
         <div class="hcp-hdr-ext-item">
@@ -1198,8 +1423,11 @@ function renderHeader(){
           <span class="hcp-hdr-ext-val">${h.inst.split('–')[0].trim()}</span>
         </div>
         <div class="hcp-hdr-ext-item">
-          <span class="hcp-hdr-ext-lbl">Specialty</span>
-          <span class="hcp-hdr-ext-val">${h.spec}${h.subspec?` · ${h.subspec}`:''}</span>
+        <div class="hcp-hdr-ext-item">
+          <span class="hcp-hdr-ext-lbl">Address</span>
+          <span class="hcp-hdr-ext-val">${h.addr}</span>
+        </div>
+          
         </div>
         <div class="hcp-hdr-ext-item">
           <span class="hcp-hdr-ext-lbl">Treatment Segment</span>
@@ -1209,14 +1437,8 @@ function renderHeader(){
           <span class="hcp-hdr-ext-lbl">Prevention Segment</span>
           <span class="hcp-hdr-ext-val">${h.pEx}</span>
         </div>
-        <div class="hcp-hdr-ext-item">
-          <span class="hcp-hdr-ext-lbl">Years in Practice</span>
-          <span class="hcp-hdr-ext-val">${h.yrs} Years</span>
-        </div>
-        <div class="hcp-hdr-ext-item">
-          <span class="hcp-hdr-ext-lbl">Address</span>
-          <span class="hcp-hdr-ext-val">${h.addr}</span>
-        </div>
+        
+        
       </div>
     </div>
 
@@ -1224,27 +1446,20 @@ function renderHeader(){
 
         <div class="card" style="margin-bottom:0; width:300px; flex-shrink:0; display:flex; flex-direction:column; box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
           <div class="card-hdr" style="padding:6px 12px">
-            <div class="card-title" style="font-size:11px">Scientific Data</div>
+            <div class="card-title" style="font-size:11px">Scientific Output</div>
             <span style="color:var(--blue);font-size:11px;cursor:pointer" onclick="setDetTab('Testing_scientific');if(curView!=='detailed'){curView='detailed';render();}else{render();}">→</span>
           </div>
           <div class="card-body" style="padding:8px 12px; flex:1; display:flex; flex-direction:column;">
             <div style="flex:1; min-height:64px; max-height:78px;">
               <canvas id="sciDataBarChart-${curHCP}"></canvas>
             </div>
-            <div class="ra-section" style="margin-top:8px; padding-top:8px; border-top:1px solid var(--border)">
-              <div class="ra-hdr" style="font-size:10px; font-weight:800; color:var(--text3); text-transform:uppercase; display:flex; justify-content:space-between;">
-                Contributions
-                <div style="display:flex;gap:4px"><span>←</span><span>→</span></div>
-              </div>
-              <div class="ra-date" style="font-size:10px; color:var(--text3); margin-top:3px;">${h.ra.type} &nbsp; ${h.ra.date}</div>
-              <div class="ra-txt" style="font-size:11px; color:var(--blue); line-height:1.4; margin-top:3px; font-weight:600;">${h.ra.txt}</div>
-            </div>
+            
           </div>
         </div>
 
         <div class="card" style="margin-bottom:0; width:220px; flex-shrink:0; display:flex; flex-direction:column; box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
           <div class="card-hdr" style="padding:6px 12px">
-            <div class="card-title" style="font-size:11px">Patient Type</div>
+            <div class="card-title" style="font-size:11px">Patient Mix</div>
             <span style="color:var(--blue);font-size:11px;cursor:pointer" onclick="setDetTab('Testing_patient');if(curView!=='detailed'){curView='detailed';render();}else{render();}">→</span>
           </div>
           <div class="card-body" style="padding:8px 10px; flex:1; display:flex; flex-direction:column; justify-content:center;">
@@ -1267,7 +1482,7 @@ function renderHeader(){
 
     <div class="gauges-group">
       <div class="gauges-lbl">Treatment Journey Stage</div>
-      <div class="gauges-row">${h.gauges.map(g=>`<div class="gauge-wrap"><canvas class="gauge-canvas" id="g-${curHCP}-${g.l.replace(/ /g,'')}" width="80" height="84"></canvas><div class="gauge-name">${g.l}</div></div>`).join('')}</div>
+      <div class="gauges-row">${h.gauges.map(g=>`<div class="gauge-wrap"><canvas class="gauge-canvas" id="g-${curHCP}-${g.l.replace(/ /g,'')}" width="104" height="110"></canvas><div class="gauge-name">${g.l}</div></div>`).join('')}</div>
       <div class="gauges-legend">${JOURNEY_STAGES.map(stage=>`<div class="gauges-legend-item"><span class="gauges-legend-swatch" style="background:${stage.color}"></span>${stage.label}</div>`).join('')}</div>
     </div>`;
 
@@ -1283,7 +1498,7 @@ function renderHeader(){
         labels: ['Publications', 'Clinical Trials', 'Conferences'],
         datasets: [{
           data: [h.sci.pubs, h.sci.trials, h.sci.confs],
-          backgroundColor: ['#0288D1', '#0D1B2A', '#D81B60'],
+          backgroundColor: ['#0288D1', '#388e3c', '#D81B60'],
           borderRadius: 4,
           barThickness: 14
         }]
@@ -1312,6 +1527,20 @@ function handleInsightClick() {
     curView = 'summary';
   }
   render();
+}
+
+/* ══════════════════════════ CONTRIBUTIONS TOGGLE ══════════════════════════ */
+function toggleContributions() {
+  const section = document.getElementById('contributions-section-' + curHCP);
+  const btn = document.getElementById('contrib-alert-btn');
+  if (!section) return;
+  const isVisible = section.style.display !== 'none';
+  section.style.display = isVisible ? 'none' : 'block';
+  if (btn) {
+    btn.style.background = isVisible ? 'none' : '#fff3cd';
+    btn.style.outline = isVisible ? 'none' : '2px solid #f5c000';
+    btn.title = isVisible ? 'View Contributions' : 'Hide Contributions';
+  }
 }
 
 /* ══════════════════════════ BULLET FORMATTER ══════════════════════════ */
@@ -1366,14 +1595,16 @@ function summaryContent(){
       ];
     }
 
-    content = rows.map(r=>`<div class="insight-row">
-      <div class="i-icon" style="background:${r.bg}; color:${r.c};">${r.em}</div>
-      <div style="flex:1"><div class="i-title">${r.t}</div>
-      <div class="i-text ${r.changed?'changed':''}" style="padding-left:6px;">${toBullets(r.tx)}</div></div>
+    content = rows.map(r=>`<div class="card insight-card" style="display:flex; flex-direction:column; padding:20px; gap:16px; border-top: 4px solid ${r.c}; transition: transform 0.2s ease, box-shadow 0.2s ease; cursor: default;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 20px 25px -5px rgba(0,0,0,0.05), 0 10px 10px -5px rgba(0,0,0,0.02)';" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.01)';">
+      <div style="display:flex; align-items:center; gap:14px;">
+        <div class="i-icon" style="background:${r.bg}; color:${r.c}; width:44px; height:44px; border-radius:14px; font-size:22px; display:flex; align-items:center; justify-content:center; box-shadow: 0 4px 12px ${r.bg};">${r.em}</div>
+        <div class="i-title" style="font-size:16px; margin:0; font-family:'Outfit', sans-serif; letter-spacing:-0.01em;">${r.t}</div>
+      </div>
+      <div class="i-text ${r.changed?'changed':''}" style="padding:0; flex:1; display:flex; flex-direction:column; justify-content:center;">${toBullets(r.tx)}</div>
     </div>`).join('');
   }
 
-  return `<div style="visibility: ${insightsLoaded ? 'visible' : 'hidden'}; background: #fff; min-height: 200px;">
+  return `<div style="visibility: ${insightsLoaded ? 'visible' : 'hidden'}; background: transparent; min-height: 200px; display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px; padding: 16px 0;">
     ${content}
   </div>`;
 }
@@ -1383,20 +1614,15 @@ const TIMOTHY_ACCOUNT_INSIGHTS = {
   title:'ACCOUNT INSIGHTS ✦',
   blocks:[
     {type:'metrics', items:[
-      {lbl:'Affiliated Accts', val:4},
-      {lbl:'Clinical Trials', val:8},
-      {lbl:'Direct Patients', val:550}
+      {lbl:'Active Accounts', val:4},
+      {lbl:'Active Trials', val:8},
+      {lbl:'Total Patients', val:550}
     ]},
     {type:'item', icon:'📊', heading:'Footprint Overview', text:"The HCP manages a direct load of <strong>352 HIV</strong> and <strong>198 PrEP</strong> patients across 4 affiliated accounts, while maintaining a heavy research footprint with 8 active clinical trials."},
     {type:'card', accent:'navy', icon:'🏛️', lbl:'The Stronghold: VA New York Harbor', txt:"Commanding an <strong>87% coverage rate</strong> within a massive network of 88 affiliated HCPs. This is the HCP's primary center of influence. It should be heavily leveraged for regional trial recruitment, RWE generation, and peer-to-peer advocacy."},
     {type:'card', accent:'red', icon:'⚠️', lbl:'Critical Gap: NewYork-Presbyterian', txt:"Despite a massive patient pool (672 HIV, 448 PrEP) and 41 affiliated HCPs, current coverage sits at a severely underpenetrated <strong>7%</strong>. This represents the single highest-value expansion opportunity in this HCP's network."},
     {type:'card', accent:'blue', icon:'⚡', lbl:'High-Efficiency Profile: Gotham Medical', txt:'Gotham Medical Associates manages 708 HIV patients with only 11 affiliated HCPs. This indicates a high-volume, highly concentrated clinical setting where a single advocacy win can sway a massive patient share.'},
-    {type:'table', headers:['Account','HCPs','Coverage'], rows:[
-      ['VA New York Harbor','88','87%'],
-      ['Gotham Medical Assoc.','11','65%'],
-      ['Mount Sinai Hospital','41','63%'],
-      ['NewYork-Presbyterian','41','7%']
-    ]}
+    
   ]
 };
 
@@ -1420,8 +1646,8 @@ const TIMOTHY_PROFILE_INSIGHTS = {
   blocks:[
     {type:'metrics', items:[
       {lbl:'Segment', val:'Speaker'},
-      {lbl:'Prod A CPS', val:'5/5'},
-      {lbl:'Study', val:'Active'}
+      {lbl:'Prod A Score', val:'5/5'},
+      {lbl:'Study Status', val:'Active'}
     ]},
     {type:'item', icon:'🏥', heading:'Affiliation & Alignment', text:'<strong>Infectious Disease</strong> specialist at <strong>VA New York Harbor Healthcare System</strong>. Aligned internally with Director Richard Manning and CML Anthony Bells. Currently engaged in Study <em>Fos/Brighte 205888</em>.'},
     {type:'card', accent:'navy', icon:'📈', lbl:'Clinical Perception', txt:'Shows high confidence in <strong>Product A</strong> and <strong>Product C</strong> (both 5/5 with positive upward trends). Perception for Product B and Product D has dipped to 4/5.'}
@@ -1432,9 +1658,9 @@ const TIMOTHY_SCIENTIFIC_INSIGHTS = {
   title:'SCIENTIFIC & CLINICAL INSIGHTS ✦',
   blocks:[
     {type:'metrics', items:[
-      {lbl:'PrEP Pubs', val:'~120'},
-      {lbl:'Speaker Roles', val:'~60%'},
-      {lbl:'Top Area', val:'Infectious'}
+      {lbl:'PrEP Publications', val:'~120'},
+      {lbl:'Speaker Rate', val:'~60%'},
+      {lbl:'Primary Area', val:'Infectious'}
     ]},
     {type:'item', icon:'🔬', heading:'Clinical Trial Footprint', text:'The HCP maintains a steady trial volume (averaging ~13-14 active trials per month), broadly distributed across Infectious, Prophylactic, Vaccines, and Cardio areas. <strong>Product A</strong> currently holds the dominant share of their clinical trial product distribution.'},
     {type:'card', accent:'blue', icon:'📄', lbl:'Publication Strategy Pivot', txt:'There is a massive skew toward <strong>PrEP publications (~120)</strong> compared to core HIV (~70). This strongly indicates that their academic and research priorities have shifted heavily toward prevention strategies rather than strictly salvage or maintenance treatment.'},
@@ -1576,11 +1802,37 @@ function renderDrawerBlock(b){
     case 'metrics':
       return `<div class="drawer-metric-strip">${(b.items||[]).map(m=>`<div class="drawer-metric"><div class="drawer-metric-lbl">${m.lbl}</div><div class="drawer-metric-val">${m.val}</div></div>`).join('')}</div>`;
     case 'kpi':
-      return `<div style="display:grid;grid-template-columns:repeat(${b.cols||2},1fr);gap:8px;margin-bottom:12px;">${(b.items||[]).map(k=>`<div style="background:#fff;border:none;box-shadow: 0 2px 8px rgba(0,0,0,0.02);border-left:3px solid ${k.color||'var(--blue)'};border-radius:8px;padding:8px 10px;"><div style="font-size:9px;font-weight:800;color:var(--text3);text-transform:uppercase;letter-spacing:.4px;margin-bottom:3px;">${k.lbl}</div><div style="font-size:18px;font-weight:800;color:var(--navy);line-height:1;">${k.val}</div>${k.sub?`<div style="font-size:10px;color:var(--text3);margin-top:2px;">${k.sub}</div>`:''}</div>`).join('')}</div>`;
+      return `<div style="display:grid;grid-template-columns:repeat(${b.cols||2},1fr);gap:12px;margin-bottom:16px;">
+        ${(b.items||[]).map(k=>`
+          <div class="card kpi-card" style="padding:16px; position:relative; overflow:hidden; background:#fff; border:1px solid rgba(255,255,255,0.8);">
+            <div style="position:absolute; top:-20px; right:-20px; width:70px; height:70px; background:${k.color||'var(--blue)'}; opacity:0.15; filter:blur(24px); border-radius:50%; pointer-events:none;"></div>
+            <div style="font-family:'Inter', sans-serif; font-size:10px; font-weight:800; color:var(--text3); text-transform:uppercase; letter-spacing:0.6px; margin-bottom:8px; display:flex; align-items:center; gap:6px;">
+              <div style="width:8px; height:8px; border-radius:50%; background:${k.color||'var(--blue)'}; box-shadow:0 0 8px ${k.color||'var(--blue)'}"></div>
+              ${k.lbl}
+            </div>
+            <div style="font-family:'Outfit', sans-serif; font-size:28px; font-weight:800; color:var(--navy); line-height:1; margin-bottom:6px; background: linear-gradient(135deg, var(--navy) 0%, ${k.color||'var(--blue)'} 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+              ${k.val}
+            </div>
+            ${k.sub ? `<div style="font-size:11px; color:var(--text2); font-weight:600; font-family:'Inter', sans-serif;">${k.sub}</div>` : ''}
+          </div>
+        `).join('')}
+      </div>`;
     case 'card':
-      return `<div class="drawer-card accent-${b.accent}"><div class="drawer-card-lbl">${b.icon||''} ${b.lbl}</div><p class="drawer-card-txt">${b.txt}</p></div>`;
+      return `<div class="drawer-card accent-${b.accent}" style="padding:16px; background:#fff; border-radius:12px; box-shadow: 0 4px 12px rgba(0,0,0,0.03); border:1px solid var(--border); border-left:4px solid var(--${b.accent}); margin-bottom:12px;">
+        <div class="drawer-card-lbl" style="font-size:12px; margin-bottom:8px; display:flex; align-items:center; gap:6px;">
+          <span style="font-size:16px; display:flex; align-items:center; justify-content:center; width:28px; height:28px; background:var(--${b.accent}-light, #f1f5f9); border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.05);">${b.icon||''}</span>
+          <span style="font-family:'Outfit', sans-serif; font-size:13px; font-weight:700;">${b.lbl}</span>
+        </div>
+        <p class="drawer-card-txt" style="font-size:12px; line-height:1.6; color:var(--text2);">${b.txt}</p>
+      </div>`;
     case 'item':
-      return `<div class="drawer-item"><div class="drawer-item-icon">${b.icon||''}</div><div class="drawer-item-body"><h4>${b.heading||''}</h4><p>${b.text||''}</p></div></div>`;
+      return `<div class="drawer-item" style="padding:12px 0; border-bottom:1px solid var(--border); align-items:flex-start;">
+        <div class="drawer-item-icon" style="font-size:24px; background:var(--gray); width:40px; height:40px; border-radius:12px; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 6px rgba(0,0,0,0.05);">${b.icon||''}</div>
+        <div class="drawer-item-body">
+          <h4 style="font-family:'Outfit', sans-serif; font-size:14px; font-weight:700; color:var(--navy); margin:0 0 6px 0;">${b.heading||''}</h4>
+          <p style="font-size:12px; color:var(--text2); line-height:1.6; margin:0;">${b.text||''}</p>
+        </div>
+      </div>`;
     case 'table':
       return `<table class="drawer-table"><thead><tr>${(b.headers||[]).map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${(b.rows||[]).map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join('')}</tbody></table>`;
     case 'text':
@@ -1607,7 +1859,7 @@ function renderDetailLayout(mainHTML, cfg){
 /* ══════════════════════════ DETAILED CONTENT ══════════════════════════ */
 function detailedContent(){
   const h=HCPS[curHCP],st=h[curState],isPost=curState==='post',eng=ENGAGEMENT[curHCP][curState];
-  const tabs=[['profile','Profile'],['engagement','Engagement Summary'],['account','Account Summary'],['Testing_scientific','Scientific & Clinical'],['Testing_patient','Patient'],['influence','Influence & Reach']]; 
+  const tabs=[['profile','Profile'],['engagement','Engagement Summary'],['account','Account Summary'],['Testing_scientific','Scientific & Clinical'],['Testing_patient','Patient'],['influence','Social Media']]; 
   const tabBar=`<div class="detail-tabs">${tabs.map(([id,lbl])=>`<div class="d-tab ${curDetTab===id?'active':''}" onclick="setDetTab('${id}')">${lbl}</div>`).join('')}</div>`;
   let body='';
 
@@ -1687,7 +1939,7 @@ function detailedContent(){
     body=`
       <div class="section-title">HCP Alignment to Medical</div>
       <div class="meta-grid">
-        ${[['Director','Richard Manning'],['CML','Anthony Bells'],['Specialization',h.spec],['Institution',h.inst.split('–')[0].trim()],['Study','Fos/Brighte 205888'],['Segment','Speaker']].map(([l,v])=>`
+        ${[['Director','Richard Manning'],['CML','Anthony Bells'],['Specialization',h.spec],['Institution',h.inst.split('–')[0].trim()],['Study','Fos/Brighte 205888']].map(([l,v])=>`
         <div><div class="meta-grid-item-lbl">${l}</div>
         <div class="meta-grid-item-val">${v}</div></div>`).join('')}
       </div>
@@ -1709,6 +1961,17 @@ function detailedContent(){
             return`<tr><td>${r.p}</td><td><div style="display:flex;align-items:center;gap:5px">${dots}<span class="cps-score" style="font-size:12px">${r.c}/5</span></div></td><td>${trend}</td></tr>`;
           }).join('')}</tbody></table>
         </div>
+		<div id="contributions-section-${curHCP}" style="display:none;">
+            <div class="ra-section" style="margin-top:8px; padding-top:8px; border-top:1px solid var(--border)">
+              <div class="ra-hdr" style="font-size:10px; font-weight:800; color:var(--text3); text-transform:uppercase; display:flex; justify-content:space-between;">
+                Contributions
+                <div style="display:flex;gap:4px"><span>←</span><span>→</span></div>
+              </div>
+              <div class="ra-date" style="font-size:10px; color:var(--text3); margin-top:3px;">${h.ra.type} &nbsp; ${h.ra.date}</div>
+              <div class="ra-txt" style="font-size:11px; color:var(--blue); line-height:1.4; margin-top:3px; font-weight:600;">${h.ra.txt}</div>
+            </div>
+          </div>
+		
       </div>`;
   }
 
@@ -1718,13 +1981,13 @@ function detailedContent(){
     const prepCount=Math.round((prepPts?prepPts.v:0)/100*(curHCP==='tw'?550:curHCP==='ja'?497:294));
     body=`
       <div class="stat-grid">
-        <div class="stat-box"><div class="stat-val">4</div><div class="stat-lbl">Accounts Affiliated</div></div>
-        <div class="stat-box"><div class="stat-val">${h.sci.trials}</div><div class="stat-lbl">Clinical Trials</div></div>
-        <div class="stat-box"><div class="stat-val">${hivCount}</div><div class="stat-lbl">HIV Patients</div></div>
-        <div class="stat-box"><div class="stat-val">${prepCount}</div><div class="stat-lbl">PrEP Patients</div></div>
+        <div class="stat-box"><div class="stat-val">4</div><div class="stat-lbl">Active Accounts</div></div>
+        <div class="stat-box"><div class="stat-val">${h.sci.trials}</div><div class="stat-lbl">Active Trials</div></div>
+        <div class="stat-box"><div class="stat-val">${hivCount}</div><div class="stat-lbl">HIV Patient Load</div></div>
+        <div class="stat-box"><div class="stat-val">${prepCount}</div><div class="stat-lbl">PrEP Enrollees</div></div>
       </div>
       <table class="acct-tbl">
-        <thead><tr><th>Account</th><th style="text-align:right">Aff. HCPs</th><th style="text-align:right">HIV Patients</th><th style="text-align:right">PrEP Patients</th><th style="text-align:right">Formulary Coverage</th><th style="text-align:right">Time Period</th></tr></thead>
+        <thead><tr><th>Account</th><th style="text-align:right">Affiliated HCPs</th><th style="text-align:right">HIV Patients</th><th style="text-align:right">PrEP Patients</th><th style="text-align:right">Formulary Access</th><th style="text-align:right">Period</th></tr></thead>
         <tbody>
           ${[['VA New York Harbor','88','851','323','87%','va','Q1 2025'],['Mount Sinai Hospital','41','460','546','63%','','Q1 2025'],['Gotham Medical Assoc.','11','708','334','65%','','Q1 2025'],['NewYork-Presbyterian','41','672','448','7%','','Q1 2025']].map(([a,h2,p,pc,c,acctId,tp])=>`
           <tr><td><span class="${acctId?'acct-link':''}" onclick="${acctId?`goToAccount('${acctId}')`:''}">${a}</span></td><td style="text-align:right;color:var(--text2)">${h2}</td><td style="text-align:right;color:var(--text2)">${p}</td><td style="text-align:right;color:var(--text2)">${pc}</td><td style="text-align:right;font-weight:800;color:var(--navy)">${c}</td><td style="text-align:right;color:var(--text2)">${tp}</td></tr>`).join('')}
@@ -1802,11 +2065,11 @@ function detailedContent(){
           <div style="height: 180px;"><canvas id="trialsByPhase"></canvas></div>
         </div>
         <div class="card" style="margin-bottom:0; padding: 12px;">
-          <div style="font-size: 11px; font-weight: 800; margin-bottom: 10px;">Therapeutic Areas</div>
+          <div style="font-size: 11px; font-weight: 800; margin-bottom: 10px;">Trials by Therapeutic Areas</div>
           <div style="height: 180px;"><canvas id="therapeuticAreas"></canvas></div>
         </div>
         <div class="card" style="margin-bottom:0; padding: 12px; grid-column: span 2;">
-          <div style="font-size: 11px; font-weight: 800; margin-bottom: 10px;">Product Distribution</div>
+          <div style="font-size: 11px; font-weight: 800; margin-bottom: 10px;">Distribution of Trials by Products</div>
           <div style="height: 180px;"><canvas id="productDistribution"></canvas></div>
         </div>
       </div>
@@ -1981,10 +2244,10 @@ function renderAccountDetail(id){
       </div>
     </div>
     <div class="acct-stats-row">
-      <div class="acct-stat-box"><div class="acct-stat-val">${a.stats.ee}</div><div class="acct-stat-lbl">EE HCPs</div></div>
-      <div class="acct-stat-box"><div class="acct-stat-val">${a.stats.nonEE}</div><div class="acct-stat-lbl">Non-EE HCPs</div></div>
-      <div class="acct-stat-box"><div class="acct-stat-val">${a.stats.engaged}</div><div class="acct-stat-lbl">Engaged</div></div>
-      <div class="acct-stat-box"><div class="acct-stat-val">${a.stats.unengaged}</div><div class="acct-stat-lbl">Unengaged</div></div>
+      <div class="acct-stat-box"><div class="acct-stat-val">${a.stats.ee}</div><div class="acct-stat-lbl">Engaged HCPs</div></div>
+      <div class="acct-stat-box"><div class="acct-stat-val">${a.stats.nonEE}</div><div class="acct-stat-lbl">Unengaged HCPs</div></div>
+      <div class="acct-stat-box"><div class="acct-stat-val">${a.stats.engaged}</div><div class="acct-stat-lbl">Active Contacts</div></div>
+      <div class="acct-stat-box"><div class="acct-stat-val">${a.stats.unengaged}</div><div class="acct-stat-lbl">Outreach Needed</div></div>
     </div>
     <div class="acct-overview-card">
       <div class="acct-overview-body">
@@ -2050,7 +2313,7 @@ function renderScientificCharts() {
   const ctx = document.getElementById('trialsByPhase');
   if (!ctx) return; 
 
-  const P = { navy:'#0D1B2A', red:'#D81B60', blue:'#0288D1', green:'#1a7a4a', gray:'#8a95a0', blueLt:'#E1F5FE' };
+  const P = { navy:'#008000', red:'#D81B60', blue:'#0288D1', green:'#1a7a4a', gray:'#8a95a0', blueLt:'#E1F5FE' };
 
   const globalOptions = {
     responsive: true, maintainAspectRatio: false,
@@ -2175,7 +2438,7 @@ function renderScientificCharts() {
 }
 
 function renderPatientCharts() {
-  const P = { navy:'#0D1B2A', red:'#D81B60', blue:'#0288D1', green:'#1a7a4a', gray:'#8a95a0' };
+  const P = { navy:'#008000', red:'#D81B60', blue:'#0288D1', green:'#1a7a4a', gray:'#8a95a0' };
   const barOpts = { responsive:true, maintainAspectRatio:false, plugins:{ legend:{ display:false } } };
   const donutOpts = { ...barOpts, cutout:'70%' };
 
