@@ -1337,6 +1337,121 @@
       color: var(--text3)
     }
 
+    /* ── PRODUCT ENGAGEMENT MATRIX (Profile tab) ── */
+    .pem-card {
+      background: #fff;
+      border: none;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+    }
+
+    .pem-title {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 10px;
+      letter-spacing: .2px;
+    }
+
+    .pem-title .ai-star {
+      color: var(--red);
+      margin-left: 4px;
+    }
+
+    .pem-tbl {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    .pem-tbl th {
+      text-align: left;
+      font-size: 10px;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+      color: var(--text3);
+      font-weight: 700;
+      padding: 6px 10px;
+      border-bottom: 1px solid var(--border);
+      background: #fafbfc;
+    }
+
+    .pem-tbl th:last-child,
+    .pem-tbl td:last-child {
+      text-align: right;
+      padding-right: 12px;
+    }
+
+    .pem-tbl td {
+      padding: 9px 10px;
+      border-bottom: 1px solid #f5f6f7;
+      color: var(--text);
+      vertical-align: middle;
+    }
+
+    .pem-tbl tr:last-child td {
+      border-bottom: none;
+    }
+
+    .pem-product {
+      font-weight: 700;
+      color: var(--navy);
+      font-size: 13px;
+      letter-spacing: .1px;
+    }
+
+    .pem-dim {
+      color: var(--text3);
+      font-weight: 500;
+    }
+
+    .pem-score-cell {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pem-delta {
+      font-weight: 700;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    .pem-delta.up {
+      color: var(--green);
+    }
+
+    .pem-delta.dn {
+      color: var(--red);
+    }
+
+    .pem-delta.sm {
+      color: var(--text3);
+    }
+
+    .pem-stage {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .pem-stage-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .pem-stage-label {
+      letter-spacing: .1px;
+    }
+
     /* ── ACCOUNT SUMMARY TAB ── */
     .stat-grid {
       display: grid;
@@ -2063,6 +2178,195 @@
       font-weight: 600;
       color: var(--text);
       margin-top: 2px;
+    }
+
+    /* HCP Alignment to Medical — two-tier card layout */
+    .align-group-hdr {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text3);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      margin: 4px 0 8px;
+    }
+
+    .align-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .person-card {
+      flex: 1;
+      min-width: 200px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+      padding: 10px 12px;
+    }
+
+    .person-avatar {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      background: var(--navy);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .3px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .person-meta {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+
+    /* Upgraded section header for HCP Alignment block */
+    .align-section-hdr {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 0 10px;
+      margin-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .align-section-bar {
+      width: 3px;
+      height: 16px;
+      background: var(--navy);
+      border-radius: 2px;
+    }
+
+    .align-section-title {
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: .8px;
+    }
+
+    .align-section-tag {
+      margin-left: auto;
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--blue);
+      background: var(--blue-light);
+      padding: 3px 9px;
+      border-radius: 999px;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+    }
+
+    .person-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .person-role {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text3);
+      text-transform: uppercase;
+      letter-spacing: .4px;
+      margin-top: 2px;
+    }
+
+    .study-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      row-gap: 8px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+      padding: 10px 14px;
+      margin-bottom: 14px;
+    }
+
+    .study-icon {
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .study-meta {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      min-width: 0;
+    }
+
+    .study-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.2;
+    }
+
+    .study-sub {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--text3);
+      text-transform: uppercase;
+      letter-spacing: .4px;
+      margin-top: 2px;
+    }
+
+    .study-id {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--blue);
+      background: var(--blue-light);
+      padding: 4px 10px;
+      border-radius: 999px;
+      letter-spacing: .5px;
+      white-space: nowrap;
+    }
+
+    .study-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: auto;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .study-link {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--text);
+      background: #f1f3f5;
+      padding: 4px 10px;
+      border-radius: 999px;
+      text-decoration: none;
+      letter-spacing: .3px;
+      white-space: nowrap;
+      transition: background .15s ease;
+    }
+
+    .study-link:hover,
+    .study-link:focus-visible {
+      background: #e5e9ef;
+      outline: none;
+    }
+
+    .study-card.resource-card {
+      justify-content: flex-start;
+      gap: 8px;
     }
 
     .role-table-wrap {
@@ -3039,6 +3343,76 @@
       border: 1px solid var(--border);
     }
 
+    .publication-tooltip {
+      position: fixed;
+      z-index: 2500;
+      width: min(360px, calc(100vw - 24px));
+      max-height: 240px;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding: 12px 14px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: #fff;
+      color: var(--text);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.18);
+      font-family: 'Inter', sans-serif;
+      font-size: 11px;
+      line-height: 1.45;
+      pointer-events: auto;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(4px);
+      transition: opacity .12s ease, transform .12s ease, visibility .12s ease;
+    }
+
+    .publication-tooltip.visible {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .publication-tooltip-title {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .publication-tooltip-summary {
+      color: var(--text2);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .publication-tooltip-section {
+      padding: 9px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .publication-tooltip-section:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .publication-tooltip-pub-title {
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 5px;
+    }
+
+    .publication-tooltip-meta {
+      color: var(--text2);
+      margin-top: 2px;
+    }
+
+    .publication-tooltip-meta span {
+      color: var(--text3);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .35px;
+    }
+
     /* Drawer cards */
     .drawer-card {
       transition: transform 0.2s ease;
@@ -3453,9 +3827,151 @@
       }
     };
 
+    /* sciData — single source of truth for the Scientific Data tab.
+       Each HCP block has 8 series. Per-series sums equal the matching profile
+       metric in `sci: { pubs, trials, confs }`. Categories are HIV-grounded:
+       Indications = HIV TX / PrEP / HIV-MDR / Comorbid / Vaccine.
+       Pub types = Original / Review / Editorial / Letter / Case Report / Abstract.
+       Regions = NYC / Boston / Philadelphia / DC / Atlanta.
+       Congress months follow the HIV calendar (CROI Mar, IAS Jul, IDWeek Oct, Glasgow Nov). */
+    const TW_SCI_DATA = {
+      trialsByPhase:      { I: 1, II: 0, III: 1, IV: 3 },                                  // sum 8
+      trialsByIndication: { HIV_TX: 3, PrEP: 3, HIV_MDR: 0, Comorbid: 1, Vaccine: 1 },     // sum 8
+      trialsByProduct:    { A: 2, B: 1, C: 1, D: 1 },                                      // sum 8
+      pubsByYear:         [{ y: 2021, n: 1 }, { y: 2022, n: 1 }, { y: 2023, n: 2 }, { y: 2024, n: 2 }, { y: 2025, n: 1 }], // sum 7
+      publicationDetailsByYear: {
+        2025: [{ title: "Adherence Strategies for PrEP in Underserved Populations", date: "Jan 10, 2025", conference: "CROI 2025", place: "San Francisco, CA" }],
+        2024: [
+          { title: "Long-Acting ART Outcomes in Underserved HIV Cohorts", date: "Jul 22, 2024", conference: "AIDS 2024", place: "Munich, Germany" },
+          { title: "PrEP Adherence in Younger Adults", date: "Oct 16, 2024", conference: "IDWeek 2024", place: "Los Angeles, CA" }
+        ],
+        2023: [
+          { title: "Integrase Inhibitor Persistence in VA Care", date: "Mar 6, 2023", conference: "CROI 2023", place: "Seattle, WA" },
+          { title: "Community PrEP Engagement Models", date: "Oct 11, 2023", conference: "IDWeek 2023", place: "Boston, MA" }
+        ],
+        2022: [{ title: "Real-World PrEP Continuation Patterns", date: "Jul 29, 2022", conference: "AIDS 2022", place: "Montreal, Canada" }],
+        2021: [{ title: "HIV Prevention Access in VA Clinics", date: "Mar 9, 2021", conference: "CROI 2021", place: "Virtual" }]
+      },
+      pubsByType:         { original: 3, review: 2, editorial: 1, letter: 0, caseReport: 1, abstract: 0 }, // sum 7
+      congressByMonth:    [{ m: 'Jan', n: 0 }, { m: 'Feb', n: 0 }, { m: 'Mar', n: 1 }, { m: 'Apr', n: 0 }, { m: 'May', n: 0 }, { m: 'Jun', n: 1 }, { m: 'Jul', n: 1 }, { m: 'Aug', n: 0 }, { m: 'Sep', n: 0 }, { m: 'Oct', n: 1 }, { m: 'Nov', n: 1 }, { m: 'Dec', n: 1 }], // sum 6
+      regionShare:        [{ r: 'NYC', n: 3 }, { r: 'Boston', n: 1 }, { r: 'Philadelphia', n: 1 }, { r: 'DC', n: 1 }, { r: 'Atlanta', n: 0 }], // sum 6
+      speakerRoleMix:     { plenary: 0, symposiumChair: 1, invitedSpeaker: 2, oral: 2, poster: 1, moderator: 0 } // sum 6
+    };
+
+    const JA_SCI_DATA = {
+      trialsByPhase:      { I: 1, II: 2, III: 5, IV: 1 },                                  // sum 9
+      trialsByIndication: { HIV_TX: 3, PrEP: 1, HIV_MDR: 0, Comorbid: 4, Vaccine: 1 },     // sum 9 (Comorbid heavy: HIV aging is her specialty)
+      trialsByProduct:    { A: 3, B: 3, C: 2, D: 1 },                                      // sum 9
+      pubsByYear:         [{ y: 2021, n: 1 }, { y: 2022, n: 2 }, { y: 2023, n: 2 }, { y: 2024, n: 3 }, { y: 2025, n: 4 }], // sum 12 (rising trajectory)
+      publicationDetailsByYear: {
+        2025: [
+          { title: "HIV Aging and Cardiovascular Comorbidities", date: "Feb 28, 2025", conference: "CROI 2025", place: "San Francisco, CA" },
+          { title: "Long-Acting ART Cardiovascular Safety", date: "Mar 9, 2025", conference: "CROI 2025", place: "San Francisco, CA" },
+          { title: "Product C Dosing in Renal Impairment", date: "Mar 10, 2025", conference: "CROI 2025", place: "San Francisco, CA" },
+          { title: "Gender Disparities in HIV Outcomes", date: "Jul 13, 2025", conference: "IAS 2025", place: "Kigali, Rwanda" }
+        ],
+        2024: [
+          { title: "HIV Aging and Comorbidity Burden", date: "Jul 22, 2024", conference: "AIDS 2024", place: "Munich, Germany" },
+          { title: "Gender Disparities in HIV Care", date: "Oct 14, 2024", conference: "EACS 2024", place: "Glasgow, UK" },
+          { title: "Cardiometabolic Safety in Long-Acting ART", date: "Mar 4, 2024", conference: "CROI 2024", place: "Denver, CO" }
+        ],
+        2023: [
+          { title: "ACTG A5321 Comorbidity Analysis", date: "Mar 20, 2023", conference: "CROI 2023", place: "Seattle, WA" },
+          { title: "Elderly HIV Cohort Outcomes", date: "Jul 25, 2023", conference: "IAS 2023", place: "Brisbane, Australia" }
+        ],
+        2022: [
+          { title: "Long-Term HIV Aging Cohort", date: "Jul 29, 2022", conference: "AIDS 2022", place: "Montreal, Canada" },
+          { title: "Renal Impairment and ART Dosing", date: "Oct 21, 2022", conference: "IDWeek 2022", place: "Washington, DC" }
+        ],
+        2021: [{ title: "HIV and Cardiovascular Risk", date: "Mar 9, 2021", conference: "CROI 2021", place: "Virtual" }]
+      },
+      pubsByType:         { original: 5, review: 3, editorial: 2, letter: 1, caseReport: 0, abstract: 1 }, // sum 12
+      congressByMonth:    [{ m: 'Jan', n: 0 }, { m: 'Feb', n: 1 }, { m: 'Mar', n: 1 }, { m: 'Apr', n: 0 }, { m: 'May', n: 0 }, { m: 'Jun', n: 1 }, { m: 'Jul', n: 1 }, { m: 'Aug', n: 0 }, { m: 'Sep', n: 1 }, { m: 'Oct', n: 1 }, { m: 'Nov', n: 1 }, { m: 'Dec', n: 1 }], // sum 8
+      regionShare:        [{ r: 'NYC', n: 4 }, { r: 'Boston', n: 1 }, { r: 'Philadelphia', n: 1 }, { r: 'DC', n: 1 }, { r: 'Atlanta', n: 1 }], // sum 8
+      speakerRoleMix:     { plenary: 1, symposiumChair: 2, invitedSpeaker: 3, oral: 1, poster: 0, moderator: 1 } // sum 8 (CROI 2025 keynote = plenary)
+    };
+
+    const RG_SCI_DATA = {
+      trialsByPhase:      { I: 1, II: 2, III: 3, IV: 1 },                                  // sum 7
+      trialsByIndication: { HIV_TX: 2, PrEP: 0, HIV_MDR: 4, Comorbid: 1, Vaccine: 0 },     // sum 7 (MDR heavy: salvage therapy is his specialty)
+      trialsByProduct:    { A: 2, B: 2, C: 1, D: 2 },                                      // sum 7
+      pubsByYear:         [{ y: 2021, n: 2 }, { y: 2022, n: 1 }, { y: 2023, n: 2 }, { y: 2024, n: 2 }, { y: 2025, n: 2 }], // sum 9
+      publicationDetailsByYear: {
+        2025: [
+          { title: "HIV-MDR Salvage Therapy Case Series", date: "Feb 20, 2025", conference: "CROI 2025", place: "San Francisco, CA" },
+          { title: "INSIGHT START Extension Outcomes", date: "Mar 10, 2025", conference: "CROI 2025", place: "San Francisco, CA" }
+        ],
+        2024: [
+          { title: "Resistance Surveillance in NYC", date: "Mar 4, 2024", conference: "CROI 2024", place: "Denver, CO" },
+          { title: "MDR Treatment Symposium Summary", date: "Oct 14, 2024", conference: "EACS 2024", place: "Glasgow, UK" }
+        ],
+        2023: [
+          { title: "Dolutegravir Resistance Meta-Analysis", date: "Mar 6, 2023", conference: "CROI 2023", place: "Seattle, WA" },
+          { title: "Salvage Therapy in Treatment-Experienced Patients", date: "Oct 11, 2023", conference: "IDWeek 2023", place: "Boston, MA" }
+        ],
+        2022: [{ title: "Advanced Resistance Management", date: "Jul 29, 2022", conference: "AIDS 2022", place: "Montreal, Canada" }],
+        2021: [
+          { title: "HIV-MDR Cohort Baseline Findings", date: "Mar 9, 2021", conference: "CROI 2021", place: "Virtual" },
+          { title: "Genotyping in Salvage Therapy", date: "Oct 1, 2021", conference: "IDWeek 2021", place: "Virtual" }
+        ]
+      },
+      pubsByType:         { original: 4, review: 2, editorial: 1, letter: 0, caseReport: 2, abstract: 0 }, // sum 9 (case reports — MDR salvage)
+      congressByMonth:    [{ m: 'Jan', n: 0 }, { m: 'Feb', n: 0 }, { m: 'Mar', n: 1 }, { m: 'Apr', n: 0 }, { m: 'May', n: 0 }, { m: 'Jun', n: 0 }, { m: 'Jul', n: 1 }, { m: 'Aug', n: 0 }, { m: 'Sep', n: 0 }, { m: 'Oct', n: 1 }, { m: 'Nov', n: 1 }, { m: 'Dec', n: 1 }], // sum 5
+      regionShare:        [{ r: 'NYC', n: 3 }, { r: 'Boston', n: 1 }, { r: 'Philadelphia', n: 1 }, { r: 'DC', n: 0 }, { r: 'Atlanta', n: 0 }], // sum 5
+      speakerRoleMix:     { plenary: 0, symposiumChair: 1, invitedSpeaker: 2, oral: 1, poster: 0, moderator: 1 } // sum 5
+    };
+
+    /* patientData — single source of truth for the Patient tab.
+       mixByIndication and ageBands counts each sum to panelSize.
+       sexAtBirth, raceEthnicity, regimenClass, payerMix, adherence each sum to 100 (percent).
+       Categories follow CDC HIV surveillance norms: age bands 18-24 / 25-34 / 35-49 / 50-64 / 65+;
+       race/ethnicity 5-bucket; regimen class 5 buckets including Long-Acting Injectables (LAI). */
+
+    /* TW: 550 panel, young MSM/PrEP-heavy practice at VA Manhattan.
+       Reconciles with profile pt[] (HIV 64% / PrEP 36% / MDR 0%) and
+       narrative claims of ~352 HIV / ~198 PrEP / ~40% Medicaid / 90% adherence. */
+    const TW_PT_DATA = {
+      panelSize: 550,
+      mixByIndication: { HIV_TX: 352, PrEP: 198, HIV_MDR: 0 }, // sum 550 · matches pt[] 64/36/0
+      ageBands: [{ b: '18-24', n: 66 }, { b: '25-34', n: 132 }, { b: '35-49', n: 187 }, { b: '50-64', n: 110 }, { b: '65+', n: 55 }], // sum 550
+      sexAtBirth: { male: 80, female: 18, other: 2 }, // 100 · HIV-realistic male skew
+      raceEthnicity: { black: 35, hispanic: 35, white: 25, asianPacific: 3, other: 2 }, // 100
+      regimenClass: { insti: 65, longActing: 12, nnrti: 8, pi: 5, combination: 10 }, // 100 · % of HIV TX cohort
+      payerMix: { medicaid: 40, medicare: 10, commercial: 35, adapOther: 15 }, // 100 · matches Feb 10 Medicaid prior-auth narrative
+      adherence: { high: 75, medium: 18, low: 7 } // 100 · 90% threshold = high+medium combined
+    };
+
+    /* JA: 480 panel, HIV Aging & Comorbidities specialty at NewYork-Presbyterian.
+       Reconciles with profile pt[] (HIV 79% / PrEP 17% / MDR 4%) and
+       narrative claim of 480 patients / 95% adherence. Older skew, Medicare-heavy. */
+    const JA_PT_DATA = {
+      panelSize: 480,
+      mixByIndication: { HIV_TX: 379, PrEP: 82, HIV_MDR: 19 }, // sum 480 · matches pt[] 79/17/4
+      ageBands: [{ b: '18-24', n: 14 }, { b: '25-34', n: 38 }, { b: '35-49', n: 86 }, { b: '50-64', n: 192 }, { b: '65+', n: 150 }], // sum 480 · HIV Aging skew
+      sexAtBirth: { male: 75, female: 23, other: 2 }, // 100
+      raceEthnicity: { black: 38, hispanic: 28, white: 30, asianPacific: 2, other: 2 }, // 100
+      regimenClass: { insti: 60, longActing: 8, nnrti: 12, pi: 8, combination: 12 }, // 100 · % of HIV TX cohort
+      payerMix: { medicaid: 28, medicare: 35, commercial: 30, adapOther: 7 }, // 100 · Medicare-heavy reflects HIV Aging cohort
+      adherence: { high: 85, medium: 12, low: 3 } // 100 · 95% adherence claim
+    };
+
+    /* RG: 280 panel, HIV-MDR / Salvage Therapy specialty at Mount Sinai.
+       Reconciles with profile pt[] (HIV 79% / PrEP 14% / MDR 7%) and
+       narrative claim of 280 patients / ~20 MDR. PI-shifted regimen, lower adherence floor. */
+    const RG_PT_DATA = {
+      panelSize: 280,
+      mixByIndication: { HIV_TX: 221, PrEP: 39, HIV_MDR: 20 }, // sum 280 · matches pt[] 79/14/7
+      ageBands: [{ b: '18-24', n: 8 }, { b: '25-34', n: 42 }, { b: '35-49', n: 98 }, { b: '50-64', n: 92 }, { b: '65+', n: 40 }], // sum 280 · MDR/treatment-experienced middle-older skew
+      sexAtBirth: { male: 78, female: 20, other: 2 }, // 100
+      raceEthnicity: { black: 42, hispanic: 32, white: 22, asianPacific: 2, other: 2 }, // 100
+      regimenClass: { insti: 55, longActing: 5, nnrti: 10, pi: 18, combination: 12 }, // 100 · PI-shifted reflects MDR salvage practice
+      payerMix: { medicaid: 38, medicare: 22, commercial: 32, adapOther: 8 }, // 100
+      adherence: { high: 65, medium: 22, low: 13 } // 100 · MDR cohort harder, adherence floor is lower
+    };
+
     const HCPS = {
       tw: {
-        name: "Timothy Wilkin, MD", ini: "TW", av: "av-tw", spec: "Infectious Disease", subspec: "HIV / PrEP", inst: "VA New York Harbor Healthcare System – Manhattan", msl: "John Doe", ee: "Yes", seg: "Agree", tEx: "Global Expert", pEx: "Global Expert", yrs: 22, addr: "423 E 23rd St, New York, NY 10010", gauges: [{ l: "Product A", stage: "adopt" }, { l: "Product B", stage: "aware" }, { l: "Product C", stage: "aware" }], sci: { pubs: 7, trials: 8, confs: 6 }, ra: { type: "Publication", date: "10.01.2025", txt: "Adherence Strategies for PrEP in Underserved Populations" }, pt: [{ l: "HIV", v: 64, c: "f-blue" }, { l: "PrEP", v: 36, c: "f-teal" }, { l: "HIV-MDR", v: 0, c: "f-red" }], roles: { a: "Speaker", b: "Investigator", c: "None", pb: "None" }, cps: [{ p: "Product A", c: 5, pr: 4, t: "up" }, { p: "Product B", c: 4, pr: 5, t: "dn" }, { p: "Product C", c: 5, pr: 4, t: "up" }, { p: "Product D", c: 4, pr: 5, t: "dn" }], tInfo: { pre: "Data up to Jan 12, 2025", post: "Updated — new meeting Feb 10, 2025 · product pivot detected" }, acctCID: "va",
+        name: "Timothy Wilkin, MD", ini: "TW", av: "av-tw", spec: "Infectious Disease", subspec: "HIV / PrEP", inst: "VA New York Harbor Healthcare System – Manhattan", msl: "John Doe", ee: "Yes", seg: "Agree", tEx: "Global Expert", pEx: "Global Expert", yrs: 22, addr: "423 E 23rd St, New York, NY 10010", gauges: [{ l: "Product A", stage: "adopt" }, { l: "Product B", stage: "aware" }, { l: "Product C", stage: "aware" }], sci: { pubs: 7, trials: 8, confs: 6 }, sciData: TW_SCI_DATA, ra: { type: "Publication", date: "10.01.2025", txt: "Adherence Strategies for PrEP in Underserved Populations" }, pt: [{ l: "HIV", v: 64, c: "f-blue" }, { l: "PrEP", v: 36, c: "f-teal" }, { l: "HIV-MDR", v: 0, c: "f-red" }], patientData: TW_PT_DATA, roles: { a: "Speaker", b: "Investigator", c: "None", pb: "None" }, cps: [{ p: "Product A", c: 5, pr: 4, t: "up" }, { p: "Product B", c: 4, pr: 5, t: "dn" }, { p: "Product C", c: 5, pr: 4, t: "up" }, { p: "Product D", c: 4, pr: 5, t: "dn" }], tInfo: { pre: "Data up to Jan 12, 2025", post: "Updated — new meeting Feb 10, 2025 · product pivot detected" }, acctCID: "va",
         pre: {
           ov: "Infectious disease specialist overseeing 350 HIV and 200 PrEP patients at VA Manhattan, achieving a 90% adherence rate — well above the 75% regional average. Prescribes integrase inhibitors with a growing focus on long-acting PrEP regimens.", co: "Co-authored 10 papers including a recent Lancet PrEP adherence study. Helped shape regional PrEP therapy guidelines. Recognised as a top 5% influencer in the NY region.", ra: "January 12: virtual meeting on immunotherapy advancements — requested trial data. January 10: reviewed HIV drug efficacy content. January 5: email interaction led to trial enrollment link click.", af: "Affiliated with three major institutions and two clinical trial networks. Key partner for new drug launches and real-world evidence studies.", ns: "Discuss co-investigator roles in ongoing PrEP trials. Tailored follow-ups with long-acting therapy data. Invite to HIV Innovations Symposium.", synopsis: "Dr. Timothy Wilkin is an infectious disease specialist at VA Manhattan overseeing 350 HIV and 200 PrEP patients, achieving a remarkable 90% adherence rate. His prescribing trends favour integrase inhibitors with a growing focus on long-acting PrEP regimens. He has co-authored 10 high-impact papers and is a top 5% regional influencer. His most recent January 12 virtual meeting signalled strong interest in clinical trial data and long-acting options, with an outstanding request for ATLAS-2M data and a Phase 2 PrEP co-investigator discussion underway. He is preparing a presentation for IAS 2025 and represents a significant scientific partnership opportunity.",
           pa: "Infectious Disease specialist at VA New York Harbor Healthcare System – Manhattan with 22 years in practice. EE-designated, Agree segment, Speaker role across Product A and B portfolio. Internally aligned with Director Richard Manning and CML Anthony Bells. NP Laura Maroldo manages lower-risk PrEP prescribing. Affiliated with VA Manhattan, Cornell, and NYU Langone, plus two active clinical trial networks. Practice address: 423 E 23rd St, New York, NY 10010.",
@@ -3480,16 +3996,27 @@
         }
       },
       ja: {
-        name: "Judith Aberg, MD", ini: "JA", av: "av-ja", spec: "Infectious Disease", subspec: "HIV Aging & Comorbidities", inst: "NewYork-Presbyterian Hospital", msl: "John Doe", ee: "Yes", seg: "Agree", tEx: "Global Expert", pEx: "Global Expert", yrs: 28, addr: "525 E 68th St, New York, NY 10065", gauges: [{ l: "Product A", stage: "advocate" }, { l: "Product B", stage: "advocate" }, { l: "Product C", stage: "advocate" }], sci: { pubs: 12, trials: 9, confs: 8 }, ra: { type: "Publication", date: "20.02.2025", txt: "HIV and Cardiovascular Comorbidities: Long-Term Cohort Study" }, pt: [{ l: "HIV", v: 79, c: "f-blue" }, { l: "PrEP", v: 17, c: "f-teal" }, { l: "HIV-MDR", v: 4, c: "f-red" }], roles: { a: "Investigator", b: "Speaker", c: "Investigator", pb: "Speaker" }, cps: [{ p: "Product A", c: 5, pr: 4, t: "up" }, { p: "Product B", c: 5, pr: 4, t: "up" }, { p: "Product C", c: 5, pr: 4, t: "up" }, { p: "Product D", c: 4, pr: 4, t: "sm" }], tInfo: { pre: "Data up to Feb 5, 2025", post: "Updated — CROI 2025 keynote confirmed + NEJM paper accepted Feb 28" }, acctCID: "va",
+        name: "Judith Aberg, MD", ini: "JA", av: "av-ja", spec: "Infectious Disease", subspec: "HIV Aging & Comorbidities", inst: "NewYork-Presbyterian Hospital", msl: "John Doe", ee: "Yes", seg: "Agree", tEx: "Global Expert", pEx: "Global Expert", yrs: 28, addr: "525 E 68th St, New York, NY 10065", gauges: [{ l: "Product A", stage: "advocate" }, { l: "Product B", stage: "advocate" }, { l: "Product C", stage: "advocate" }], sci: { pubs: 12, trials: 9, confs: 8 }, sciData: JA_SCI_DATA, ra: { type: "Publication", date: "20.02.2025", txt: "HIV and Cardiovascular Comorbidities: Long-Term Cohort Study" }, pt: [{ l: "HIV", v: 79, c: "f-blue" }, { l: "PrEP", v: 17, c: "f-teal" }, { l: "HIV-MDR", v: 4, c: "f-red" }], patientData: JA_PT_DATA, roles: { a: "Investigator", b: "Speaker", c: "Investigator", pb: "Speaker" }, cps: [{ p: "Product A", c: 5, pr: 4, t: "up" }, { p: "Product B", c: 5, pr: 4, t: "up" }, { p: "Product C", c: 5, pr: 4, t: "up" }, { p: "Product D", c: 4, pr: 4, t: "sm" }], tInfo: { pre: "Data up to Feb 5, 2025", post: "Updated — CROI 2025 keynote confirmed + NEJM paper accepted Feb 28" }, acctCID: "va",
         pre: { ov: "Global Expert in HIV treatment and prevention at NewYork-Presbyterian, managing 480 patients at 95% adherence. Protocol Chair for ACTG A5321. Leading authority on HIV aging and cardiovascular comorbidities.", co: "Published 12 high-impact papers across Circulation, NEJM, and Lancet HIV. Protocol Chair for ACTG A5321 (NIH/ACTG). Preparing CROI 2025 keynote. Gender disparities paper under review at Lancet HIV.", ra: "February 5: discussed ACTG A5321 update and proposed RWE co-publication on Product C dosing in elderly patients with renal impairment — a specific label gap she is actively researching.", af: "NewYork-Presbyterian and Weill Cornell. NIH/ACTG Protocol Chair. Strategic partner for label extension research, co-publication, and advisory board leadership.", ns: "Provide Product A cardiovascular safety dataset for CROI abstract. Initiate Product C aging co-publication. Supply Product B transgender outcomes data for Lancet HIV.", synopsis: "Dr. Judith Aberg is a Global Expert in HIV treatment and prevention at NewYork-Presbyterian, managing 480 patients with a 95% adherence rate. As Protocol Chair for ACTG A5321 and a leading authority on HIV aging and comorbidities, she represents the highest tier of scientific partnership in the portfolio. Her most recent February 5 interaction surfaced a co-publication opportunity on Product C dosing in elderly patients and a concrete CROI 2025 keynote preparation timeline. She engages as a scientific peer and responds best to data-driven, collaborative proposals." },
         post: { ov: "Confirmed CROI 2025 keynote speaker with explicit Product A citation planned. NEJM paper on HIV aging accepted Feb 28 — highest-priority scientific engagement in the regional portfolio.", co: "Now 13 publications including newly accepted NEJM paper on HIV aging. Confirmed CROI 2025 keynote on long-acting ART — Product A data citation planned.", ra: "February 28 (MOST RECENT): NEJM paper on HIV aging accepted. February 22: CROI 2025 keynote confirmed with explicit Product A citation. Both create immediate time-sensitive action items.", af: "NewYork-Presbyterian, Weill Cornell, NIH/ACTG Protocol Chair. CROI 2025 keynote speaker — highest-visibility engagement opportunity in the HIV field this cycle.", ns: "URGENT: Finalise Product A data package for CROI keynote by March 1. Congratulate on NEJM acceptance. Advance Product C co-publication proposal.", synopsis: "Dr. Judith Aberg has confirmed her CROI 2025 keynote and will explicitly cite Product A long-acting injectable data — making her the highest-priority scientific engagement in the regional portfolio. Her newly accepted NEJM paper on HIV aging further cements her national authority on this topic. The compound effect of keynote plus NEJM publication creates a window of scientific influence that will define HIV aging conversations for the next 12–18 months. Product A data must be in her hands before March 1." }
       },
       rg: {
-        name: "Roy Gulick, MD", ini: "RG", av: "av-rg", spec: "Infectious Disease", subspec: "HIV-MDR / Salvage Therapy", inst: "Mount Sinai Hospital", msl: "John Doe", ee: "Yes", seg: "Agree", tEx: "Global Expert", pEx: "None", yrs: 31, addr: "1 Gustave L. Levy Pl, New York, NY 10029", gauges: [{ l: "Product A", stage: "advocate" }, { l: "Product B", stage: "adopt" }, { l: "Product C", stage: "adopt" }], sci: { pubs: 9, trials: 7, confs: 5 }, ra: { type: "Publication", date: "01.10.2025", txt: "Extensive Cervical Lesion and Treatment Outcomes in HIV+ Women" }, pt: [{ l: "HIV", v: 79, c: "f-blue" }, { l: "PrEP", v: 14, c: "f-teal" }, { l: "HIV-MDR", v: 7, c: "f-red" }], roles: { a: "Investigator", b: "Speaker", c: "None", pb: "None" }, cps: [{ p: "Product A", c: 5, pr: 4, t: "up" }, { p: "Product B", c: 3, pr: 3, t: "sm" }, { p: "Product C", c: 4, pr: 4, t: "sm" }, { p: "Product D", c: 5, pr: 3, t: "up" }], tInfo: { pre: "Data up to Jan 28, 2025", post: "Updated — trial milestone + JAIDS submission + grand rounds Product D mention (Feb 2025)" }, acctCID: "va",
+        name: "Roy Gulick, MD", ini: "RG", av: "av-rg", spec: "Infectious Disease", subspec: "HIV-MDR / Salvage Therapy", inst: "Mount Sinai Hospital", msl: "John Doe", ee: "Yes", seg: "Agree", tEx: "Global Expert", pEx: "None", yrs: 31, addr: "1 Gustave L. Levy Pl, New York, NY 10029", gauges: [{ l: "Product A", stage: "advocate" }, { l: "Product B", stage: "adopt" }, { l: "Product C", stage: "adopt" }], sci: { pubs: 9, trials: 7, confs: 5 }, sciData: RG_SCI_DATA, ra: { type: "Publication", date: "01.10.2025", txt: "Extensive Cervical Lesion and Treatment Outcomes in HIV+ Women" }, pt: [{ l: "HIV", v: 79, c: "f-blue" }, { l: "PrEP", v: 14, c: "f-teal" }, { l: "HIV-MDR", v: 7, c: "f-red" }], patientData: RG_PT_DATA, roles: { a: "Investigator", b: "Speaker", c: "None", pb: "None" }, cps: [{ p: "Product A", c: 5, pr: 4, t: "up" }, { p: "Product B", c: 3, pr: 3, t: "sm" }, { p: "Product C", c: 4, pr: 4, t: "sm" }, { p: "Product D", c: 5, pr: 3, t: "up" }], tInfo: { pre: "Data up to Jan 28, 2025", post: "Updated — trial milestone + JAIDS submission + grand rounds Product D mention (Feb 2025)" }, acctCID: "va",
         pre: { ov: "Global Expert in HIV treatment at Mount Sinai, managing 280 patients including ~20 HIV-MDR cases. PI on INSIGHT START extension trial. Leading authority on antiretroviral resistance and salvage therapy.", co: "Published 9 high-impact papers including JAIDS dolutegravir meta-analyses. PI on INSIGHT START and CABENUVA dosing studies. Moderated MDR panel at EACS 2024.", ra: "January 28 (MOST RECENT): strong interest in Product D for HIV-MDR patients — requested clinical case studies specifically for his February grand rounds presentation at Mount Sinai.", af: "Affiliated with Mount Sinai and Cornell. PI on two active NIH-sponsored trials. Vocal advocate for earlier resistance testing and Product D in salvage therapy protocols.", ns: "Send Product D resistance data and MDR case studies for grand rounds. Follow up on INSIGHT START sensitivity analysis. Explore compassionate use for specific MDR patient.", synopsis: "Dr. Roy Gulick is a Global Expert in HIV treatment at Mount Sinai managing 280 patients including approximately 20 complex HIV-MDR cases. As PI on INSIGHT START and the most authoritative voice in the MDR segment, his engagement pattern is that of a scientist who needs to be convinced on his own terms — and his January 28 request for Product D case studies for grand rounds signals he is now crossing from conviction to advocacy. The February presentation represents a near-term opportunity to establish Product D as the institutional standard of care for salvage therapy at Mount Sinai." },
         post: { ov: "February grand rounds included explicit positive Product D mention before full Mount Sinai HIV faculty. MDR case series submitted to JAIDS Feb 20. INSIGHT START reached 500-patient enrollment — Mount Sinai is now the largest enrolling site.", co: "Now 10 publications with MDR case series submitted to JAIDS (Q2 2025 expected). INSIGHT START 500-patient milestone — largest single-site contribution in the trial.", ra: "February 20 (MOST RECENT): MDR case series submitted to JAIDS. February 15: INSIGHT START 500-patient milestone. February 14: grand rounds explicit Product D mention before full Mount Sinai HIV faculty.", af: "Mount Sinai is now the largest enrolling INSIGHT START site. Dr. Gulick's Product D advocacy at grand rounds creates downstream influence across the entire Mount Sinai HIV faculty.", ns: "Congratulate on INSIGHT START milestone and JAIDS submission. Request pre-publication review. Plan faculty-level engagement with full Mount Sinai HIV team.", synopsis: "Dr. Roy Gulick's February grand rounds featured an explicit positive Product D mention before the entire Mount Sinai HIV faculty — transforming a one-on-one clinical relationship into institutional advocacy. His MDR case series submission to JAIDS and the INSIGHT START 500-patient enrollment milestone signal accelerating scientific momentum across all fronts simultaneously. The downstream effect of the grand rounds mention makes the entire Mount Sinai HIV faculty a secondary engagement target, warranting a team-level plan alongside the individual relationship." }
       }
     };
+
+    function syncScientificTotals() {
+      Object.values(HCPS).forEach(hcp => {
+        const s = hcp.sciData;
+        if (!s || !hcp.sci) return;
+        hcp.sci.trials = Object.values(s.trialsByPhase || {}).reduce((sum, value) => sum + value, 0);
+        hcp.sci.pubs = (s.pubsByYear || []).reduce((sum, item) => sum + item.n, 0);
+        hcp.sci.confs = (s.congressByMonth || []).reduce((sum, item) => sum + item.n, 0);
+      });
+    }
+    syncScientificTotals();
 
     const ACCT_VA = {
       name: "VA New York Harbor Healthcare System Manhattan Campus",
@@ -3523,9 +4050,134 @@
     const JOURNEY_STAGE_INDEX = Object.fromEntries(
       JOURNEY_STAGES.map((stage, index) => [stage.key, index])
     );
+    const SPEAKER_ROLE_DETAILS = {
+      plenary: 'Leading-authority lecture for broad congress audience; CROI describes plenaries as epidemiologic, clinical, and basic-science presentations by field leaders.',
+      symposiumChair: 'Chairs or moderates a multi-speaker symposium, keeping state-of-the-art talks and group discussion focused.',
+      invitedSpeaker: 'Invited faculty role for a state-of-the-art overview, workshop, lecture, or symposium presentation.',
+      oral: 'Peer-reviewed oral abstract presenter; CROI oral sessions feature research talks with expert-moderated Q&A.',
+      poster: 'Poster presenter; displays study findings and discusses questions with attendees during assigned poster sessions.',
+      moderator: 'Session moderator; introduces presenters, manages time, and facilitates audience Q&A.'
+    };
+
+    const publicationTooltipState = { el: null, hideTimer: null, hover: false };
+
+    function clearPublicationTooltipTimer() {
+      if (publicationTooltipState.hideTimer) {
+        clearTimeout(publicationTooltipState.hideTimer);
+        publicationTooltipState.hideTimer = null;
+      }
+    }
+
+    function hidePublicationTooltip() {
+      clearPublicationTooltipTimer();
+      const el = publicationTooltipState.el;
+      if (!el) return;
+      el.classList.remove('visible');
+      setTimeout(() => {
+        if (!el.classList.contains('visible')) el.innerHTML = '';
+      }, 140);
+    }
+
+    function schedulePublicationTooltipHide(delay = 2500) {
+      clearPublicationTooltipTimer();
+      publicationTooltipState.hideTimer = setTimeout(() => {
+        if (!publicationTooltipState.hover) hidePublicationTooltip();
+      }, delay);
+    }
+
+    function getPublicationTooltip() {
+      if (publicationTooltipState.el) return publicationTooltipState.el;
+      const el = document.createElement('div');
+      el.className = 'publication-tooltip';
+      el.setAttribute('role', 'tooltip');
+      el.addEventListener('mouseenter', () => {
+        publicationTooltipState.hover = true;
+        clearPublicationTooltipTimer();
+      });
+      el.addEventListener('mouseleave', () => {
+        publicationTooltipState.hover = false;
+        schedulePublicationTooltipHide();
+      });
+      document.body.appendChild(el);
+      publicationTooltipState.el = el;
+      return el;
+    }
+
+    function escapeTooltipHTML(value) {
+      return String(value ?? '').replace(/[&<>"']/g, ch => ({
+        '&': '&amp;',
+        '<': '&lt;',
+        '>': '&gt;',
+        '"': '&quot;',
+        "'": '&#39;'
+      }[ch]));
+    }
+
+    function positionPublicationTooltip(el, chart, tooltip) {
+      const rect = chart.canvas.getBoundingClientRect();
+      const margin = 12;
+      const offset = 14;
+      const width = el.offsetWidth || 360;
+      const height = el.offsetHeight || 240;
+      let left = rect.left + tooltip.caretX + offset;
+      let top = rect.top + tooltip.caretY + offset;
+
+      if (left + width + margin > window.innerWidth) {
+        left = rect.left + tooltip.caretX - width - offset;
+      }
+      if (top + height + margin > window.innerHeight) {
+        top = window.innerHeight - height - margin;
+      }
+
+      left = Math.max(margin, Math.min(left, window.innerWidth - width - margin));
+      top = Math.max(margin, top);
+      el.style.left = `${left}px`;
+      el.style.top = `${top}px`;
+    }
+
+    function renderPublicationTooltip(context, detailsByYear) {
+      const { chart, tooltip } = context;
+      if (!tooltip || tooltip.opacity === 0) {
+        schedulePublicationTooltipHide();
+        return;
+      }
+
+      const point = tooltip.dataPoints && tooltip.dataPoints[0];
+      if (!point) {
+        schedulePublicationTooltipHide();
+        return;
+      }
+
+      clearPublicationTooltipTimer();
+      const el = getPublicationTooltip();
+      const year = point.label;
+      const count = point.formattedValue || point.raw || 0;
+      const details = detailsByYear[year] || [];
+      const detailHTML = details.length
+        ? details.map((d, index) => `
+            <div class="publication-tooltip-section">
+              <div class="publication-tooltip-pub-title">${index + 1}. ${escapeTooltipHTML(d.title)}</div>
+              <div class="publication-tooltip-meta"><span>Date</span> ${escapeTooltipHTML(d.date)}</div>
+              <div class="publication-tooltip-meta"><span>Conference</span> ${escapeTooltipHTML(d.conference)}</div>
+              <div class="publication-tooltip-meta"><span>Place</span> ${escapeTooltipHTML(d.place)}</div>
+            </div>
+          `).join('')
+        : '<div class="publication-tooltip-section">No publication detail records available for this year.</div>';
+
+      el.innerHTML = `
+        <div class="publication-tooltip-title">Publication details - ${escapeTooltipHTML(year)}</div>
+        <div class="publication-tooltip-summary">Publications: ${escapeTooltipHTML(count)}</div>
+        ${detailHTML}
+      `;
+      el.classList.add('visible');
+      positionPublicationTooltip(el, chart, tooltip);
+    }
 
     function safeChart(id, config) {
-      if (chartRegistry[id]) { chartRegistry[id].destroy(); }
+      if (chartRegistry[id]) {
+        if (id === 'publicationDist') hidePublicationTooltip();
+        chartRegistry[id].destroy();
+      }
       const el = document.getElementById(id);
       if (!el) return;
       chartRegistry[id] = new Chart(el, config);
@@ -3812,20 +4464,45 @@
       ]
     };
 
+    /* TIMOTHY_PATIENT_INSIGHTS — hand-tuned override for TW. Every number traces back
+       to TW_PT_DATA: panel 550 / HIV TX 352 / PrEP 198 / MDR 0; ages skewed 25-49 (319 of 550 = 58%);
+       80% male; Black 35 + Hispanic 35 = 70%; INSTI 65% / LAI 12%; Medicaid 40% / ADAP 15% = 55% access-risk;
+       adherence high 75% (90% threshold = high+medium = 93%, matches narrative). */
     const TIMOTHY_PATIENT_INSIGHTS = {
       title: 'PATIENT INSIGHTS ✦',
       blocks: [
         {
-          type: 'metrics', items: [
-            { lbl: 'HIV Core', val: '~140' },
-            { lbl: 'PrEP', val: '~70' },
-            { lbl: 'MDR', val: '~20' }
+          type: 'kpi', cols: 4, items: [
+            { lbl: 'Panel Size', val: 550, color: 'var(--blue)', sub: '352 HIV · 198 PrEP' },
+            { lbl: 'LAI Uptake', val: '12%', color: '#1a7a4a', sub: '~42 of 352 HIV TX' },
+            { lbl: 'Medicaid + ADAP', val: '55%', color: 'var(--red)', sub: '~302 access-restricted' },
+            { lbl: 'Peak Age', val: '35–49', color: '#0D1B2A', sub: '187 patients (34%)' }
           ]
         },
-        { type: 'item', icon: '👥', heading: 'Demographic Profile', text: 'The patient base is predominantly male and skews notably young, with the largest segment falling in the <strong>19–40 age bracket</strong> (~95 patients). Ethnically, the population is heavily concentrated in <strong>Hispanic</strong> and <strong>Black/AA</strong> demographics.' },
-        { type: 'card', accent: 'blue', icon: '💉', lbl: 'Long-Acting Suitability', txt: "The high concentration of younger patients (19–40) often correlates with transient lifestyles and adherence challenges. This profile makes this HCP's practice a prime target for positioning <strong>long-acting injectable therapies</strong> as a structural solution to treatment dropout." },
-        { type: 'card', accent: 'navy', icon: '🛡️', lbl: 'Prevention Growth Opportunity', txt: 'Given the high-risk demographic indicators (young, male, minority), the current PrEP volume (~70) represents a solid foundation but also a significant growth opportunity. Focus engagement on expanding preventative coverage within their existing community network.' },
-        { type: 'card', accent: 'red', icon: '⚠️', lbl: 'Salvage Therapy Capability', txt: "The presence of a distinct <strong>HIV-MDR (Multi-Drug Resistant)</strong> cohort (~20 patients) is a critical flag. It indicates this HCP handles complex, advanced cases and will be highly receptive to deep-dive clinical data on resistance profiles, mechanisms of action, and new salvage therapies." }
+        {
+          type: 'card', accent: 'blue', icon: '👥', lbl: 'Patient count by indication',
+          txt: '<strong>352 HIV TX, 198 PrEP, 0 MDR</strong>. <em>Why it matters:</em> Zero MDR confirms TW is not a salvage-therapy voice — do not push resistance data. The 64/36 HIV/PrEP balance is unusually PrEP-heavy for an academic ID practice, reflecting his VA Manhattan PrEP focus and PrEP-Adherence Phase 2 PI candidacy. <em>Next step:</em> Pair every HIV TX delivery with a matching PrEP deliverable; the 36% PrEP share earns equal MSL airtime.'
+        },
+        {
+          type: 'card', accent: 'navy', icon: '📊', lbl: 'Patient count by Age',
+          txt: 'Peak band <strong>35–49 (187 patients, 34%)</strong>; 30% panel is 50+; 12% is 18–24. <em>Why it matters:</em> The 18–24 cohort (66 patients) is the dropout-risk subset he has flagged across 3 meetings — and the structural rationale for his Feb 10 Product B pivot. The 35–49 plurality is the LAI conversion target: stable but tired of monthly dosing. <em>Next step:</em> Frame the Product B 2-month interval first as a structural fix for the 66 young-patient dropout risk, then as a quality-of-life upgrade for the 187-patient 35–49 cohort.'
+        },
+        {
+          type: 'card', accent: 'red', icon: '⚧️', lbl: 'Patient count by Gender at birth',
+          txt: '<strong>80% Male, 18% Female, 2% Other</strong>. <em>Why it matters:</em> Male-dominant panel matches NYC MSM-driven epidemiology — PrEP outreach and HIV TX positioning concentrate in the same demographic, reinforcing rather than splitting the engagement strategy. The 18% female cohort (≈99 patients) still warrants pregnancy/contraception drug-interaction awareness. <em>Next step:</em> Standard MSM-focused content is appropriate; supply pregnancy-registry one-pager as a "have it ready" resource.'
+        },
+        {
+          type: 'card', accent: 'navy', icon: '🌐', lbl: 'Count by Race & Ethnicity',
+          txt: '<strong>Black/AA 35%, Hispanic/Latino 35%, White 25%, Asian/Pacific 3%, Other 2%</strong>. <em>Why it matters:</em> Combined Black + Hispanic share of <strong>70%</strong> mirrors the NYC HIV epidemic — and exactly matches the under-represented populations in most Phase III HIV trials. This practice is a high-value RWE generation site. <em>Next step:</em> Surface community-trial recruitment opportunities and race/ethnicity-stratified subgroup analyses; co-position the Phase 2 PrEP-Adherence trial as a representativeness improvement, not just an enrolment ask.'
+        },
+        {
+          type: 'card', accent: 'blue', icon: '💊', lbl: 'Treatment Regimen Class',
+          txt: '<strong>INSTI 65%, LAI 12%, Combination 10%, NNRTI 8%, PI 5%</strong>. <em>Why it matters:</em> 65% INSTI dominance validates his stated 5/5 Product A confidence — efficacy is solved. 12% LAI uptake (≈42 of 352 HIV TX) is the growth runway, not a saturation. Low PI (5%) confirms no MDR/salvage practice. <em>Next step:</em> Treat LAI uptake as the primary growth lever — lead with Product B 2-month real-world adherence data, payer pathway support, and clinic operations playbook (injection scheduling, missed-dose protocols) ahead of any new clinical conversation.'
+        },
+        {
+          type: 'card', accent: 'red', icon: '🏛️', lbl: 'Payer Mix',
+          txt: '<strong>Medicaid 40%, Commercial 35%, ADAP+Other 15%, Medicare 10%</strong>. Combined Medicaid + ADAP = <strong>55%</strong> (~302 patients). <em>Why it matters:</em> This is the silent veto behind his Feb 10 Product A deprioritisation. Medicaid prior auth on Product A blocks ~220 patients regardless of his 5/5 clinical preference. ADAP rules add another ~83. <em>Next step:</em> Lead every product conversation with a market-access pre-brief — connect a specialty pharmacy partner and Medicaid prior-auth navigation team before pushing any new clinical data drop. Clinical efficacy alone will not move TW until the access wall is opened.'
+        }
       ]
     };
 
@@ -3844,22 +4521,269 @@
       ]
     };
 
+    /* TIMOTHY_SCIENTIFIC_INSIGHTS — hand-tuned override for TW. Every number traces
+       back to TW_SCI_DATA: trials=8 (Phase III=4, HIV_TX=3, PrEP=3, Product A=4),
+       pubs=7 (rising 2021→2024 then dipped to 1 in 2025; Original=3, Review=2),
+       confs=6 (CROI/IAS/IDWeek/Glasgow/Jun/Dec), regions NYC=3 of 6 = 50%,
+       roles invited-tier (plenary+chair+invited) = 3 of 6 = 50%. */
     const TIMOTHY_SCIENTIFIC_INSIGHTS = {
       title: 'SCIENTIFIC & CLINICAL INSIGHTS ✦',
       blocks: [
         {
-          type: 'metrics', items: [
-            { lbl: 'PrEP Publications', val: '~120' },
-            { lbl: 'Speaker Rate', val: '~60%' },
-            { lbl: 'Primary Area', val: 'Infectious' }
+          type: 'kpi', cols: 4, items: [
+            { lbl: 'PrEP Trials', val: 3, color: 'var(--blue)', sub: 'of 8 active' },
+            { lbl: 'Invited Rate', val: '50%', color: '#0D1B2A', sub: 'plenary + chair + invited' },
+            { lbl: 'NYC Share', val: '50%', color: 'var(--red)', sub: 'speaking footprint' },
+            { lbl: 'Top Indication', val: 'HIV TX', color: '#1a7a4a', sub: 'tied with PrEP' }
           ]
         },
-        { type: 'item', icon: '🔬', heading: 'Clinical Trial Footprint', text: 'The HCP maintains a steady trial volume (averaging ~13-14 active trials per month), broadly distributed across Infectious, Prophylactic, Vaccines, and Cardio areas. <strong>Product A</strong> currently holds the dominant share of their clinical trial product distribution.' },
-        { type: 'card', accent: 'blue', icon: '📄', lbl: 'Publication Strategy Pivot', txt: 'There is a massive skew toward <strong>PrEP publications (~120)</strong> compared to core HIV (~70). This strongly indicates that their academic and research priorities have shifted heavily toward prevention strategies rather than strictly salvage or maintenance treatment.' },
-        { type: 'card', accent: 'navy', icon: '🎤', lbl: 'High-Value Congress Influence', txt: 'Conference attendance shows strong bi-annual peaks (September and January). More importantly, the HCP commands a <strong>Speaker position in ~60%</strong> of their congress appearances, acting as a primary voice and key opinion leader rather than just an attendee.' },
-        { type: 'card', accent: 'red', icon: '🌍', lbl: 'Consistent National Reach', txt: 'Regional engagement is incredibly balanced across major hubs (Hollywood, Phoenix, Palo Alto, Springfield, Waltham). This balanced distribution proves their scientific influence is actively leveraged on a national scale, rather than being localized to a single region.' }
+        {
+          type: 'card', accent: 'blue', icon: '🧪', lbl: 'Phase III–Heavy Trial Footprint',
+          txt: '<strong>4 of 8 active trials are Phase III</strong> (1 Phase I, 2 Phase II, 1 Phase IV). <em>Why it matters:</em> Late-stage dominance signals near-term label-relevant data — this is exactly the phase where MSL data exchange most directly influences guideline positioning. <em>Next step:</em> Confirm IAS 2025 abstract scope against the Phase III readout calendar so ATLAS-2M data lands ahead of his slide-deck deadline.'
+        },
+        {
+          type: 'card', accent: 'navy', icon: '🎯', lbl: 'HIV-TX / PrEP Balance, No MDR',
+          txt: 'Indication mix: <strong>3 HIV TX, 3 PrEP, 1 Comorbid, 1 Vaccine, 0 MDR</strong>. <em>Why it matters:</em> The 50/50 TX-vs-PrEP split — not a "pivot to PrEP" — is the real signal. The MDR zero confirms TW is not a salvage-therapy voice; do not push resistance data here. <em>Next step:</em> Pair every PrEP delivery (long-acting injectable, adherence) with a matching TX deliverable to honour both halves of his portfolio.'
+        },
+        {
+          type: 'card', accent: 'red', icon: '💊', lbl: 'Product A Leads Trial Involvement',
+          txt: '<strong>Product A: 4 trials, Product B: 3, Product C: 1, Product D: 0</strong>. <em>Why it matters:</em> Product A trial concentration validates his 5/5 CPS — investigators advocate what they study. The Product B underweight (3 trials despite the Feb 10 pivot) is the structural gap MSL can close. <em>Next step:</em> Surface a Product B Phase III sub-study or Investigator-Initiated Study opportunity so his prescribing pivot is matched by trial involvement.'
+        },
+        {
+          type: 'card', accent: 'blue', icon: '📈', lbl: '5-Yr Pub Output: Plateau, Not Decline',
+          txt: 'Year-over-year: <strong>1 → 1 → 2 → 2 → 1</strong> (sum 7). <em>Why it matters:</em> 2025 dipped because his time has shifted into trial enrolment and grand rounds — not capacity loss. The Lancet PrEP adherence paper anchors the 2024 peak. <em>Next step:</em> Offer co-author or data-supplement support on the UCSF injectable ART manuscript to push 2025 back to a 2-pub year.'
+        },
+        {
+          type: 'card', accent: 'navy', icon: '📚', lbl: 'Original-Research Heavy Authorship',
+          txt: '<strong>3 Original Research, 2 Review, 1 Editorial, 1 Case Report</strong>. <em>Why it matters:</em> Original-research dominance flags TW as a data generator, not a synthesiser. He responds to RWE and trial-level analyses, not landscape briefs. <em>Next step:</em> Lead with unpublished BMI-stratified ATLAS-2M data and Phase 2 PrEP enrolment analyses; deprioritise review-style content.'
+        },
+        {
+          type: 'card', accent: 'red', icon: '🎤', lbl: 'Congress Cadence: HIV Calendar Aligned',
+          txt: '6 congresses across <strong>CROI (Mar), Jun, IAS (Jul), IDWeek (Oct), Glasgow (Nov), Dec</strong>. <em>Why it matters:</em> Every peak aligns to a real HIV congress — this is a faculty-tier cadence, not casual attendance. The pre-CROI window (Jan–Feb) is the highest-leverage data drop point. <em>Next step:</em> Lock in pre-CROI data delivery by Feb 14 and pre-Glasgow by Oct 10 — these are the abstract-build windows.'
+        },
+        {
+          type: 'card', accent: 'blue', icon: '🌐', lbl: 'NYC Anchored, Northeast Reach',
+          txt: 'Speaking footprint: <strong>NYC 3, Boston 1, Philadelphia 1, DC 1, Atlanta 0</strong>. <em>Why it matters:</em> 50% NYC isn\'t a ceiling — it reflects VA Manhattan gravity and a deliberate Northeast-corridor presence. The Atlanta zero is the only meaningful gap. <em>Next step:</em> Co-sponsor a Southeast HIV symposium invitation (Atlanta SHIVE or IDWeek satellite) to convert his national authority into a 5-region footprint.'
+        },
+        {
+          type: 'card', accent: 'navy', icon: '🏆', lbl: '50% Invited-Tier Rate',
+          txt: 'Speaking roles: <strong>0 Plenary, 1 Symposium Chair, 2 Invited, 2 Oral, 1 Poster, 0 Moderator</strong>. <em>Why it matters:</em> Invited-tier rate (Plenary+Chair+Invited / total) of 50% is mid-Tier-1 — strong but with headroom to grow into Plenary. <em>Next step:</em> Position TW for a CROI 2026 plenary slot via the ATLAS-2M Phase III readout; pair with a steering-committee role on a Phase 4 RWE study to harden the plenary case.'
+        }
       ]
     };
+
+    /* sciSeries — safe accessor returning the active HCP's sciData with zero-filled
+       defaults if the field is missing. Used by both renderScientificCharts() and
+       drawerConfig() so charts and drawer callouts cite the same underlying numbers. */
+    function sciSeries(h) {
+      const empty = {
+        trialsByPhase:      { I: 0, II: 0, III: 0, IV: 0 },
+        trialsByIndication: { HIV_TX: 0, PrEP: 0, HIV_MDR: 0, Comorbid: 0, Vaccine: 0 },
+        trialsByProduct:    { A: 0, B: 0, C: 0, D: 0 },
+        pubsByYear:         [],
+        publicationDetailsByYear: {},
+        pubsByType:         { original: 0, review: 0, editorial: 0, letter: 0, caseReport: 0, abstract: 0 },
+        congressByMonth:    [],
+        regionShare:        [],
+        speakerRoleMix:     { plenary: 0, symposiumChair: 0, invitedSpeaker: 0, oral: 0, poster: 0, moderator: 0 }
+      };
+      return (h && h.sciData) || empty;
+    }
+
+    /* sciDerived — small derived metrics MSL drawer callouts can cite without
+       hard-coding numbers. Keeps numeric claims in lock-step with `sciData`. */
+    function sciDerived(h) {
+      const s = sciSeries(h);
+      const tIndic = s.trialsByIndication;
+      const indicLabels = { HIV_TX: 'HIV Treatment', PrEP: 'PrEP', HIV_MDR: 'HIV-MDR', Comorbid: 'HIV + Comorbidities', Vaccine: 'Vaccine' };
+      const topIndicKey = Object.keys(tIndic).reduce((a, b) => tIndic[b] > tIndic[a] ? b : a, 'HIV_TX');
+      const totalTrials = Object.values(tIndic).reduce((a, b) => a + b, 0);
+      const hivShare = totalTrials > 0 ? Math.round(((tIndic.HIV_TX + tIndic.PrEP + tIndic.HIV_MDR + tIndic.Comorbid) / totalTrials) * 100) : 0;
+      const speak = s.speakerRoleMix;
+      const totalSpeak = Object.values(speak).reduce((a, b) => a + b, 0);
+      const invitedRate = totalSpeak > 0 ? Math.round(((speak.plenary + speak.symposiumChair + speak.invitedSpeaker) / totalSpeak) * 100) : 0;
+      const region = s.regionShare;
+      const totalRegion = region.reduce((a, b) => a + b.n, 0);
+      const nyc = region.find(r => r.r === 'NYC');
+      const nycShare = (nyc && totalRegion > 0) ? Math.round((nyc.n / totalRegion) * 100) : 0;
+      const pby = s.pubsByYear;
+      const last = pby[pby.length - 1] && pby[pby.length - 1].n;
+      const prev = pby[pby.length - 2] && pby[pby.length - 2].n;
+      const pubTrend = (last == null || prev == null) ? 'flat' : (last > prev ? 'rising' : last < prev ? 'declining' : 'flat');
+      const phaseIII = s.trialsByPhase.III || 0;
+      return { topIndicKey, topIndicLabel: indicLabels[topIndicKey], hivShare, invitedRate, totalSpeak, nycShare, pubTrend, phaseIII, totalTrials };
+    }
+
+    /* ptSeries — safe accessor returning the active HCP's patientData with zero-filled
+       defaults if the field is missing. Used by both renderPatientCharts() and the
+       Patient drawer so chart values and callout text stay in sync. */
+    function ptSeries(h) {
+      const empty = {
+        panelSize: 0,
+        mixByIndication: { HIV_TX: 0, PrEP: 0, HIV_MDR: 0 },
+        ageBands: [{ b: '18-24', n: 0 }, { b: '25-34', n: 0 }, { b: '35-49', n: 0 }, { b: '50-64', n: 0 }, { b: '65+', n: 0 }],
+        sexAtBirth: { male: 0, female: 0, other: 0 },
+        raceEthnicity: { black: 0, hispanic: 0, white: 0, asianPacific: 0, other: 0 },
+        regimenClass: { insti: 0, longActing: 0, nnrti: 0, pi: 0, combination: 0 },
+        payerMix: { medicaid: 0, medicare: 0, commercial: 0, adapOther: 0 },
+        adherence: { high: 0, medium: 0, low: 0 }
+      };
+      return (h && h.patientData) || empty;
+    }
+
+    /* ptDerived — small derived metrics for Patient drawer callouts. Keeps numeric
+       claims in lock-step with patientData. */
+    function ptDerived(h) {
+      const p = ptSeries(h);
+      const mix = p.mixByIndication;
+      const totalMix = mix.HIV_TX + mix.PrEP + mix.HIV_MDR;
+      const hivPct = totalMix > 0 ? Math.round((mix.HIV_TX / totalMix) * 100) : 0;
+      const prepPct = totalMix > 0 ? Math.round((mix.PrEP / totalMix) * 100) : 0;
+      const mdrPct = totalMix > 0 ? Math.round((mix.HIV_MDR / totalMix) * 100) : 0;
+      const reg = p.regimenClass;
+      const regimenEntries = Object.entries(reg).sort((a, b) => b[1] - a[1]);
+      const topRegimenKey = regimenEntries[0] ? regimenEntries[0][0] : 'insti';
+      const regimenLabels = { insti: 'INSTI', longActing: 'Long-Acting', nnrti: 'NNRTI', pi: 'PI', combination: 'Combination' };
+      const lai = reg.longActing || 0;
+      const piShare = reg.pi || 0;
+      const payer = p.payerMix;
+      const medicaidPlusAdap = (payer.medicaid || 0) + (payer.adapOther || 0);
+      const accessRisk = medicaidPlusAdap > 50;
+      const re = p.raceEthnicity;
+      const reEntries = Object.entries(re).sort((a, b) => b[1] - a[1]);
+      const topRaceKey = reEntries[0] ? reEntries[0][0] : 'black';
+      const raceLabels = { black: 'Black/AA', hispanic: 'Hispanic/Latino', white: 'White', asianPacific: 'Asian/Pacific Islander', other: 'Other' };
+      const ageEntries = (p.ageBands || []).slice().sort((a, b) => b.n - a.n);
+      const peakAgeBand = ageEntries[0] ? ageEntries[0].b : '—';
+      const olderShare = (p.ageBands || []).filter(a => a.b === '50-64' || a.b === '65+').reduce((s, a) => s + a.n, 0);
+      const olderPct = p.panelSize > 0 ? Math.round((olderShare / p.panelSize) * 100) : 0;
+      const female = p.sexAtBirth.female || 0;
+      const adherenceHigh = p.adherence.high || 0;
+      return {
+        totalMix, hivPct, prepPct, mdrPct,
+        topRegimenKey, topRegimenLabel: regimenLabels[topRegimenKey],
+        lai, piShare,
+        medicaidPlusAdap, accessRisk,
+        topRaceKey, topRaceLabel: raceLabels[topRaceKey],
+        peakAgeBand, olderPct,
+        female, adherenceHigh
+      };
+    }
+
+    /* patientDrawerBlocks — 6 per-chart MSL callouts (Pattern → Cause → Action) +
+       4-tile KPI strip (Panel / HIV TX % / LAI uptake / Medicaid share). All numbers
+       derived from patientData via ptDerived(h). Generic template — works for any HCP. */
+    function patientDrawerBlocks(h) {
+      const p = ptSeries(h);
+      const d = ptDerived(h);
+      const firstName = (h.name || '').split(' ')[0];
+      const subspec = h.subspec || 'HIV';
+      const peakAge = d.peakAgeBand;
+      const youngerLeaning = peakAge === '18-24' || peakAge === '25-34';
+      const olderLeaning = peakAge === '50-64' || peakAge === '65+';
+      const pay = p.payerMix;
+
+      return [
+        {
+          type: 'kpi', cols: 4, items: [
+            { lbl: 'Panel Size', val: p.panelSize, color: 'var(--blue)', sub: 'total patients' },
+            { lbl: 'HIV TX', val: d.hivPct + '%', color: '#0D1B2A', sub: `${p.mixByIndication.HIV_TX} patients` },
+            { lbl: 'LAI Uptake', val: d.lai + '%', color: '#1a7a4a', sub: 'of HIV TX cohort' },
+            { lbl: 'Medicaid', val: pay.medicaid + '%', color: 'var(--red)', sub: 'of panel' }
+          ]
+        },
+        {
+          type: 'card', accent: 'blue', icon: '👥', lbl: 'Patient count by indication',
+          txt: `${p.mixByIndication.HIV_TX} HIV TX (${d.hivPct}%), ${p.mixByIndication.PrEP} PrEP (${d.prepPct}%), ${p.mixByIndication.HIV_MDR} MDR (${d.mdrPct}%). <em>Why it matters:</em> The TX/PrEP/MDR balance defines what content lands — a PrEP-leaning practice rejects salvage data, an MDR practice rejects prevention messaging. <em>Action:</em> ${d.mdrPct >= 5 ? 'Carry resistance + salvage data into every visit; this is a salvage-capable practice.' : d.prepPct >= 30 ? 'Lead with PrEP adherence and Long-Acting injectable PrEP data; treat HIV TX content as secondary.' : 'Treat as classical HIV TX practice — lead with regimen optimisation and switching data.'}`
+        },
+        {
+          type: 'card', accent: 'navy', icon: '📊', lbl: 'Patient count by Age',
+          txt: `Peak band <strong>${peakAge}</strong>; ${d.olderPct}% of panel is 50+. <em>Why it matters:</em> ${olderLeaning ? 'An older HIV cohort lives at the intersection of comorbidities, polypharmacy, and renal/CV risk — the regimen conversation is fundamentally about drug-drug interactions and end-organ safety.' : youngerLeaning ? 'A younger cohort skews adherence-challenged and transient — the regimen conversation is fundamentally about dosing convenience, not efficacy.'  : 'A middle-skewed cohort is mid-career, employed, often commercially insured — adherence baseline is high but switching inertia is also high.'} <em>Action:</em> ${olderLeaning ? 'Lead with comorbidity-stratified safety data (renal, hepatic, CV) and drug-interaction tables; defer LAI as front-line ask.' : youngerLeaning ? 'Lead with Long-Acting injectable adherence data and dosing-interval evidence; deprioritise pill-burden vs efficacy framing.' : 'Lead with switching-from-stable-regimen evidence; emphasise tolerability and quality-of-life endpoints.'}`
+        },
+        {
+          type: 'card', accent: 'red', icon: '⚧️', lbl: 'Patient count by Gender at birth',
+          txt: `Male <strong>${p.sexAtBirth.male}%</strong>, Female ${p.sexAtBirth.female}%, Other ${p.sexAtBirth.other}%. <em>Why it matters:</em> ${d.female >= 25 ? 'A female share above 25% means pregnancy, contraception, and breastfeeding drug-interactions are recurring clinical questions — and standard HIV trial data often under-represents women.' : 'A male-dominant panel (typical for MSM-driven HIV epidemiology) means PrEP outreach and Long-Acting positioning concentrate in the same demographic — reinforcing rather than splitting the engagement strategy.'} <em>Action:</em> ${d.female >= 25 ? 'Carry pregnancy registry data and women-stratified safety analyses into every visit; flag any new women-focused trial.' : 'Standard MSM-focused content stack is appropriate; no audience-specific re-segmentation needed.'}`
+        },
+        {
+          type: 'card', accent: 'navy', icon: '🌐', lbl: 'Count by Race & Ethnicity',
+          txt: `Top group <strong>${d.topRaceLabel}</strong>; combined Black/AA + Hispanic/Latino = <strong>${(p.raceEthnicity.black || 0) + (p.raceEthnicity.hispanic || 0)}%</strong>. <em>Why it matters:</em> The US HIV epidemic concentrates in Black and Hispanic/Latino communities — clinical trial enrolment historically under-represents both, leaving real-world evidence gaps the MSL can help fill. <em>Action:</em> Surface community-trial recruitment opportunities and any race/ethnicity-stratified subgroup analyses; this practice is a high-value RWE generation site.`
+        },
+        {
+          type: 'card', accent: 'blue', icon: '💊', lbl: 'Treatment Regimen Class',
+          txt: `Top class <strong>${d.topRegimenLabel}</strong>; LAI uptake <strong>${d.lai}%</strong>; PI share ${d.piShare}%. <em>Why it matters:</em> Regimen mix is the single best signal of prescribing posture. A high INSTI + low LAI mix means efficacy is solved but convenience isn't — the LAI growth runway. A high PI share signals MDR/salvage practice with different evidence needs. <em>Action:</em> ${d.lai < 10 ? 'Treat LAI uptake as the primary growth lever — lead with Long-Acting real-world adherence data, payer pathway support, and clinic operations playbook (administration scheduling, missed-dose protocols).' : d.piShare >= 15 ? 'Treat as MDR/salvage practice — lead with resistance profiles and protease inhibitor combination data.' : 'Maintain INSTI-lead messaging; layer LAI conversion data for stable patients on monthly therapy.'}`
+        },
+        {
+          type: 'card', accent: 'red', icon: '🏛️', lbl: 'Payer Mix',
+          txt: `Medicaid ${pay.medicaid}%, Medicare ${pay.medicare}%, Commercial ${pay.commercial}%, ADAP+Other ${pay.adapOther}%. Combined Medicaid+ADAP = <strong>${d.medicaidPlusAdap}%</strong>. <em>Why it matters:</em> Payer mix decides whether a clinical preference becomes a written prescription. Medicaid prior auth, formulary tiers, and ADAP rules are the silent veto on most HIV portfolios. <em>Action:</em> ${d.accessRisk ? 'Lead every product conversation with a market-access pre-brief — clinical efficacy alone will not move ' + firstName + '. Connect a market-access lead before pushing any new clinical data drop.' : 'Standard clinical-evidence sequencing is fine; access barriers are not the gating constraint here.'}`
+        }
+      ];
+    }
+
+    /* scientificDrawerBlocks — 8 per-chart MSL callouts (Pattern → Cause → Action),
+       plus a 4-tile metrics strip. Every numeric claim comes from sciData via sciDerived,
+       so changing the chart data automatically updates the callout text. Generic
+       template (works for any HCP); Timothy gets a hand-tuned override below. */
+    function scientificDrawerBlocks(h) {
+      const s = sciSeries(h);
+      const d = sciDerived(h);
+      const subspec = h.subspec || 'HIV';
+      const firstName = (h.name || '').split(' ')[0];
+      const ind = s.trialsByIndication;
+      const prod = s.trialsByProduct;
+      const productEntries = [['A', prod.A], ['B', prod.B], ['C', prod.C], ['D', prod.D]].filter(p => p[1] > 0).sort((a, b) => b[1] - a[1]);
+      const topProduct = productEntries.length ? `Product ${productEntries[0][0]} (${productEntries[0][1]} trials)` : '—';
+      const pby = s.pubsByYear;
+      const pubLast = pby.length ? pby[pby.length - 1].n : 0;
+      const pubFirst = pby.length ? pby[0].n : 0;
+      const pubDelta = pubLast - pubFirst;
+      const pt = s.pubsByType;
+      const sr = s.speakerRoleMix;
+      const reg = s.regionShare;
+      const otherRegion = reg.filter(r => r.r !== 'NYC').sort((a, b) => b.n - a.n)[0];
+
+      return [
+        {
+          type: 'kpi', cols: 4, items: [
+            { lbl: 'Pubs', val: h.sci.pubs, color: 'var(--blue)', sub: '5-yr peer-reviewed' },
+            { lbl: 'Trials', val: h.sci.trials, color: '#0D1B2A', sub: 'active' },
+            { lbl: 'Confs', val: h.sci.confs, color: 'var(--red)', sub: '12-mo' },
+            { lbl: 'Top Indication', val: d.topIndicLabel, color: '#1a7a4a', sub: `${d.hivShare}% HIV-related` }
+          ]
+        },
+        {
+          type: 'card', accent: 'blue', icon: '🧪', lbl: 'Active Clinical Trials by Phase',
+          txt: `${d.phaseIII} of ${d.totalTrials} active trials are <strong>Phase III</strong> — the late-stage majority. <em>Why it matters:</em> Phase III load signals near-term data readouts and label-relevant evidence generation. <em>Action:</em> Pre-brief ${firstName} on Phase III readout timelines and prioritise data-package handoffs ahead of CROI/IDWeek windows.`
+        },
+        {
+          type: 'card', accent: 'navy', icon: '🎯', lbl: 'Trials by Indication',
+          txt: `Trial portfolio is <strong>${d.hivShare}% HIV-related</strong> with <strong>${d.topIndicLabel}</strong> as the lead indication (${ind[d.topIndicKey]} trials). <em>Why it matters:</em> Indication concentration tells you where ${firstName}'s research credibility lives — match content to that lane. <em>Action:</em> Lead every scientific exchange with ${d.topIndicLabel} evidence; defer Vaccine/non-HIV asks unless explicitly requested.`
+        },
+        {
+          type: 'card', accent: 'red', icon: '💊', lbl: '# of trials by product',
+          txt: `${topProduct} dominates ${firstName}'s trial footprint. <em>Why it matters:</em> Product-trial concentration is the strongest predictor of next-year prescribing voice — investigators advocate what they study. <em>Action:</em> Confirm ${firstName}'s role on the leading product (Investigator vs. Speaker) and align next data drop to whichever asset has the lowest current involvement and highest commercial priority.`
+        },
+        {
+          type: 'card', accent: 'blue', icon: '📈', lbl: 'Publication Output (5-yr)',
+          txt: `Pub output is <strong>${d.pubTrend}</strong> across 2021–2025 (${pubFirst} → ${pubLast}, Δ ${pubDelta >= 0 ? '+' + pubDelta : pubDelta}). <em>Why it matters:</em> Rising output predicts forthcoming data readouts and abstract submissions; declining output signals shifted priorities or institutional friction. <em>Action:</em> ${d.pubTrend === 'rising' ? 'Offer co-author or data-supplement support — momentum is fundable.' : d.pubTrend === 'declining' ? 'Probe softly for capacity blockers (grant funding, fellowship transitions) before pushing new asks.' : 'Maintain steady cadence; no scientific pivot suggested.'}`
+        },
+        {
+          type: 'card', accent: 'navy', icon: '📚', lbl: 'Research Article type',
+          txt: `${pt.original} Original Research, ${pt.review} Review, ${pt.editorial} Editorial, ${pt.caseReport} Case Report. <em>Why it matters:</em> The Original-vs-Review balance reveals whether ${firstName} is generating new data or synthesising the field — both are valuable, but require different MSL levers. <em>Action:</em> ${pt.original >= pt.review ? 'Treat as a data-generator: lead with unpublished RWE and trial-level analyses.' : 'Treat as a field-synthesiser: lead with mechanism-of-action narratives and competitive landscape briefs.'}`
+        },
+        {
+          type: 'card', accent: 'red', icon: '🎤', lbl: 'Congress Activity (12-mo)',
+          txt: `${h.sci.confs} congresses in 12 months, with peaks at <strong>CROI (Mar)</strong>, <strong>IAS/AIDS (Jul)</strong>, <strong>IDWeek (Oct)</strong>, and <strong>HIV Glasgow (Nov)</strong>. <em>Why it matters:</em> Pre-congress weeks are the highest-yield engagement windows — abstract prep drives data hunger. <em>Action:</em> Block calendar holds 4–6 weeks ahead of each peak month; deliver pre-read packages 14 days out.`
+        },
+        {
+          type: 'card', accent: 'blue', icon: '🌐', lbl: 'Speaking Reach by Region',
+          txt: `${d.nycShare}% of speaking events are in NYC; furthest active reach is <strong>${otherRegion ? otherRegion.r : '—'}</strong>. <em>Why it matters:</em> Regional concentration ≠ low influence — NYC dominance reflects home-institution gravity, not a ceiling. <em>Action:</em> ${d.nycShare >= 50 ? 'Co-promote ' + firstName + ' at out-of-region symposia (Boston/Philadelphia) to widen national footprint without disrupting home cadence.' : 'National reach is healthy — protect existing tour roster and avoid over-scheduling NYC events.'}`
+        },
+        {
+          type: 'card', accent: 'navy', icon: '🏆', lbl: 'Speaker role Distribution',
+          txt: `<strong>${d.invitedRate}%</strong> of speaking slots are Invited / Chair / Plenary tier (${sr.plenary} plenary, ${sr.symposiumChair} chair, ${sr.invitedSpeaker} invited). <em>Why it matters:</em> Invited-tier rate is the cleanest single proxy for KOL standing — peers vote with their faculty invitations. <em>Action:</em> ${d.invitedRate >= 50 ? 'Treat as Tier-1 KOL: lead with peer-to-peer advisory board and steering-committee asks.' : 'Use congress sponsorship to elevate ' + firstName + ' from Oral/Poster into Invited tier within 12 months.'}`
+        }
+      ];
+    }
 
     function drawerConfig(tab, h, st, eng, isPost) {
       const sciMetrics = [
@@ -3948,38 +4872,14 @@
       }
       if (tab === 'Testing_scientific') {
         return {
-          title: 'SCIENTIFIC INSIGHTS ✦',
-          blocks: [
-            {
-              type: 'kpi', cols: 3, items: [
-                { lbl: 'Publications', val: h.sci.pubs, color: 'var(--blue)', sub: 'peer-reviewed' },
-                { lbl: 'Trials', val: h.sci.trials, color: '#0D1B2A', sub: 'active' },
-                { lbl: 'Conferences', val: h.sci.confs, color: 'var(--red)', sub: 'attended' }
-              ]
-            },
-            { type: 'card', accent: 'navy', icon: '📋', lbl: 'Contributions', txt: st.co },
-            { type: 'card', accent: 'blue', icon: '🔬', lbl: 'Recent Activity', txt: st.ra }
-          ]
+          title: 'SCIENTIFIC & CLINICAL INSIGHTS ✦',
+          blocks: scientificDrawerBlocks(h)
         };
       }
       if (tab === 'Testing_patient') {
-        const hivPt = (h.pt || []).find(p => p.l === 'HIV');
-        const prepPt = (h.pt || []).find(p => p.l === 'PrEP');
-        const mdrPt = (h.pt || []).find(p => p.l === 'HIV-MDR');
         return {
           title: 'PATIENT INSIGHTS ✦',
-          blocks: [
-            {
-              type: 'kpi', cols: 3, items: [
-                { lbl: 'HIV', val: (hivPt ? hivPt.v : 0) + '%', color: 'var(--blue)', sub: 'of panel' },
-                { lbl: 'PrEP', val: (prepPt ? prepPt.v : 0) + '%', color: '#1a7a4a', sub: 'of panel' },
-                { lbl: 'HIV-MDR', val: (mdrPt ? mdrPt.v : 0) + '%', color: 'var(--red)', sub: 'of panel' }
-              ]
-            },
-            { type: 'item', icon: '👥', heading: 'Demographics', text: '60% male, largest age group 25–34. 40% Hispanic, 30% African American.' },
-            { type: 'item', icon: '🧬', heading: 'Journey', text: 'Includes diagnosis, ART initiation, and long-term adherence management.' },
-            { type: 'item', icon: '📈', heading: 'Trends', text: 'Long-acting injectables gaining popularity among younger patients.' }
-          ]
+          blocks: patientDrawerBlocks(h)
         };
       }
       if (tab === 'influence') {
@@ -4140,42 +5040,110 @@
 
       else if (curDetTab === 'profile') {
         const roleCell = r => `<span class="role-badge ${r === 'Speaker' ? 'r-speaker' : r === 'Investigator' ? 'r-investigator' : 'r-none'}">${r}</span>`;
+        const productMatrixRows = (roles, cps) => {
+          const treatmentBy = { 'Product A': roles.a, 'Product B': roles.b, 'Product C': roles.c };
+          const stageByProduct = Object.fromEntries(h.gauges.map(g => [g.l, g.stage]));
+          return cps.map(r => {
+            const delta = r.c - r.pr;
+            return {
+              product: r.p,
+              treatment: treatmentBy[r.p] || null,
+              prevention: r.p === 'Product B' ? roles.pb : null,
+              stage: stageByProduct[r.p] || null,
+              score: r.c,
+              delta,
+              trend: delta > 0 ? 'up' : delta < 0 ? 'dn' : 'sm'
+            };
+          });
+        };
         body = `
-      <div class="section-title">HCP Alignment to Medical</div>
-      <div class="meta-grid">
-        ${[['Director', 'Richard Manning'], ['CML', 'Anthony Bells'], ['Study', 'Fos/Brighte 205888']].map(([l, v]) => `
-        <div><div class="meta-grid-item-lbl">${l}</div>
-        <div class="meta-grid-item-val">${v}</div></div>`).join('')}
+      <div class="align-section-hdr">
+        <div class="align-section-bar"></div>
+        <div class="align-section-title">Medical Affairs Alignment</div>
+        <div class="align-section-tag">Internal</div>
       </div>
-      <div class="role-table-wrap">
-        <div class="role-table-card">
-          <div class="role-table-hdr">Treatment</div>
-          ${['Product A', 'Product B', 'Product C'].map((p, i) => { const rv = [h.roles.a, h.roles.b, h.roles.c]; return `<div class="role-table-row"><span class="role-table-lbl">${p}</span>${roleCell(rv[i])}</div>`; }).join('')}
-        </div>
-        <div class="role-table-card">
-          <div class="role-table-hdr">Prevention (PrEP)</div>
-          <div class="role-table-row"><span class="role-table-lbl">Product B</span>${roleCell(h.roles.pb)}</div>
-        </div>
-        <div class="role-table-card" style="min-width:200px">
-          <div class="role-table-hdr">Clinical Perception Score</div>
-          <table class="cps-tbl"><thead><tr><th>Product</th><th>Score</th><th>▲▼</th></tr></thead>
-          <tbody>${h.cps.map(r => {
-          const dots = [1, 2, 3, 4, 5].map(i => `<span style="display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 1px;background:${i <= r.c ? 'var(--navy)' : '#e2e6ea'}"></span>`).join('');
-          const trend = r.t === 'up' ? '<span class="t-up">▲</span>' : r.t === 'dn' ? '<span class="t-dn">▼</span>' : '<span class="t-sm">—</span>';
-          return `<tr><td>${r.p}</td><td><div style="display:flex;align-items:center;gap:5px">${dots}<span class="cps-score" style="font-size:12px">${r.c}/5</span></div></td><td>${trend}</td></tr>`;
-        }).join('')}</tbody></table>
-        </div>
-		<div id="contributions-section-${curHCP}" style="display:none;">
-            <div class="ra-section" style="margin-top:8px; padding-top:8px; border-top:1px solid var(--border)">
-              <div class="ra-hdr" style="font-size:10px; font-weight:800; color:var(--text3); text-transform:uppercase; display:flex; justify-content:space-between;">
-                Contributions
-                <div style="display:flex;gap:4px"><span>←</span><span>→</span></div>
-              </div>
-              <div class="ra-date" style="font-size:10px; color:var(--text3); margin-top:3px;">${h.ra.type} &nbsp; ${h.ra.date}</div>
-              <div class="ra-txt" style="font-size:11px; color:var(--blue); line-height:1.4; margin-top:3px; font-weight:600;">${h.ra.txt}</div>
-            </div>
+      <div class="align-group-hdr">Medical Team</div>
+      <div class="align-row">
+        <div class="person-card">
+          <div class="person-avatar">RM</div>
+          <div class="person-meta">
+            <div class="person-name">Richard Manning</div>
+            <div class="person-role">Director</div>
           </div>
-		
+        </div>
+        <div class="person-card">
+          <div class="person-avatar">AB</div>
+          <div class="person-meta">
+            <div class="person-name">Anthony Bells</div>
+            <div class="person-role">CML</div>
+          </div>
+        </div>
+      </div>
+      <div class="align-group-hdr">Active Study</div>
+      <div class="study-card">
+        <div class="study-icon">🧪</div>
+        <div class="study-meta">
+          <div class="study-name">Fos/Brighte 205888</div>
+          <div class="study-sub">Clinical Study</div>
+        </div>
+        
+      </div>
+      <div class="align-group-hdr">Resources</div>
+      <div class="study-card resource-card">
+        <a class="study-link"
+           href="https://www.doximity.com/pub/timothy-wilkin-md"
+           target="_blank" rel="noopener noreferrer"
+           title="Open Doximity HCP profile">Doximity</a>
+        <a class="study-link"
+           href="https://www.medscape.com/s/viewarticle/875127?_gl=1*appn7d*_gcl_au*MjEyMzUzMTY3OS4xNzc3OTU5ODEw&form=fpf"
+           target="_blank" rel="noopener noreferrer"
+           title="Open Medscape clinical information">Medscape</a>
+      </div>
+      <div class="pem-card">
+        <div class="pem-title">Product Engagement Matrix <span class="ai-star">✦</span></div>
+        <table class="pem-tbl">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Treatment Engagement Role</th>
+              <th>PrEP Engagement Role</th>
+              <th>Treatment Journey Stage</th>
+              <th>Perception</th>
+              <th>Δ</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${productMatrixRows(h.roles, h.cps).map(row => {
+              const dots = [1, 2, 3, 4, 5].map(i => `<span style="display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 1px;background:${i <= row.score ? 'var(--navy)' : '#e2e6ea'}"></span>`).join('');
+              const arrow = row.trend === 'up' ? '▲' : row.trend === 'dn' ? '▼' : '—';
+              const deltaTxt = row.delta === 0 ? '0' : (row.delta > 0 ? '+' + row.delta : row.delta);
+              const tCell = row.treatment ? roleCell(row.treatment) : '<span class="pem-dim">—</span>';
+              const pCell = row.prevention ? roleCell(row.prevention) : '<span class="pem-dim">—</span>';
+              const stageCfg = row.stage ? JOURNEY_STAGES.find(s => s.key === row.stage) : null;
+              const stageCell = stageCfg
+                ? `<span class="pem-stage"><span class="pem-stage-dot" style="background:${stageCfg.color}"></span><span class="pem-stage-label">${stageCfg.label}</span></span>`
+                : '<span class="pem-dim">—</span>';
+              return `<tr>
+                <td><span class="pem-product">${row.product}</span></td>
+                <td>${tCell}</td>
+                <td>${pCell}</td>
+                <td>${stageCell}</td>
+                <td><span class="pem-score-cell">${dots}<span class="cps-score" style="font-size:12px">${row.score}/5</span></span></td>
+                <td><span class="pem-delta ${row.trend}">${arrow} ${deltaTxt}</span></td>
+              </tr>`;
+            }).join('')}
+          </tbody>
+        </table>
+      </div>
+      <div id="contributions-section-${curHCP}" style="display:none;">
+        <div class="ra-section" style="margin-top:8px; padding-top:8px; border-top:1px solid var(--border)">
+          <div class="ra-hdr" style="font-size:10px; font-weight:800; color:var(--text3); text-transform:uppercase; display:flex; justify-content:space-between;">
+            Contributions
+            <div style="display:flex;gap:4px"><span>←</span><span>→</span></div>
+          </div>
+          <div class="ra-date" style="font-size:10px; color:var(--text3); margin-top:3px;">${h.ra.type} &nbsp; ${h.ra.date}</div>
+          <div class="ra-txt" style="font-size:11px; color:var(--blue); line-height:1.4; margin-top:3px; font-weight:600;">${h.ra.txt}</div>
+        </div>
       </div>`;
       }
 
@@ -4261,19 +5229,23 @@
       </div>`;
       }
       else if (curDetTab === 'Testing_scientific') {
+        const sciH = HCPS[curHCP];
         body = `
       <div style="font-size: 12px; font-weight: 800; color: var(--navy); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 5px;">Clinical Trials</div>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
         <div class="card" style="margin-bottom:0; padding: 12px;">
-          <div style="font-size: 11px; font-weight: 800; margin-bottom: 10px;"># of Trials by Phase</div>
+          <div style="font-size: 11px; font-weight: 800; margin-bottom: 4px;">Active Clinical Trials by Phase</div>
+          <div style="font-size: 10px; color: var(--text3); margin-bottom: 8px;">Total active: ${sciH.sci.trials} · As of Apr 2025</div>
           <div style="height: 180px;"><canvas id="trialsByPhase"></canvas></div>
         </div>
         <div class="card" style="margin-bottom:0; padding: 12px;">
-          <div style="font-size: 11px; font-weight: 800; margin-bottom: 10px;"># of Trials by Therapeutic Areas</div>
+          <div style="font-size: 11px; font-weight: 800; margin-bottom: 4px;">Trials by Indication</div>
+          <div style="font-size: 10px; color: var(--text3); margin-bottom: 8px;">HIV-focused therapy areas</div>
           <div style="height: 180px;"><canvas id="therapeuticAreas"></canvas></div>
         </div>
         <div class="card" style="margin-bottom:0; padding: 12px; grid-column: span 2;">
-          <div style="font-size: 11px; font-weight: 800; margin-bottom: 10px;"># of Trials by Product</div>
+          <div style="font-size: 11px; font-weight: 800; margin-bottom: 4px;"># of trials by product</div>
+          <div style="font-size: 10px; color: var(--text3); margin-bottom: 8px;">Counts sum to ${sciH.sci.trials} active trials</div>
           <div style="height: 180px;"><canvas id="productDistribution"></canvas></div>
         </div>
       </div>
@@ -4281,27 +5253,32 @@
       <div style="font-size: 12px; font-weight: 800; color: var(--navy); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 5px;">Scientific Contribution</div>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
         <div class="card" style="margin-bottom:0; padding: 12px;">
-          <div style="font-size: 11px; font-weight: 800; margin-bottom: 10px;">Publication Trails by Market</div>
+          <div style="font-size: 11px; font-weight: 800; margin-bottom: 4px;">Publication Output (5-yr)</div>
+          <div style="font-size: 10px; color: var(--text3); margin-bottom: 8px;">${sciH.sci.pubs} peer-reviewed publications · 2025–2021</div>
           <div style="height: 180px;"><canvas id="publicationDist"></canvas></div>
         </div>
         <div class="card" style="margin-bottom:0; padding: 12px;">
-          <div style="font-size: 11px; font-weight: 800; margin-bottom: 10px;">Publication Types</div>
+          <div style="font-size: 11px; font-weight: 800; margin-bottom: 4px;">Research Article type</div>
+          <div style="font-size: 10px; color: var(--text3); margin-bottom: 8px;">Authorship pattern · ${sciH.sci.pubs} total</div>
           <div style="height: 180px;"><canvas id="publicationTypes"></canvas></div>
         </div>
       </div>
 
-      <div style="font-size: 12px; font-weight: 800; color: var(--navy); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 5px;">Congress Attendance</div>
+      <div style="font-size: 12px; font-weight: 800; color: var(--navy); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 5px;">Congress Engagement</div>
       <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
         <div class="card" style="margin-bottom:0; padding: 12px; grid-column: span 2;">
-          <div style="font-size: 11px; font-weight: 800; margin-bottom: 10px;">Conference Attended</div>
+          <div style="font-size: 11px; font-weight: 800; margin-bottom: 4px;">Congress Attend Activity (12-mo)</div>
+          <div style="font-size: 10px; color: var(--text3); margin-bottom: 8px;">Peaks align to HIV calendar — CROI (Mar) · IAS (Jul) · IDWeek (Oct) · HIV Glasgow (Nov)</div>
           <div style="height: 180px;"><canvas id="monthlyAttendance"></canvas></div>
         </div>
         <div class="card" style="margin-bottom:0; padding: 12px;">
-          <div style="font-size: 11px; font-weight: 800; margin-bottom: 10px;">Regional Engagement</div>
+          <div style="font-size: 11px; font-weight: 800; margin-bottom: 4px;">Speaking Reach by Region</div>
+          <div style="font-size: 10px; color: var(--text3); margin-bottom: 8px;">Last 12 months · Northeast corridor</div>
           <div style="height: 180px;"><canvas id="regionalEngagement"></canvas></div>
         </div>
         <div class="card" style="margin-bottom:0; padding: 12px;">
-          <div style="font-size: 11px; font-weight: 800; margin-bottom: 10px;">Speaker Position</div>
+          <div style="font-size: 11px; font-weight: 800; margin-bottom: 4px;">Speaker role Distribution</div>
+          <div style="font-size: 10px; color: var(--text3); margin-bottom: 8px;">Hover for CROI-aligned role notes</div>
           <div style="height: 180px;"><canvas id="speakerPosition"></canvas></div>
         </div>
       </div>`;
@@ -4309,19 +5286,25 @@
         setTimeout(renderScientificCharts, 150);
       }
       else if (curDetTab === 'Testing_patient') {
+        const ptH = HCPS[curHCP];
+        const ptP = ptSeries(ptH);
+        const subCap = (txt) => `<div style="font-size:10px;color:var(--text3);margin-top:2px;margin-bottom:6px;">${txt}</div>`;
         body = `
     <div class="p-container">
         <div class="p-charts-area">
             <div class="p-panel">
-                <div class="p-panel-title">Patient by Market</div>
+                <div class="p-panel-title">Patient count by indication</div>
+                ${subCap(`Total panel: ${ptP.panelSize} · counts of patients`)}
                 <div style="height:140px;"><canvas id="pt-patientTypes"></canvas></div>
             </div>
             <div class="p-panel">
-                <div class="p-panel-title">Age Distribution</div>
+                <div class="p-panel-title">Patient count by Age</div>
+                ${subCap(`HIV / PrEP combined · CDC bands · sum = ${ptP.panelSize}`)}
                 <div style="height:140px;"><canvas id="pt-ageDistribution"></canvas></div>
             </div>
             <div class="p-panel">
-                <div class="p-panel-title">Sex Distribution</div>
+                <div class="p-panel-title">Patient count by Gender at birth</div>
+                ${subCap('% of total panel')}
                 <div style="height:140px;"><canvas id="pt-sexDistribution"></canvas></div>
                 <div class="p-legend">
                     <span><span class="p-dot" style="background:var(--navy)"></span> Male</span>
@@ -4330,14 +5313,33 @@
                 </div>
             </div>
             <div class="p-panel">
-                <div class="p-panel-title">Ethnicity</div>
+                <div class="p-panel-title">Count by Race &amp; Ethnicity</div>
+                ${subCap('% of total panel')}
                 <div style="height:140px;"><canvas id="pt-ethnicity"></canvas></div>
                 <div class="p-legend">
-                    <span><span class="p-dot" style="background:var(--blue)"></span> Hispanic</span>
                     <span><span class="p-dot" style="background:var(--navy)"></span> Black/AA</span>
-                    <span><span class="p-dot" style="background:var(--red)"></span> White</span>
+                    <span><span class="p-dot" style="background:var(--red)"></span> Hispanic/Latino</span>
+                    <span><span class="p-dot" style="background:var(--blue)"></span> White</span>
+                    <span><span class="p-dot" style="background:#E0A91B"></span> Asian/Pacific</span>
                     <span><span class="p-dot" style="background:var(--text3)"></span> Other</span>
                 </div>
+            </div>
+            <div class="p-panel">
+                <div class="p-panel-title">Patient Distribution by Treatment Regimen Class</div>
+                ${subCap('% of HIV TX cohort · LAI = Long-Acting Injectable')}
+                <div style="height:140px;"><canvas id="pt-regimenClass"></canvas></div>
+                <div class="p-legend">
+                    <span><span class="p-dot" style="background:var(--blue)"></span> INSTI</span>
+                    <span><span class="p-dot" style="background:#1a7a4a"></span> LAI</span>
+                    <span><span class="p-dot" style="background:#7FCFF0"></span> NNRTI</span>
+                    <span><span class="p-dot" style="background:var(--red)"></span> PI</span>
+                    <span><span class="p-dot" style="background:var(--text3)"></span> Combination</span>
+                </div>
+            </div>
+            <div class="p-panel">
+                <div class="p-panel-title">Patient count by Payor Type</div>
+                ${subCap('% of total panel · drives prior-auth &amp; access barriers')}
+                <div style="height:140px;"><canvas id="pt-payerMix"></canvas></div>
             </div>
         </div>
     </div>
@@ -4512,174 +5514,262 @@
     </div>`;
     }
 
-    /* Phase 4: Data Visualisation Colors Updated */
+    /* renderScientificCharts — reads from the active HCP's sciData via sciSeries(h).
+       All chart titles, categories, and totals are kept in lock-step with profile metrics. */
     function renderScientificCharts() {
       const ctx = document.getElementById('trialsByPhase');
       if (!ctx) return;
 
-      const P = { navy: '#008000', red: '#D81B60', blue: '#0288D1', green: '#1a7a4a', gray: '#8a95a0', blueLt: '#E1F5FE' };
+      const h = HCPS[curHCP];
+      const s = sciSeries(h);
 
-      const globalOptions = {
+      const P = { navy: '#244b75', red: '#D81B60', blue: '#0288D1', green: '#1a7a4a', gray: '#8a95a0', blueLt: '#7FCFF0', amber: '#E0A91B' };
+
+      const baseAxisOptions = {
         responsive: true, maintainAspectRatio: false,
-        plugins: { legend: { display: false } }
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { ticks: { font: { size: 9 }, color: '#5a6470' }, grid: { display: false } },
+          y: { ticks: { font: { size: 9 }, color: '#5a6470', precision: 0 }, grid: { color: '#f0f2f5' }, beginAtZero: true }
+        }
       };
-      const donutOptions = { ...globalOptions, cutout: '75%' };
+      const donutLegendOptions = {
+        responsive: true, maintainAspectRatio: false, cutout: '70%',
+        plugins: {
+          legend: {
+            display: true, position: 'bottom',
+            labels: { font: { size: 10, family: "'IBM Plex Sans', sans-serif" }, boxWidth: 10, padding: 8, color: '#5a6470' }
+          }
+        }
+      };
 
-      // 1. Clinical Trials
+      /* 1 · Active Clinical Trials by Phase — real Phase I/II/III/IV from sciData */
+      const phase = s.trialsByPhase;
       safeChart('trialsByPhase', {
         type: 'bar',
         data: {
-          labels: ['Jan', 'Feb', 'Mar'],
-          datasets: [
-            { label: 'Active', data: [13, 14, 13], backgroundColor: P.blue },
-            { label: 'Completed', data: [3, 0, 4], backgroundColor: P.green }
-          ]
+          labels: ['Phase I', 'Phase II', 'Phase III', 'Phase IV'],
+          datasets: [{
+            label: 'Active trials',
+            data: [phase.I, phase.II, phase.III, phase.IV],
+            backgroundColor: [P.gray, P.blueLt, P.blue, P.navy]
+          }]
         },
-        options: {
-          responsive: true, maintainAspectRatio: false,
-          plugins: {
-            legend: {
-              display: true,
-              position: 'top',
-              labels: { font: { size: 10, family: "'IBM Plex Sans', sans-serif" }, boxWidth: 10, padding: 8, color: '#5a6470' }
-            }
-          },
-          scales: {
-            x: { stacked: false, ticks: { font: { size: 9 }, color: '#5a6470' }, grid: { display: false } },
-            y: { ticks: { font: { size: 9 }, color: '#5a6470' }, grid: { color: '#f0f2f5' }, beginAtZero: true }
-          }
-        }
+        options: baseAxisOptions
       });
 
+      /* 2 · Trials by Indication — HIV-grounded indications from sciData */
+      const ind = s.trialsByIndication;
       safeChart('therapeuticAreas', {
         type: 'bar',
         data: {
-          labels: ['Vaccines', 'Prophylactic', 'Infectious', 'Cardio'],
-          datasets: [{ data: [11, 12, 13, 11], backgroundColor: P.red }]
+          labels: ['HIV Treatment', 'PrEP', 'HIV-MDR', 'HIV + Comorbidities', 'PEP'],
+          datasets: [{
+            data: [ind.HIV_TX, ind.PrEP, ind.HIV_MDR, ind.Comorbid, ind.Vaccine],
+            backgroundColor: [P.blue, P.green, P.red, P.navy, P.gray]
+          }]
         },
-        options: globalOptions
+        options: baseAxisOptions
       });
 
+      /* 3 · # of trials by product — sums to total active trials */
+      const prod = s.trialsByProduct;
       safeChart('productDistribution', {
         type: 'doughnut',
         data: {
           labels: ['Product A', 'Product B', 'Product C', 'Product D'],
-          datasets: [{ data: [40, 20, 30, 33], backgroundColor: [P.blue, P.navy, P.red, P.gray] }]
+          datasets: [{ data: [prod.A, prod.B, prod.C, prod.D], backgroundColor: [P.blue, P.navy, P.red, P.gray] }]
         },
-        options: { responsive: true, maintainAspectRatio: false, cutout: '65%' }
+        options: donutLegendOptions
       });
 
-      // 2. Scientific Contribution
+      /* 4 · Publication Output (5-yr) — year-over-year line, sums to profile pubs */
+      const pby = [...s.pubsByYear].sort((a, b) => b.y - a.y);
+      const publicationDetailsByYear = s.publicationDetailsByYear || {};
       safeChart('publicationDist', {
-        type: 'bar',
+        type: 'line',
         data: {
-          labels: ['HIV', 'PrEP'],
-          datasets: [{ data: [70, 120], backgroundColor: [P.navy, P.blue] }]
-        },
-        options: globalOptions
-      });
-
-      safeChart('publicationTypes', {
-        type: 'doughnut',
-        data: {
-          labels: ['RCT', 'Case Report', 'Extramural', 'Journal Article', 'Research Support'],
-          datasets: [{ data: [20, 27, 28, 15, 6], backgroundColor: [P.blue, P.navy, P.red, P.blueLt, P.gray] }]
+          labels: pby.map(p => p.y),
+          datasets: [{
+            label: 'Publications',
+            data: pby.map(p => p.n),
+            borderColor: P.blue,
+            backgroundColor: 'rgba(2, 136, 209, 0.12)',
+            fill: true, tension: 0.35, pointRadius: 4, pointBackgroundColor: P.blue
+          }]
         },
         options: {
-          responsive: true, maintainAspectRatio: false, cutout: '75%',
+          ...baseAxisOptions,
           plugins: {
-            legend: {
-              display: true,
-              position: 'bottom',
-              labels: { font: { size: 10, family: "'IBM Plex Sans', sans-serif" }, boxWidth: 10, padding: 8, color: '#5a6470' }
+            ...baseAxisOptions.plugins,
+            tooltip: {
+              enabled: false,
+              external(context) {
+                renderPublicationTooltip(context, publicationDetailsByYear);
+              }
             }
           }
         }
       });
 
-      // 3. Congress Attendance
+      /* 5 · Research Article type — real bibliographic categories */
+      const pt = s.pubsByType;
+      safeChart('publicationTypes', {
+        type: 'doughnut',
+        data: {
+          labels: ['Original Research', 'Review', 'Editorial', 'Letter', 'Case Report', 'Abstract'],
+          datasets: [{
+            data: [pt.original, pt.review, pt.editorial, pt.letter, pt.caseReport, pt.abstract],
+            backgroundColor: [P.blue, P.navy, P.red, P.blueLt, P.amber, P.gray]
+          }]
+        },
+        options: donutLegendOptions
+      });
+
+      /* 6 · Congress Activity (12-mo) — HIV congress calendar (CROI Mar, IAS Jul, IDWeek Oct, Glasgow Nov) */
+      const cm = s.congressByMonth;
       safeChart('monthlyAttendance', {
         type: 'line',
         data: {
-          labels: ['Sep', 'Oct', 'Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr'],
+          labels: cm.map(c => c.m),
           datasets: [{
-            label: 'Attendance',
-            data: [3, 2, 1, 2, 3, 5, 2, 3],
+            label: 'Congresses',
+            data: cm.map(c => c.n),
             borderColor: P.red,
-            backgroundColor: 'rgba(216, 27, 96, 0.1)',
-            fill: true, tension: 0.4
+            backgroundColor: 'rgba(216, 27, 96, 0.10)',
+            fill: true, tension: 0.4, pointRadius: 3, pointBackgroundColor: P.red
           }]
         },
-        options: globalOptions
+        options: baseAxisOptions
       });
 
+      /* 7 · Speaking Reach by Region — Northeast-corridor cities for NYC HCPs */
+      const reg = s.regionShare;
       safeChart('regionalEngagement', {
         type: 'bar',
         data: {
-          labels: ['Springfield', 'Phoenix', 'Hollywood', 'Waltham', 'Palo Alto'],
-          datasets: [{ data: [11, 12, 13, 11, 12], backgroundColor: P.blue }]
+          labels: reg.map(r => r.r),
+          datasets: [{ data: reg.map(r => r.n), backgroundColor: P.blue }]
         },
-        options: globalOptions
+        options: baseAxisOptions
       });
 
+      /* 8 · Speaker role Distribution — real congress roles, sums to total speaking events */
+      const sr = s.speakerRoleMix;
+      const speakerRoleKeys = ['plenary', 'symposiumChair', 'invitedSpeaker', 'oral', 'poster', 'moderator'];
       safeChart('speakerPosition', {
         type: 'doughnut',
         data: {
-          labels: ['Speaker', 'Presenter', 'Panelist', 'Winner'],
-          datasets: [{ data: [60, 30, 10, 23], backgroundColor: [P.blue, P.green, P.navy, P.red] }]
+          labels: ['Plenary', 'Symposium Chair', 'Invited Speaker', 'Oral', 'Poster', 'Moderator'],
+          datasets: [{
+            data: [sr.plenary, sr.symposiumChair, sr.invitedSpeaker, sr.oral, sr.poster, sr.moderator],
+            backgroundColor: [P.navy, P.red, P.blue, P.green, P.amber, P.gray]
+          }]
         },
         options: {
-          responsive: true, maintainAspectRatio: false, cutout: '75%',
+          ...donutLegendOptions,
           plugins: {
-            legend: {
-              display: true,
-              position: 'bottom',
-              labels: { font: { size: 10, family: "'IBM Plex Sans', sans-serif" }, boxWidth: 10, padding: 8, color: '#5a6470' }
+            ...donutLegendOptions.plugins,
+            tooltip: {
+              callbacks: {
+                afterLabel(context) {
+                  const key = speakerRoleKeys[context.dataIndex];
+                  return SPEAKER_ROLE_DETAILS[key] || '';
+                }
+              }
             }
           }
         }
       });
     }
 
+    /* renderPatientCharts — reads from the active HCP's patientData via ptSeries(h).
+       6 charts: 4 demographic (Indication / Age / Sex / Race) + 2 MSL-actionable
+       (Regimen Class within HIV TX cohort / Payer Mix). All counts and percentages
+       reconcile with patientData in lock-step. */
     function renderPatientCharts() {
-      const P = { navy: '#008000', red: '#D81B60', blue: '#0288D1', green: '#1a7a4a', gray: '#8a95a0' };
-      const barOpts = { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } };
-      const donutOpts = { ...barOpts, cutout: '70%' };
+      const ctx = document.getElementById('pt-patientTypes');
+      if (!ctx) return;
 
+      const h = HCPS[curHCP];
+      const p = ptSeries(h);
+
+      const P = { navy: '#244b75', red: '#D81B60', blue: '#0288D1', green: '#1a7a4a', gray: '#8a95a0', blueLt: '#7FCFF0', amber: '#E0A91B' };
+
+      const barOpts = {
+        responsive: true, maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { ticks: { font: { size: 9 }, color: '#5a6470' }, grid: { display: false } },
+          y: { ticks: { font: { size: 9 }, color: '#5a6470', precision: 0 }, grid: { color: '#f0f2f5' }, beginAtZero: true }
+        }
+      };
+      const donutOpts = { responsive: true, maintainAspectRatio: false, cutout: '70%', plugins: { legend: { display: false } } };
+
+      /* 1 · Patient count by indication — counts sum to panelSize */
+      const mix = p.mixByIndication;
       safeChart('pt-patientTypes', {
         type: 'bar',
         data: {
-          labels: ['HIV', 'PrEP', 'HIV-MDR'],
-          datasets: [{ data: [140, 70, 20], backgroundColor: [P.blue, P.green, P.red] }]
+          labels: ['HIV Treatment', 'PrEP', 'HIV-MDR'],
+          datasets: [{ data: [mix.HIV_TX, mix.PrEP, mix.HIV_MDR], backgroundColor: [P.blue, P.green, P.red] }]
         },
         options: barOpts
       });
 
+      /* 2 · Patient count by Age — CDC HIV surveillance bands, sums to panelSize */
+      const ab = p.ageBands;
       safeChart('pt-ageDistribution', {
         type: 'bar',
         data: {
-          labels: ['19–40', '41–60', '61+'],
-          datasets: [{ data: [95, 62, 26], backgroundColor: [P.navy, P.blue, P.gray] }]
+          labels: ab.map(a => a.b),
+          datasets: [{ data: ab.map(a => a.n), backgroundColor: [P.gray, P.blueLt, P.blue, P.navy, P.amber] }]
         },
         options: barOpts
       });
 
+      /* 3 · Patient count by Gender at birth — HIV-realistic male skew, % sums to 100 */
+      const sex = p.sexAtBirth;
       safeChart('pt-sexDistribution', {
         type: 'doughnut',
         data: {
           labels: ['Male', 'Female', 'Other'],
-          datasets: [{ data: [60, 35, 5], backgroundColor: [P.navy, P.blue, P.gray] }]
+          datasets: [{ data: [sex.male, sex.female, sex.other], backgroundColor: [P.navy, P.blue, P.gray] }]
         },
         options: donutOpts
       });
 
+      /* 4 · Count by Race & Ethnicity — US HIV epi realistic, % sums to 100 */
+      const re = p.raceEthnicity;
       safeChart('pt-ethnicity', {
         type: 'doughnut',
         data: {
-          labels: ['Hispanic', 'Black/AA', 'White', 'Other'],
-          datasets: [{ data: [40, 30, 20, 10], backgroundColor: [P.blue, P.navy, P.red, P.gray] }]
+          labels: ['Black/AA', 'Hispanic/Latino', 'White', 'Asian/Pacific', 'Other'],
+          datasets: [{ data: [re.black, re.hispanic, re.white, re.asianPacific, re.other], backgroundColor: [P.navy, P.red, P.blue, P.amber, P.gray] }]
         },
         options: donutOpts
+      });
+
+      /* 5 · Treatment Regimen Class (HIV TX cohort) — % of HIV TX patients, sums to 100 */
+      const reg = p.regimenClass;
+      safeChart('pt-regimenClass', {
+        type: 'doughnut',
+        data: {
+          labels: ['INSTI', 'Long-Acting (LAI)', 'NNRTI', 'PI', 'Combination'],
+          datasets: [{ data: [reg.insti, reg.longActing, reg.nnrti, reg.pi, reg.combination], backgroundColor: [P.blue, P.green, P.blueLt, P.red, P.gray] }]
+        },
+        options: donutOpts
+      });
+
+      /* 6 · Payer Mix — % of total panel, sums to 100 */
+      const pay = p.payerMix;
+      safeChart('pt-payerMix', {
+        type: 'bar',
+        data: {
+          labels: ['Medicaid', 'Medicare', 'Commercial', 'ADAP / Other'],
+          datasets: [{ data: [pay.medicaid, pay.medicare, pay.commercial, pay.adapOther], backgroundColor: [P.red, P.amber, P.blue, P.gray] }]
+        },
+        options: barOpts
       });
     }
 
@@ -4712,6 +5802,7 @@
     }
 
     function selectHCP(id) {
+      hidePublicationTooltip();
       curHCP = id; curView = 'detailed'; curDetTab = 'profile'; synMode = false;
       insightsLoaded = false; // RESET STATE ON NEW HCP
       ['tw', 'ja', 'rg'].forEach(k => {
@@ -4721,10 +5812,11 @@
       setToggle(curState);
     }
 
-    function setView(v) { curView = v; render(); }
-    function setDetTab(tab) { curDetTab = tab; render(); }
+    function setView(v) { hidePublicationTooltip(); curView = v; render(); }
+    function setDetTab(tab) { hidePublicationTooltip(); curDetTab = tab; render(); }
 
     function setSidebarTab(tab) {
+      hidePublicationTooltip();
       curPage = tab;
       document.getElementById('sbtab-medical').className = 'sb-tab' + (tab === 'medical' ? ' active' : '');
       document.getElementById('sbtab-accounts').className = 'sb-tab' + (tab === 'accounts' ? ' active' : '');
