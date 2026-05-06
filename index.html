@@ -593,7 +593,7 @@
       color: var(--text2);
       font-weight: 700;
       margin-bottom: 4px;
-      text-align: center;
+      text-align: left;
       letter-spacing: .2px;
     }
 
@@ -3421,6 +3421,26 @@
     .drawer-card:hover {
       transform: translateX(4px);
     }
+
+    /* ── LEFT-ALIGN ALL CARD HEADERS ── */
+    .card-hdr {
+      justify-content: flex-start !important;
+      gap: 12px;
+    }
+    .card-hdr > *:last-child {
+      margin-left: auto;
+    }
+    .card-title {
+      text-align: left !important;
+    }
+    .p-panel-title {
+      text-align: left !important;
+    }
+    /* Scientific & Patient tab inline chart card headers */
+    .card [style*="font-weight: 800"],
+    .card [style*="font-weight:800"] {
+      text-align: left !important;
+    }
   </style>
 </head>
 
@@ -3836,7 +3856,7 @@
        Congress months follow the HIV calendar (CROI Mar, IAS Jul, IDWeek Oct, Glasgow Nov). */
     const TW_SCI_DATA = {
       trialsByPhase:      { I: 1, II: 0, III: 1, IV: 3 },                                  // sum 8
-      trialsByIndication: { HIV_TX: 3, PrEP: 3, HIV_MDR: 0, Comorbid: 1, Vaccine: 1 },     // sum 8
+      trialsByIndication: { HIV_TX: 2, PrEP: 1, HIV_MDR: 0, Comorbid: 1, Vaccine: 1 },     // sum 8
       trialsByProduct:    { A: 2, B: 1, C: 1, D: 1 },                                      // sum 8
       pubsByYear:         [{ y: 2021, n: 1 }, { y: 2022, n: 1 }, { y: 2023, n: 2 }, { y: 2024, n: 2 }, { y: 2025, n: 1 }], // sum 7
       publicationDetailsByYear: {
@@ -5232,21 +5252,23 @@
         const sciH = HCPS[curHCP];
         body = `
       <div style="font-size: 12px; font-weight: 800; color: var(--navy); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px; border-bottom: 1px solid var(--border); padding-bottom: 5px;">Clinical Trials</div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; align-items: stretch;">
         <div class="card" style="margin-bottom:0; padding: 12px;">
           <div style="font-size: 11px; font-weight: 800; margin-bottom: 4px;">Active Clinical Trials by Phase</div>
           <div style="font-size: 10px; color: var(--text3); margin-bottom: 8px;">Total active: ${sciH.sci.trials} · As of Apr 2025</div>
-          <div style="height: 180px;"><canvas id="trialsByPhase"></canvas></div>
+          <div style="height: 380px;"><canvas id="trialsByPhase"></canvas></div>
         </div>
-        <div class="card" style="margin-bottom:0; padding: 12px;">
-          <div style="font-size: 11px; font-weight: 800; margin-bottom: 4px;">Trials by Indication</div>
-          <div style="font-size: 10px; color: var(--text3); margin-bottom: 8px;">HIV-focused therapy areas</div>
-          <div style="height: 180px;"><canvas id="therapeuticAreas"></canvas></div>
-        </div>
-        <div class="card" style="margin-bottom:0; padding: 12px; grid-column: span 2;">
-          <div style="font-size: 11px; font-weight: 800; margin-bottom: 4px;"># of trials by product</div>
-          <div style="font-size: 10px; color: var(--text3); margin-bottom: 8px;">Counts sum to ${sciH.sci.trials} active trials</div>
-          <div style="height: 180px;"><canvas id="productDistribution"></canvas></div>
+        <div style="display: flex; flex-direction: column; gap: 15px;">
+          <div class="card" style="margin-bottom:0; padding: 12px; flex: 1;">
+            <div style="font-size: 11px; font-weight: 800; margin-bottom: 4px;">Trials by Indication</div>
+            <div style="font-size: 10px; color: var(--text3); margin-bottom: 8px;">HIV-focused therapy areas</div>
+            <div style="height: 180px;"><canvas id="therapeuticAreas"></canvas></div>
+          </div>
+          <div class="card" style="margin-bottom:0; padding: 12px; flex: 1;">
+            <div style="font-size: 11px; font-weight: 800; margin-bottom: 4px;"># of trials by product</div>
+            <div style="font-size: 10px; color: var(--text3); margin-bottom: 8px;">Counts sum to ${sciH.sci.trials} active trials</div>
+            <div style="height: 180px;"><canvas id="productDistribution"></canvas></div>
+          </div>
         </div>
       </div>
 
@@ -5514,6 +5536,34 @@
     </div>`;
     }
 
+    /* ══════════════════════════ CENTER TEXT PLUGIN ══════════════════════════
+       Draws total count in center of any doughnut chart that has
+       options.plugins.centerText = { text: '...' } defined.
+       Non-doughnut charts are unaffected. */
+    Chart.register({
+      id: 'centerTextPlugin',
+      afterDraw(chart) {
+        const cfg = chart.options.plugins && chart.options.plugins.centerText;
+        if (!cfg || !cfg.text) return;
+        const { ctx, chartArea } = chart;
+        if (!chartArea) return;
+        const cx = (chartArea.left + chartArea.right) / 2;
+        const cy = (chartArea.top + chartArea.bottom) / 2;
+        ctx.save();
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.font = "800 18px 'Outfit', 'Inter', sans-serif";
+        ctx.fillStyle = '#0f172a';
+        ctx.fillText(cfg.text, cx, cy - 6);
+        if (cfg.label) {
+          ctx.font = "600 9px 'Inter', sans-serif";
+          ctx.fillStyle = '#94a3b8';
+          ctx.fillText(cfg.label, cx, cy + 10);
+        }
+        ctx.restore();
+      }
+    });
+
     /* renderScientificCharts — reads from the active HCP's sciData via sciSeries(h).
        All chart titles, categories, and totals are kept in lock-step with profile metrics. */
     function renderScientificCharts() {
@@ -5558,10 +5608,11 @@
         options: baseAxisOptions
       });
 
-      /* 2 · Trials by Indication — HIV-grounded indications from sciData */
+      /* 2 · Trials by Indication — doughnut chart with center total */
       const ind = s.trialsByIndication;
+      const indTotal = (ind.HIV_TX || 0) + (ind.PrEP || 0) + (ind.HIV_MDR || 0) + (ind.Comorbid || 0) + (ind.Vaccine || 0);
       safeChart('therapeuticAreas', {
-        type: 'bar',
+        type: 'doughnut',
         data: {
           labels: ['HIV Treatment', 'PrEP', 'HIV-MDR', 'HIV + Comorbidities', 'PEP'],
           datasets: [{
@@ -5569,18 +5620,25 @@
             backgroundColor: [P.blue, P.green, P.red, P.navy, P.gray]
           }]
         },
-        options: baseAxisOptions
+        options: {
+          ...donutLegendOptions,
+          plugins: { ...donutLegendOptions.plugins, centerText: { text: String(indTotal), label: 'Trials' } }
+        }
       });
 
       /* 3 · # of trials by product — sums to total active trials */
       const prod = s.trialsByProduct;
+      const prodTotal = (prod.A || 0) + (prod.B || 0) + (prod.C || 0) + (prod.D || 0);
       safeChart('productDistribution', {
         type: 'doughnut',
         data: {
           labels: ['Product A', 'Product B', 'Product C', 'Product D'],
           datasets: [{ data: [prod.A, prod.B, prod.C, prod.D], backgroundColor: [P.blue, P.navy, P.red, P.gray] }]
         },
-        options: donutLegendOptions
+        options: {
+          ...donutLegendOptions,
+          plugins: { ...donutLegendOptions.plugins, centerText: { text: String(prodTotal), label: 'Trials' } }
+        }
       });
 
       /* 4 · Publication Output (5-yr) — year-over-year line, sums to profile pubs */
@@ -5614,6 +5672,7 @@
 
       /* 5 · Research Article type — real bibliographic categories */
       const pt = s.pubsByType;
+      const pubTypesTotal = (pt.original || 0) + (pt.review || 0) + (pt.editorial || 0) + (pt.letter || 0) + (pt.caseReport || 0) + (pt.abstract || 0);
       safeChart('publicationTypes', {
         type: 'doughnut',
         data: {
@@ -5623,7 +5682,10 @@
             backgroundColor: [P.blue, P.navy, P.red, P.blueLt, P.amber, P.gray]
           }]
         },
-        options: donutLegendOptions
+        options: {
+          ...donutLegendOptions,
+          plugins: { ...donutLegendOptions.plugins, centerText: { text: String(pubTypesTotal), label: 'Pubs' } }
+        }
       });
 
       /* 6 · Congress Activity (12-mo) — HIV congress calendar (CROI Mar, IAS Jul, IDWeek Oct, Glasgow Nov) */
@@ -5656,6 +5718,7 @@
 
       /* 8 · Speaker role Distribution — real congress roles, sums to total speaking events */
       const sr = s.speakerRoleMix;
+      const speakerTotal = (sr.plenary || 0) + (sr.symposiumChair || 0) + (sr.invitedSpeaker || 0) + (sr.oral || 0) + (sr.poster || 0) + (sr.moderator || 0);
       const speakerRoleKeys = ['plenary', 'symposiumChair', 'invitedSpeaker', 'oral', 'poster', 'moderator'];
       safeChart('speakerPosition', {
         type: 'doughnut',
@@ -5670,6 +5733,7 @@
           ...donutLegendOptions,
           plugins: {
             ...donutLegendOptions.plugins,
+            centerText: { text: String(speakerTotal), label: 'Roles' },
             tooltip: {
               callbacks: {
                 afterLabel(context) {
@@ -5730,35 +5794,62 @@
 
       /* 3 · Patient count by Gender at birth — HIV-realistic male skew, % sums to 100 */
       const sex = p.sexAtBirth;
+      const sexTotal = (sex.male || 0) + (sex.female || 0) + (sex.other || 0);
+      const sexNorm = sexTotal > 0 ? [
+        Math.round(sex.male / sexTotal * 100),
+        Math.round(sex.female / sexTotal * 100),
+        100 - Math.round(sex.male / sexTotal * 100) - Math.round(sex.female / sexTotal * 100)
+      ] : [sex.male, sex.female, sex.other];
       safeChart('pt-sexDistribution', {
         type: 'doughnut',
         data: {
           labels: ['Male', 'Female', 'Other'],
-          datasets: [{ data: [sex.male, sex.female, sex.other], backgroundColor: [P.navy, P.blue, P.gray] }]
+          datasets: [{ data: sexNorm, backgroundColor: [P.navy, P.blue, P.gray] }]
         },
-        options: donutOpts
+        options: {
+          ...donutOpts,
+          plugins: { ...donutOpts.plugins, centerText: { text: '100%', label: 'Total' } }
+        }
       });
 
       /* 4 · Count by Race & Ethnicity — US HIV epi realistic, % sums to 100 */
       const re = p.raceEthnicity;
+      const reTotal = (re.black || 0) + (re.hispanic || 0) + (re.white || 0) + (re.asianPacific || 0) + (re.other || 0);
+      const reNorm = reTotal > 0 ? (() => {
+        const v = [re.black, re.hispanic, re.white, re.asianPacific].map(x => Math.round((x || 0) / reTotal * 100));
+        v.push(100 - v.reduce((a, b) => a + b, 0));
+        return v;
+      })() : [re.black, re.hispanic, re.white, re.asianPacific, re.other];
       safeChart('pt-ethnicity', {
         type: 'doughnut',
         data: {
           labels: ['Black/AA', 'Hispanic/Latino', 'White', 'Asian/Pacific', 'Other'],
-          datasets: [{ data: [re.black, re.hispanic, re.white, re.asianPacific, re.other], backgroundColor: [P.navy, P.red, P.blue, P.amber, P.gray] }]
+          datasets: [{ data: reNorm, backgroundColor: [P.navy, P.red, P.blue, P.amber, P.gray] }]
         },
-        options: donutOpts
+        options: {
+          ...donutOpts,
+          plugins: { ...donutOpts.plugins, centerText: { text: '100%', label: 'Total' } }
+        }
       });
 
       /* 5 · Treatment Regimen Class (HIV TX cohort) — % of HIV TX patients, sums to 100 */
       const reg = p.regimenClass;
+      const regTotal = (reg.insti || 0) + (reg.longActing || 0) + (reg.nnrti || 0) + (reg.pi || 0) + (reg.combination || 0);
+      const regNorm = regTotal > 0 ? (() => {
+        const v = [reg.insti, reg.longActing, reg.nnrti, reg.pi].map(x => Math.round((x || 0) / regTotal * 100));
+        v.push(100 - v.reduce((a, b) => a + b, 0));
+        return v;
+      })() : [reg.insti, reg.longActing, reg.nnrti, reg.pi, reg.combination];
       safeChart('pt-regimenClass', {
         type: 'doughnut',
         data: {
           labels: ['INSTI', 'Long-Acting (LAI)', 'NNRTI', 'PI', 'Combination'],
-          datasets: [{ data: [reg.insti, reg.longActing, reg.nnrti, reg.pi, reg.combination], backgroundColor: [P.blue, P.green, P.blueLt, P.red, P.gray] }]
+          datasets: [{ data: regNorm, backgroundColor: [P.blue, P.green, P.blueLt, P.red, P.gray] }]
         },
-        options: donutOpts
+        options: {
+          ...donutOpts,
+          plugins: { ...donutOpts.plugins, centerText: { text: '100%', label: 'Total' } }
+        }
       });
 
       /* 6 · Payer Mix — % of total panel, sums to 100 */
